@@ -1,0 +1,362 @@
+/* line 4, ../compass/sass/aeto-ui-battle-menu.scss */
+.test-object {
+  -moz-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.15);
+  width: 3px;
+  height: 3px;
+  position: absolute;
+  background: #FFF;
+  z-index: 100;
+}
+
+/* line 15, ../compass/sass/aeto-ui-battle-menu.scss */
+.test-object2 {
+  -moz-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.15);
+  width: 3px;
+  height: 3px;
+  position: absolute;
+  background: #00FFFF;
+  z-index: 100;
+}
+
+/* line 26, ../compass/sass/aeto-ui-battle-menu.scss */
+.test-object-3 {
+  -moz-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.15);
+  width: 3px;
+  height: 3px;
+  position: absolute;
+  background: #FFFF00;
+  z-index: 100;
+}
+
+/* line 37, ../compass/sass/aeto-ui-battle-menu.scss */
+.test-object-4 {
+  -moz-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.15);
+  width: 3px;
+  height: 3px;
+  position: absolute;
+  background: #C3A6FF;
+  z-index: 100;
+}
+
+/* line 50, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item {
+  cursor: pointer;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 0;
+  bottom: 0;
+  z-index: 4;
+}
+/* line 61, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-bg-set {
+  -moz-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.14);
+  -webkit-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.14);
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+/* line 72, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-bg-set .item-bg {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #FAFAFA;
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+/* line 85, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-bg-set .item-bg-arrow {
+  top: 3px;
+  width: 6px;
+  height: calc(50% - 3px);
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 3;
+}
+/* line 99, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-bg-set .item-bg-arrow:after {
+  content: "";
+  border-color: #FAFAFA transparent transparent transparent;
+  border-style: solid;
+  border-width: 4px 3px 0 3px;
+  height: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 0;
+}
+/* line 112, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-bg-set .item-bg-line {
+  -moz-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  opacity: .7;
+}
+/* line 124, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-bg-set .item-bg-line .path {
+  stroke: #FFF;
+  stroke-dasharray: 266;
+  stroke-dashoffset: -8;
+  stroke-width: 2px;
+}
+/* line 135, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-content {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  height: calc(100% - 24px);
+  width: calc(100% - 24px);
+  z-index: 3;
+}
+/* line 146, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-content .item-content-bg {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #FAFAFA;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+/* line 157, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-content .content-icon {
+  height: calc(100% - 32px);
+  left: 16px;
+  position: absolute;
+  top: 12px;
+  width: calc(100% - 32px);
+  z-index: 5;
+}
+/* line 168, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-content .content-icon svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 173, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-content .content-icon svg path {
+  fill: gray;
+}
+/* line 179, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-content .item-content-bg-line {
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+/* line 190, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-content .item-content-bg-line .path {
+  stroke: #FFF;
+  stroke-dasharray: 171;
+  stroke-dashoffset: -8;
+  stroke-width: 2px;
+}
+/* line 200, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-content .item-gradient-set {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  position: absolute;
+  height: 100%;
+}
+/* line 210, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-content .item-gradient-set .item-gradient {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzE3YTdlZiIgc3RvcC1vcGFjaXR5PSIwLjAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxN2E3ZWYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(23, 167, 239, 0)), color-stop(100%, #17a7ef));
+  background-image: -moz-linear-gradient(top, rgba(23, 167, 239, 0) 0%, #17a7ef 100%);
+  background-image: -webkit-linear-gradient(top, rgba(23, 167, 239, 0) 0%, #17a7ef 100%);
+  background-image: linear-gradient(to bottom, rgba(23, 167, 239, 0) 0%, #17a7ef 100%);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 55%;
+  opacity: 0.8;
+  width: 100%;
+}
+/* line 221, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-content .item-gradient-set .item-gradient-mask {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #FAFAFA;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+}
+/* line 233, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-content .item-content-arrow {
+  top: 50%;
+  width: 8px;
+  height: calc(50% - 6px);
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 4;
+}
+/* line 247, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .item-content .item-content-arrow:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 4px 6px 4px;
+  border-color: transparent transparent #4EBCF2 transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+/* line 261, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .shortcut-tab {
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 55px;
+  height: calc(50% + 36px);
+  z-index: 1;
+}
+/* line 276, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .shortcut-tab .shortcut-tab-bg-set {
+  -moz-border-radius: 27.5px;
+  -webkit-border-radius: 27.5px;
+  border-radius: 27.5px;
+  -moz-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+/* line 289, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .shortcut-tab .shortcut-tab-bg-set .inner-bg {
+  -moz-border-radius: 25.5px;
+  -webkit-border-radius: 25.5px;
+  border-radius: 25.5px;
+  background: rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: calc(100% - 16px);
+  height: calc(100% - 8px);
+  z-index: 2;
+}
+/* line 303, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .shortcut-tab .shortcut-tab-bg-set .outer-bg {
+  -moz-border-radius: 27.5px;
+  -webkit-border-radius: 27.5px;
+  border-radius: 27.5px;
+  background: #FFF;
+  opacity: .18;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+/* line 317, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-item .shortcut-tab .shortcut-value {
+  color: #FFF;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  height: 25px;
+  left: 8px;
+  line-height: 25px;
+  position: absolute;
+  text-align: center;
+  top: 11px;
+  width: calc(100% - 16px);
+  z-index: 2;
+}
+/* line 337, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-selection-pulse-set {
+  opacity: .75;
+  bottom: 0;
+  height: 100px;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  width: 100px;
+  z-index: 2;
+}
+/* line 349, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-selection-pulse-set .pulse {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* line 358, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-selection-pulse-set .pulse.white {
+  -moz-box-shadow: 0 0 3px 2px #FFF, inset 0 0 3px 2px #FFF;
+  -webkit-box-shadow: 0 0 3px 2px #FFF, inset 0 0 3px 2px #FFF;
+  box-shadow: 0 0 3px 2px #FFF, inset 0 0 3px 2px #FFF;
+  opacity: .85;
+  z-index: 2;
+}
+/* line 366, ../compass/sass/aeto-ui-battle-menu.scss */
+.aeto-ui-battle-menu-container .aeto-battle-menu-selection-pulse-set .pulse.color {
+  -moz-box-shadow: 0 0 10px 3px #6FBEFF, inset 0 0 10px 3px #6FBEFF;
+  -webkit-box-shadow: 0 0 10px 3px #6FBEFF, inset 0 0 10px 3px #6FBEFF;
+  box-shadow: 0 0 10px 3px #6FBEFF, inset 0 0 10px 3px #6FBEFF;
+  opacity: 1;
+  z-index: 1;
+}

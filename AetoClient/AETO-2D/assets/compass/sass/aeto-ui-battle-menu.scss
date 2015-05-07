@@ -1,0 +1,375 @@
+@import 'compass/css3';
+@import "compass/css3/user-interface";
+
+.test-object {
+	@include box-shadow(0 0 3px 3px rgba(0, 0, 0, .15));
+
+	width: 3px;
+	height: 3px;
+	position: absolute;
+	background: #FFF;
+	z-index: 100;
+
+}
+
+.test-object2 {
+	@include box-shadow(0 0 3px 3px rgba(0, 0, 0, .15));
+
+	width: 3px;
+	height: 3px;
+	position: absolute;
+	background: #00FFFF;
+	z-index: 100;
+
+}
+
+.test-object-3 {
+	@include box-shadow(0 0 3px 3px rgba(0, 0, 0, .15));
+
+	width: 3px;
+	height: 3px;
+	position: absolute;
+	background: #FFFF00;
+	z-index: 100;
+
+}
+
+.test-object-4 {
+	@include box-shadow(0 0 3px 3px rgba(0, 0, 0, .15));
+
+	width: 3px;
+	height: 3px;
+	position: absolute;
+	background: #C3A6FF;
+	z-index: 100;
+}
+
+.aeto-ui-battle-menu-container {
+	$frameColor: #FAFAFA;
+
+	.aeto-battle-menu-item {
+		$itemSize: 100px;
+
+		cursor: pointer;
+		position: absolute;
+		width: $itemSize;
+		height: $itemSize;
+		left: 0;
+		bottom: 0;
+		z-index: 4;
+
+		.item-bg-set {
+			@include box-shadow(0 0 3px 3px rgba(0, 0, 0, .14));
+			@include border-radius(50%);
+
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 2;
+
+			.item-bg {
+				@include border-radius(50%);
+
+				background: #FAFAFA;
+				opacity: 0.3;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 1;
+			}
+
+			.item-bg-arrow {
+				$arrowWidth: 6px;
+				$arrowHeight: 4px;
+				$arrowPadding: 3px;
+
+				top: $arrowPadding;
+				width: $arrowWidth;
+				height: calc(50% - #{$arrowPadding});
+				position: absolute;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				z-index: 3;
+
+				&:after {
+					content: "";
+					border-color: $frameColor transparent transparent transparent;
+					border-style: solid;
+					border-width: $arrowHeight #{$arrowWidth / 2} 0 #{$arrowWidth / 2};
+					height: 0;
+					left:0;
+					position: absolute;
+					top: 0;
+					width: 0;
+				}
+			}
+
+			.item-bg-line {
+				$strokeWeight: 2px;
+
+				@include transform(rotate(-90deg), scale(0.95));
+
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				position: absolute;
+				opacity: .7;
+
+				.path {
+					stroke: #FFF;
+					stroke-dasharray: 266; // length
+           			stroke-dashoffset: -8; // length - x2
+           			stroke-width: $strokeWeight;
+				}
+			}
+		}
+
+		$contentPadding: 12px;
+
+		.item-content {
+			@include border-radius(50%);
+			@include box-shadow(0 0 2px 2px rgba(0, 0, 0, .1));
+
+			position: absolute;
+			top: $contentPadding;
+			left: $contentPadding;
+			height: calc(100% - #{$contentPadding * 2});
+			width: calc(100% - #{$contentPadding * 2});
+			z-index: 3;
+
+			.item-content-bg {
+				@include border-radius(50%);
+
+				background: #FAFAFA;
+				height: 100%;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 100%;
+			}
+
+			.content-icon {
+				$iconPadding: 16px;
+				$topPadding: 12px;
+
+				height: calc(100% - #{$iconPadding * 2});
+				left: $iconPadding;
+				position: absolute;
+				top: $topPadding;
+				width: calc(100% - #{$iconPadding * 2});
+				z-index: 5;
+
+				svg {
+					position: absolute;
+					top: 0;
+					left: 0;
+
+					path {
+						fill: gray;
+					}
+				}
+			}
+
+			.item-content-bg-line {
+				$strokeWeight: 2px;
+
+				@include transform(rotate(90deg));
+
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				position: absolute;
+
+				.path {
+					stroke: #FFF;
+					stroke-dasharray: 171; // length
+           			stroke-dashoffset: -8; // length - x2
+           			stroke-width: $strokeWeight;
+				}
+			}
+
+			$gradientThickness: 3px;
+
+			.item-gradient-set {
+				@include border-radius(50%);
+
+				overflow: hidden;
+				bottom: 0;
+				width: 100%;
+				left: 0;
+				position: absolute;
+				height: 100%;
+
+				.item-gradient {
+					@include background-image(linear-gradient(top, rgba(23,167,239,0) 0%,rgba(23,167,239,1) 100%));
+
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					height: 55%;
+					opacity: 0.8;
+					width: 100%;
+				}
+
+				.item-gradient-mask {
+					@include border-radius(50%);
+
+					background: #FAFAFA;
+					position: absolute;
+					top: $gradientThickness;
+					left: $gradientThickness;
+					width: calc(100% - #{$gradientThickness * 2});
+					height: calc(100% - #{$gradientThickness * 2});
+				}
+			}
+
+			.item-content-arrow {
+				$arrowWidth: 8px;
+				$arrowHeight: 6px;
+				$arrowPadding: 3px;
+
+				top: 50%;
+				width: $arrowWidth;
+				height: calc(50% - #{$gradientThickness + $arrowPadding});
+				position: absolute;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				z-index: 4;
+
+				&:after {
+					content: "";
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 0 #{$arrowWidth / 2} $arrowHeight #{$arrowWidth / 2};
+					border-color: transparent transparent #4EBCF2 transparent;
+					position: absolute;
+					bottom: 0;
+					left:0;
+				}
+			}
+		}
+
+		.shortcut-tab {
+			$tabHeight: 36px;
+			$tabWidth: 55px;
+
+			position: absolute;
+			bottom: 50%;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			width: $tabWidth;
+			height: calc(50% + #{$tabHeight});
+			z-index: 1;
+
+			$bgSpacing: 8px;
+
+			.shortcut-tab-bg-set {
+				$outerRadiusValue: #{$tabWidth / 2};
+
+				@include border-radius($outerRadiusValue);
+				@include box-shadow(0 0 2px 2px rgba(0, 0, 0, .1));
+
+				position: absolute;
+				z-index: 1;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+
+				.inner-bg {
+					$radiusValue: #{($tabWidth - $bgSpacing / 2) / 2};
+
+					@include border-radius($radiusValue);
+
+					background: rgba(0, 0, 0, 0.25);
+					position: absolute;
+					top: $bgSpacing;
+					left: $bgSpacing;
+					width: calc(100% - #{$bgSpacing * 2});
+					height: calc(100% - #{$bgSpacing});
+					z-index: 2;
+				}
+
+				.outer-bg {
+					@include border-radius($outerRadiusValue);
+
+					background: #FFF;
+					opacity: .18;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					z-index: 1;
+				}
+			}
+
+			.shortcut-value {
+				$topPadding: 3px;
+				$containerHeight: #{$tabHeight - $bgSpacing - $topPadding};
+
+				color: #FFF;
+				font-family: 'Josefin Sans', sans-serif;
+				font-size: 18px;
+				font-weight: bold;
+				height: $containerHeight;
+				left: $bgSpacing;
+				line-height: $containerHeight;
+				position: absolute;
+				text-align: center;
+				top: #{$bgSpacing + $topPadding};
+				width: calc(100% - #{$bgSpacing * 2});
+				z-index: 2;
+			}
+		}
+	}
+
+	.aeto-battle-menu-selection-pulse-set {
+		$size: 100px;
+		
+		opacity: .75;
+		bottom: 0;
+		height: $size;
+		left: 0;
+		pointer-events: none;
+		position: absolute;
+		width: $size;
+		z-index: 2;
+
+		.pulse {
+			@include border-radius(50%);
+			
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+
+			&.white {
+				@include box-shadow(0 0 3px 2px #FFF,
+							inset 0 0 3px 2px #FFF);
+
+				opacity: .85;
+				z-index: 2;
+			}
+
+			&.color {
+				@include box-shadow(0 0 10px 3px #6FBEFF,
+							inset 0 0 10px 3px #6FBEFF);
+
+				opacity: 1;
+				z-index: 1;
+			}
+		}
+	}
+}

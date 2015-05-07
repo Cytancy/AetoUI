@@ -1,0 +1,2053 @@
+@import 'compass/css3';
+@import "compass/css3/user-interface";
+
+@import url(http://fonts.googleapis.com/css?family=Gilda+Display|Libre+Baskerville|Crimson+Text|Cardo|Gentium+Book+Basic|Lusitana);
+
+.aeto-ui-turnbar-container {
+	$turnbarWidth: 500px;
+	$turnbarHeight: 370px;
+    $frameColor: #FAFAFA;
+
+    @include user-select(none);
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+
+	.aeto-ui-turnbar {
+		height: 72px;
+		position: relative;
+		width: 100%;
+	}
+
+	$generalBgHeight: 60px;
+	$lightBgOffset: 8px;
+	$unextendedBgOffset: -10px;
+
+	.aeto-ui-bg-container {
+		height: $generalBgHeight;
+		left: 0;
+		position: absolute;
+		top: $unextendedBgOffset;
+		width: 100%;
+	}
+
+	.dark-back-bg, .dark-bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: #000;
+		height: 100%;
+		opacity: 0.2;
+		width: 100%;
+	}
+
+	.dark-bg {
+		height: calc(100% - #{$lightBgOffset});
+	}
+
+	.border-triangle {
+		border-style: solid;
+		height: 0;
+		position: absolute;
+		top: 0;
+		width: 0;
+	}
+
+	.timer-container {
+		padding-bottom: 5%;
+		left: 0;
+		margin: 0 auto;
+		position: absolute;
+		right: 0;
+		top: #{$generalBgHeight - $lightBgOffset + $unextendedBgOffset};
+		width: 14%;
+		min-width: 190px; 
+
+		@media all and (max-width: 1355px) {
+			padding-bottom: 67px;
+		}
+
+		.timer-bg-container {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			.timer-bg {
+				@include transform(scale(1, 0.65) rotate(45deg));
+
+				width: 100%;
+				padding-bottom: 100%;
+				position: absolute;
+				top: -190%;
+				background: rgba(0, 0, 0, 0.2);
+			}
+
+			&.light {
+				top: $lightBgOffset;
+			}
+		}
+
+		.timer-value {
+			position: absolute;
+			width: 100%;
+			top: 25px;
+            // font-family: 'Montserrat', sans-serif;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.1vw;
+            // font-family: 'Raleway', sans-serif;
+            // font-family: 'Muli', sans-serif;
+
+        	@media all and (max-width: 1355px) {
+				font-size: 12px;
+				top: 27px;
+			}
+
+			.timer-seconds {
+				position: absolute;
+				color: rgba(255, 255, 255, 0.9);
+				left: 39%;
+				width: 10%;
+				text-align: center;
+			}
+
+			.timer-apostrophe {
+				color: rgba(255, 255, 255, 0.7);
+				left: 0;
+				margin: 0 auto;
+				position: absolute;
+				right: 0;
+				text-align: center;
+				width: 4px;
+			}
+
+			.timer-centiseconds {
+				position: absolute;
+				color: #B5B5B5;
+				right: 39%;
+				width: 10%;
+				text-align: center;
+			}
+		}
+
+		.clock-container {
+			$clockBorder: 3px;
+
+			position: absolute;
+			width: 9%;
+			right: 0;
+			left: 0;
+			margin: 0 auto;
+			margin-top: 19%;
+
+			@media all and (max-width: 1699px) {
+				display: none;
+			}
+
+			.clock-circle {
+				@include border-radius (50%);
+				@include box-shadow(inset 0 0 0 $clockBorder rgba(255, 255, 255, .6));
+
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				padding-bottom: 100%;
+			}
+
+			.clock-hand-container {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				padding-bottom: 100%;
+
+				.clock-hand {
+					$handWidth: 2px;
+
+					width: $handWidth;
+					position: absolute;
+
+					&.long {
+						height: calc(50% - #{$clockBorder + 1px});
+						top: #{$clockBorder + 1px};
+						left: calc(50% - #{$handWidth / 2});
+						background: rgba(255, 255, 255, 0.85);
+					}
+
+					&.short {
+						height: calc(25% - #{$clockBorder * .5});
+						top: calc(25% + #{$clockBorder * .5});
+						left: calc(50% - #{$handWidth / 2});
+						background: rgba(255, 255, 255, 0.65);
+					}
+				}
+			}
+		}
+
+		&.open {
+			.timer-bg-container {
+				$secondaryDelay: .15s;
+
+				&.dark {
+					@include animation(timer-bg-drop 0.35s ease-in-out 0s);
+				}
+
+				&.light {
+					@include animation(anim-stall $secondaryDelay ease-in-out 0s,
+						timer-bg-drop 0.35s ease-in-out $secondaryDelay);
+				}
+			}
+
+			$clockDelay: .2s;
+
+			.clock-circle {
+					@include animation(anim-stall $clockDelay ease-in-out 0s,
+						clock-circle-enter 0.35s ease-in-out $clockDelay);
+			}
+
+			.clock-hand {
+				&.long {
+					@include animation(clock-hand-enter 0.4s ease-in-out 0s);
+				}
+
+				&.short {
+					@include animation(clock-hand-enter 0.4s ease-in-out 0s);
+				}
+			}
+
+			$timerValueDelay: .25s;
+			$timerApostropheDelay: $timerValueDelay + .15s;
+
+			.timer-seconds {
+				@include animation(anim-stall $timerValueDelay ease-in-out 0s,
+					timer-seconds-enter 0.35s ease-in-out $timerValueDelay);
+			}
+
+			.timer-apostrophe {
+				@include animation(anim-stall $timerValueDelay ease-in-out 0s,
+					timer-apostrophe-enter 0.35s ease-in-out $timerValueDelay);
+			}
+
+			.timer-centiseconds {
+				@include animation(anim-stall $timerValueDelay ease-in-out 0s,
+					timer-cseconds-enter 0.35s ease-in-out $timerValueDelay);
+			}
+		}
+
+		&.unopen  {
+			.timer-bg-container {
+				$secondaryDelay: .15s;
+
+				&.dark {
+					@include animation(timer-bg-drop 0.35s ease-in-out 0s reverse,
+						anim-stall 30s linear .35s);
+				}
+
+				&.light {
+					@include animation(timer-bg-drop 0.35s ease-in-out $secondaryDelay reverse,
+						anim-stall 30s linear #{$secondaryDelay + .35s});
+				}
+			}
+
+			$clockDelay: .2s;
+
+			.clock-circle {
+					@include animation(clock-circle-enter 0.35s ease-in-out $clockDelay reverse,
+						anim-stall 30s linear #{$clockDelay + .35s});
+			}
+
+			.clock-hand {
+				&.long {
+					@include animation(clock-hand-enter 0.4s ease-in-out 0s reverse,
+						anim-stall 30s linear .4s);
+				}
+
+				&.short {
+					@include animation(clock-hand-enter 0.4s ease-in-out 0s reverse,
+						anim-stall 30s linear .4s);
+				}
+			}
+
+			$timerValueDelay: .05s;
+			$timerApostropheDelay: $timerValueDelay + .15s;
+
+			.timer-seconds {
+				@include animation(timer-seconds-enter 0.35s ease-in-out $timerValueDelay reverse,
+					anim-stall 30s linear #{$timerValueDelay + .35s});
+			}
+
+			.timer-apostrophe {
+				@include animation(timer-apostrophe-enter 0.35s ease-in-out $timerApostropheDelay reverse,
+					anim-stall 30s linear #{$timerApostropheDelay + .35s});
+			}
+
+			.timer-centiseconds {
+				@include animation(timer-cseconds-enter 0.35s ease-in-out $timerValueDelay reverse,
+					anim-stall 30s linear #{$timerValueDelay + .35s});
+			}
+		}
+	}
+
+	$turnSegmentMargin: 20px;
+	$turnSegmentSideMargin: 18px;
+	$scrollbarHeight: 2px;
+
+	.turn-scroll-bar {
+		@include transition-duration(.35s);
+		@include transition-property(left, width);
+		@include transition-timing-function(ease-in-out);
+
+		height: $scrollbarHeight;
+		left: #{$turnSegmentSideMargin + 6px};
+		position: absolute;
+		top: 9px;
+		width: calc(100% - #{$turnSegmentSideMargin * 2 + 12px});
+		z-index: 1;
+	}
+
+	$bgHeight: 12px;
+
+	.scroll-bar-bg {
+		@include transform(translatey(-5px) scale(1, 0.1667));
+
+		background: #FFF;
+		cursor: pointer;
+		height: $bgHeight;
+		left: 0;
+		opacity: .3;
+		position: absolute;
+		top: 0;
+		width: 100%;
+
+		.border-triangle {
+			$sideTriangleWidth: 8px;
+
+			@include transition-duration(.35s);
+			@include transition-property(transform);
+			@include transition-timing-function(ease-in-out);
+
+			border-width: 0;
+
+			&.left {
+				// @include transform(scale(1, 0));
+
+				border-color: transparent #FFF transparent transparent;
+				border-width: 6px $sideTriangleWidth 6px 0;
+				left: #{-$sideTriangleWidth};
+			}
+
+			&.right {
+				// @include transform(scale(1, 0));
+
+				border-width: 6px 0 6px $sideTriangleWidth;
+				border-color: transparent transparent transparent #FFF;
+				right: #{-$sideTriangleWidth}
+			}
+		}
+	}
+
+	.timer-bar-container {
+		$timerReduct: 6px;
+		$timerHeight: $bgHeight - $timerReduct;
+
+		@include transform(translatey(-5px) scale(1, 0.25));
+
+		opacity: 0;
+		height: $timerHeight;
+		left: 0;
+		pointer-events: none;
+		position: absolute;
+		top: $timerReduct / 2;
+		width: 100%;
+
+		.timer-bar {
+			@include border-radius(5px);
+			@include transform-origin(left);
+
+			background: rgb(60, 166, 255);
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	.point-flags-container {
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+
+		.hover-flag-container {
+			$flagSize: 8px;
+
+			left: 0;
+			opacity: 0;
+			position: absolute;
+			pointer-events: none;
+			top: -2px;
+
+			.hover-flag { 
+				@include box-shadow(inset 0 0 0 #{$flagSize / 2 + 1} #FFF);
+				// @include animation(hover-flag-pulse 1.4s ease-in-out 0s infinite);
+				// @include animation-play-state(paused);
+
+				height: $flagSize;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: $flagSize;
+			}
+		}
+	}
+
+	$handleRadius: 4px;
+
+	.turn-scroll-handle-container {
+		left: 0;
+		position: absolute;
+		height: 12px;
+		top: #{-$handleRadius + $scrollbarHeight / 2};
+		width: 90px;
+	}
+
+	$handleBgMargins: 3px;
+	$sideTriangleWidth: 8px;
+
+	.handle-bg {
+		$borderHeight: 6px - $handleBgMargins;
+		$handleBgTriangleWidths: $sideTriangleWidth - $handleBgMargins;
+
+		height: #{12px - $handleBgMargins * 2};
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		opacity: .8;
+
+		.handle-midsection {
+			@include border-radius(50%);
+
+			background: $frameColor;
+			height: #{$handleRadius * 2};
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: #{$handleRadius * 2};
+		}
+
+		.border-triangle {
+			@include transform(scale(0, 1));
+
+			opacity: 0;
+
+			&.left {
+				border-style: solid;
+				border-color: transparent $frameColor transparent transparent;
+				border-width: $borderHeight $handleBgTriangleWidths $borderHeight 0;
+				left: 0;
+			}
+
+			&.right {
+				border-style: solid;
+				border-color: transparent transparent transparent $frameColor;
+				border-width: $borderHeight 0 $borderHeight $handleBgTriangleWidths;
+				right: 0;
+			}
+		}
+	}
+
+	$scrollbarHeight: 12px;
+	$sideTriangleWidth: 8px;
+
+	.handle-bg-frame {
+		$handleBgFramePadding: 2px;
+		$borderHeight: $scrollbarHeight / 2 + $handleBgFramePadding;
+		$handleBgSideMargin: 10px;
+		$handleBgFrameTriangleWidths: $sideTriangleWidth + $handleBgFramePadding * 2;
+
+		// @include filter(drop-shadow(0 0 4px rgba(0, 0, 0, .25))) Chrome bug;
+		@include transform(translatey(16px) scaley(0.7));
+
+		opacity: 0;
+		height: calc(100% + #{$handleBgFramePadding * 2});
+		left: $handleBgSideMargin;
+		position: absolute;
+		top: #{-$handleBgFramePadding * 2};
+		width: calc(100% - #{$handleBgSideMargin * 2});
+
+		.handle-midsection {
+			background: $frameColor;
+			width: calc(100% - #{$handleBgFrameTriangleWidths * 2});
+			position: absolute;
+			left: $handleBgFrameTriangleWidths;
+			top: 0;
+			height: 100%;
+		}
+
+		.border-triangle {
+			&.left {
+				border-width: $borderHeight $handleBgFrameTriangleWidths $borderHeight 0;
+				border-color: transparent $frameColor transparent transparent;
+				left: 0;
+			}
+
+			&.right {
+				border-width: $borderHeight 0 $borderHeight $handleBgFrameTriangleWidths;
+				border-color: transparent transparent transparent $frameColor;
+				right: 0;
+			}
+		}
+	}
+
+	.handle-frame-group {
+		@include transform(translatey(-16px));
+
+		opacity: 0;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
+	$handleFramePadding: 0px;
+	$borderHeight: $scrollbarHeight / 2 + $handleFramePadding;
+	$handleSideMargin: 6px;
+	$handleFrameTriangleWidths: $sideTriangleWidth + $handleFramePadding * 2;
+
+	.handle-frame {
+		width: calc(100% - #{$handleSideMargin * 2});
+		height: calc(100% + #{$handleFramePadding * 2});
+		position: absolute;
+		top: #{-$handleFramePadding - 2px};
+		left: $handleSideMargin;
+		z-index: 2;
+
+		.handle-midsection {
+			background: $frameColor;
+			width: calc(100% - #{$handleFrameTriangleWidths * 2});
+			position: absolute;
+			left: $handleFrameTriangleWidths;
+			top: 0;
+			height: 100%;
+		}
+
+		.border-triangle {
+			&.left {
+				border-width: $borderHeight $handleFrameTriangleWidths $borderHeight 0;
+				border-color: transparent $frameColor transparent transparent;
+				left: 0;
+			}
+
+			&.right {
+				border-width: $borderHeight 0 $borderHeight $handleFrameTriangleWidths;
+				border-color: transparent transparent transparent $frameColor;
+				right: 0;
+			}
+		}
+
+		&.shadow {
+			@include transform(scale(1.05, 1.2));
+			@include filter(blur(1px));
+			
+			opacity: .2;
+			z-index: 1;
+
+			.handle-midsection {
+				background: #000;
+			}
+
+			.border-triangle {
+				&.left {border-color: transparent #000 transparent transparent;}
+				&.right {border-color: transparent transparent transparent #000;}
+			}
+		}
+	}
+
+	.handle-frame-content {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+
+		.aeto-chevron {
+			$tilt: 55deg;
+			$chevronInset: 2px;
+			$chevronMargins: 12px;
+
+			height: calc(100% - #{$chevronInset * 2});
+			opacity: .2;
+			top: $chevronInset;
+			width: 5px;
+			z-index: 2;
+
+			.component-container {
+				background: #000;
+			}
+
+			&.left {
+				left: $chevronMargins;
+
+				.component:nth-child(1) {@include transform(skew(#{-$tilt}, 0deg));}
+				.component:nth-child(2) {@include transform(skew($tilt, 0deg));}
+			}
+
+			&.right {
+				right: $chevronMargins;
+
+				.component:nth-child(1) {@include transform(skew($tilt, 0deg));}
+				.component:nth-child(2) {@include transform(skew(#{-$tilt}, 0deg));}
+			}
+		}
+	}
+
+	.handle-frame-inner-bg {
+		$innerBgMargin: 2px;
+		$innerBgHeight: $borderHeight - $innerBgMargin;
+		$innerBgTriangleWidth: $handleFrameTriangleWidths - $innerBgMargin - 1;
+		$innerBgColor: #D4D4D4;
+
+		background: $innerBgColor;
+		width: calc(100% - #{($innerBgMargin + $innerBgTriangleWidth + 1) * 2});
+		height: calc(100% - #{$innerBgMargin * 2});
+		top: $innerBgMargin;
+		left: #{$innerBgMargin + $innerBgTriangleWidth + 1};
+		position: absolute;
+
+		.border-triangle {
+			&.left {
+				border-width: $innerBgHeight $innerBgTriangleWidth $innerBgHeight 0;
+				border-color: transparent $innerBgColor transparent transparent;
+				left: #{-$innerBgTriangleWidth};
+			}
+
+			&.right {
+				border-width: $innerBgHeight 0 $innerBgHeight $innerBgTriangleWidth;
+				border-color: transparent transparent transparent $innerBgColor;
+				right: #{-$innerBgTriangleWidth};
+			}
+		}
+	}
+
+	.handle-center-point {
+		$pointSize: 8px;
+
+		@include box-shadow(inset 0 0 0 #{$pointSize/2} rgb(166, 166, 166));
+		@include transform(rotate(45deg));
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		width: $pointSize;
+		height: $pointSize;
+		opacity: .5;
+
+		.center-rotator {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+
+			.sub-center-point {
+				$pointReduction: 4px;
+				$pointOffset: -6px;
+
+				@include border-radius(50%);
+
+				background: rgb(166, 166, 166);
+				height: #{$pointSize - $pointReduction};
+				position: absolute;
+				top: #{$pointReduction/2};
+				width: #{$pointSize - $pointReduction};
+
+				&.left {
+					left: 0;
+				}
+
+				&.right {
+					right: 0;
+				}
+			}
+		}
+	}
+
+	.turn-segments-container {
+		@include box-shadow(0 0 3px 3px rgba(0, 0, 0, 0.15));
+
+		height: 48px;
+		left: $turnSegmentSideMargin;
+		position: absolute;
+		top: $turnSegmentMargin;
+		width: calc(100% - #{$turnSegmentSideMargin * 2});
+		z-index: 2;
+	}
+
+	.turn-segment {
+		height: 100%;
+		position: absolute;
+		top: 0;
+		width: 10%;
+
+		.turn-segment-background {
+			background: $frameColor;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			opacity: .35;
+		}
+		
+		$turnSegmentBorderThickness: 3px;
+		$allianceBarThickness: 4px;
+
+		$segmentHeight: 42px;
+
+		.turn-segment-content {
+        	$turnInfoWidth: 40px;
+
+        	@include box-sizing(content-box);
+
+			height: calc(100% - #{$turnSegmentBorderThickness * 2});
+			left: 0;
+			overflow: hidden;
+			position: absolute;
+			top: $turnSegmentBorderThickness;
+			width: calc(100% + 1px); // Chrome bug fix ):
+
+			.content-background {
+				background: $frameColor;
+				height: $segmentHeight;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 100%;
+			}
+
+			.alliance-bar {
+				bottom: 0;
+				background: #6FBEFF;
+				position: absolute;
+				height:  $allianceBarThickness;
+				width: 100%;
+				z-index: 5;
+			}
+
+			.framework-icon {
+				@include background-size(contain);
+
+				background-image: url("http://i.imgur.com/mpR6O4U.png");
+				height: 32px;
+				left: 5px;
+				opacity: .5;
+				position: absolute;
+				top: 4px;
+				width: 32px;
+			}
+
+			.character-icon {
+				background-image: url("http://i.imgur.com/FlHtJcD.png");
+				background-position: center top;
+				background-repeat: no-repeat;
+				background-size: 75%;
+				height: 150px;
+				left: 0;
+				position: absolute;
+				top: 4px;
+				width: 42px;
+				z-index: 1;
+			}
+
+			.character-name {
+				$leftMargin: 44px;
+
+				color: rgb(131, 131, 131);
+				font-family: 'Josefin Sans', sans-serif;
+				font-size: 22px;
+				height: 30px;
+				left: $leftMargin;
+				line-height: 30px;
+				margin: auto;
+				position: absolute;
+				top: 5px;
+				width: calc(100% - #{$leftMargin + $turnInfoWidth});
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+
+			.turn-number-text {
+				font-size: 10px;
+				font-weight: bold;
+				color: rgb(104, 180, 244);
+				position: absolute;
+				top: 3px;
+				right: 6px;
+                font-family: 'Montserrat', sans-serif;
+            	z-index: 2;
+
+
+                &:before {
+                	@include transition-duration(.4s);
+        			@include transition-property(opacity, transform);
+        			@include transition-timing-function(ease-in-out);
+
+                	content: "ACT";
+                	position: absolute;
+                	opacity: 0;
+            		z-index: 2;
+                }
+			}
+
+			.active-bg {
+				@include transition-duration(.4s);
+    			@include transition-property(opacity);
+    			@include transition-timing-function(ease-in-out);
+
+				position: absolute;
+				top: 10px;
+				right: 14px;
+				height: 21px;
+				width: 21px;
+				opacity: 0;
+        		z-index: 1;
+
+				&:before {
+        			@include animation(active-turn-rotate-two 4s ease-in-out infinite);
+
+                	content: "";
+                	position: absolute;
+                	top: 0;
+                	left: 0;
+					width: 100%;
+					height: 100%;					
+                	background: rgba(0, 0, 0, 0.04);
+				}
+
+				&:after {
+        			@include animation(active-turn-rotate 2s ease-in-out infinite);
+
+                	content: "";
+                	position: absolute;
+                	top: 0;
+                	left: 0;
+					width: 100%;
+					height: 100%;					
+                	background: rgba(0, 0, 0, 0.03);
+                	z-index: 1;
+                }
+			}
+
+			.turn-number {
+				color: #000;
+				color: rgb(174, 174, 174);
+				font-family: 'Lusitana', serif;
+				font-size: 22px;
+				position: absolute;
+				right: 0;
+				text-align: center;
+				top: 11px;
+				width: $turnInfoWidth;
+			}
+		}
+
+		&.active-segment {
+			$shadowOffset: 4px;
+
+			.turn-number-text {
+				@include transform(translatey(-25px));
+
+				&:before {
+					@include transform(translatey(36px));
+
+					opacity: 1;
+				}
+			}
+
+			.active-bg {
+				opacity: 1;
+
+				&:before {
+        			@include animation(active-turn-rotate-two 4s ease-in-out infinite);
+
+                	content: "";
+                	position: absolute;
+                	top: 0;
+                	left: 0;
+					width: 100%;
+					height: 100%;					
+                	background: rgba(0, 0, 0, 0.04);
+				}
+
+				&:after {
+        			@include animation(active-turn-rotate 2s ease-in-out infinite);
+
+                	content: "";
+                	position: absolute;
+                	top: 0;
+                	left: 0;
+					width: 100%;
+					height: 100%;					
+                	background: rgba(0, 0, 0, 0.03);
+                	z-index: 1;
+                }
+			}
+			
+			.turn-number {
+				@include transform(scale(2));
+
+				opacity: 0;
+			}
+		}
+
+		&.trans-hidden {
+			.turn-segment-content {
+				// opacity: .5;
+
+				.alliance-bar {
+					@include transform(translatey(8px));
+				}
+
+				.framework-icon {
+					@include transform(translatey(-40px));
+				}
+
+				.character-icon {
+					@include transform(translatey(40px));
+				}
+
+				.character-name {
+					@include transform(translatex(-30px));
+
+					opacity: 0;
+				}
+
+				.turn-number-text {
+					@include transform(translatey(-20px));
+				}
+
+				.turn-number {
+					@include transform(translatex(30px));
+				}
+			}
+		}
+
+		&.history {
+			@include filter(grayscale(70%));
+		}
+
+		.segment-divider {
+			$segmentInset: $turnSegmentBorderThickness + 5px;
+
+			background: #000;
+			height: calc(100% - #{$segmentInset * 2 + $allianceBarThickness});
+			opacity: .1;
+			position: absolute;
+			top: #{$segmentInset};
+			width: 1px;
+			z-index: 2;
+
+			&.left {
+				left: 0;
+			}
+
+			&.right {
+				right: 0;
+			}
+		}
+
+		.turn-segment-proportioner {
+			@include transition-duration(.4s);
+            @include transition-property(transform);
+            @include transition-timing-function(ease-in-out);
+
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+
+		&.one, &.left-hidden {
+			left: 0;
+
+			.turn-segment-content {
+				left: $turnSegmentBorderThickness;
+				width: calc(100% - #{$turnSegmentBorderThickness - 1}); // Chrome 1px offset
+			}
+			
+			.segment-divider.left {
+				opacity: 0;
+			}
+		}
+
+		&.two {left: 10%;}
+		&.three {left: 20%;}
+		&.four {left: 30%;}
+		&.five {left: 40%;}
+		&.six {left: 50%;}
+		&.seven {left: 60%;}
+		&.eight {left: 70%;}
+		&.nine {left: 80%;}
+
+		&.ten, &.right-hidden {
+			left: 90%;
+
+			.turn-segment-content  {
+				width: calc(100% - #{$turnSegmentBorderThickness});
+			}
+
+			.segment-divider.right {
+				opacity: 0;
+			}
+		}
+
+		&.right-hidden, &.left-hidden {
+			opacity: 0;
+			// visibility: hidden;
+
+			.turn-segment-proportioner {
+				// @include transform(translatey(300%) rotatex(-90deg));
+				@include transform(translatey(300%) scale(1, 0.3));
+
+			}
+		}
+
+		// @media all and (max-width: 1700px) and (min-width: 1501px) {
+		// 	width: 11.1111111%;
+
+		// 	&.ten {
+		// 		opacity: 0;
+		// 		visibility: hidden;
+
+		// 		.turn-segment-proportioner {
+		// 			@include transform(translatey(300%) scale(1, 0.3));
+		// 		}
+		// 	}
+
+		// 	&.two {left: 11.11111%;}
+		// 	&.three {left: 22.22222%;}
+		// 	&.four {left: 33.33333%;}
+		// 	&.five {left: 44.44444%;}
+		// 	&.six {left: 55.55555%;}
+		// 	&.seven {left: 66.66666%;}
+		// 	&.eight {left: 77.77777%;}
+		// 	&.nine {
+		// 		left: 88.888888%;
+				
+		// 		.turn-segment-content  {
+		// 			width: calc(100% - #{$turnSegmentBorderThickness});
+		// 		}
+
+		// 		.segment-divider.right {
+		// 			opacity: 0;
+		// 		}
+		// 	}
+		// }
+
+		// @media all and (max-width: 1500px) and (min-width: 1301px) {
+		// 	width: 12.5%;
+
+		// 	&.ten, &.nine {
+		// 		left: 90%;
+		// 		opacity: 0;
+		// 		visibility: hidden;
+
+		// 		.turn-segment-proportioner {
+		// 			@include transform(translatey(300%) scale(1, 0.3));
+		// 		}
+
+		// 		.turn-segment-content  {
+		// 			width: calc(100% - #{$turnSegmentBorderThickness});
+		// 		}
+
+		// 		.segment-divider.right {
+		// 			opacity: 0;
+		// 		}
+		// 	}
+
+		// 	&.two {left: 12.5%;}
+		// 	&.three {left: 25%;}
+		// 	&.four {left: 37.5%;}
+		// 	&.five {left: 50%;}
+		// 	&.six {left: 62.5%;}
+		// 	&.seven {left: 75%;}
+		// 	&.eight {
+		// 		left: 87.5%;
+
+		// 		.turn-segment-content  {
+		// 			width: calc(100% - #{$turnSegmentBorderThickness});
+		// 		}
+
+
+		// 		.segment-divider.right {
+		// 			opacity: 0;
+		// 		}
+		// 	}
+		// }
+
+		// @media all and (max-width: 1300px) {
+		// 	width: 16.66667%;
+
+		// 	&.ten, &.nine, &.eight, &.seven {
+		// 		left: 90%;
+		// 		opacity: 0;
+		// 		visibility: hidden;
+
+		// 		.turn-segment-proportioner {
+		// 			@include transform(translatey(300%) scale(1, 0.3));
+		// 		}
+
+		// 		.turn-segment-content  {
+		// 			width: calc(100% - #{$turnSegmentBorderThickness});
+		// 		}
+
+		// 		.segment-divider.right {
+		// 			opacity: 0;
+		// 		}
+		// 	}
+
+		// 	&.two {left: 16.66667%;}
+		// 	&.three {left: 33.33334%;}
+		// 	&.four {left: 50%;}
+		// 	&.five {left: 66.66667%;}
+		// 	&.six {left: 83.33335%;
+		// 		.turn-segment-content  {
+		// 			width: calc(100% - #{$turnSegmentBorderThickness});
+		// 		}
+
+
+		// 		.segment-divider.right {
+		// 			opacity: 0;
+		// 		}
+		// 	}
+		// }
+	}
+
+	&.extended {
+		$marginExDiff: 10px;
+		$sideMarginExDiff: 12px;
+		$turnSegmentMarginEx: $turnSegmentMargin + $marginExDiff;
+		$turnSegmentSideMarginEx: $turnSegmentSideMargin + $sideMarginExDiff;
+
+		.turn-segments-container {
+			@include transform(translatey($marginExDiff));
+
+			// @include transform(translate($sideMarginExDiff,  $marginExDiff));
+
+			// width: calc(100% - #{$turnSegmentSideMarginEx * 2});
+		}
+
+		$scrollbarHeight: 12px;
+		$sideTriangleWidth: 8px;
+
+		.turn-scroll-bar {
+			// left: #{$sideMarginExDiff + $sideTriangleWidth + 16px};
+			// width: calc(100% - #{($turnSegmentSideMarginEx + $sideTriangleWidth) * 2});
+		}
+
+		.scroll-bar-bg {
+			@include transform(none);
+			
+			opacity: .24;
+		}
+
+		.timer-bar-container {
+			@include transform(none);
+			
+			// opacity: .24;
+		}
+
+		.point-flags-container {
+			.hover-flag-container {
+				@include transform(translatey(4px));
+			}
+		}
+
+		.turn-scroll-handle-container {
+			$handleBgMargins: 3px;
+
+			cursor: ew-resize;
+			top: 0;
+
+			.handle-bg {
+				$borderHeight: $scrollbarHeight / 2 - $handleBgMargins;
+				$handleBgTriangleWidths: $sideTriangleWidth - $handleBgMargins;
+
+				@include transform(translatey($handleBgMargins));
+
+				.handle-midsection {
+					@include border-radius(0);
+					@include transform(translatex($handleBgTriangleWidths) scale(10, 1));
+
+					height: 100%;
+					// width: calc(100% - #{$handleBgTriangleWidths * 2});
+				}
+
+				.border-triangle {
+					@include transform(none);
+
+					opacity: 1;
+
+					&.right {
+						right: 0;
+					}
+				}
+			}
+
+			.handle-bg-frame {
+				@include transform(scale(1, 0.7));
+			}
+
+			.handle-frame-group {
+				@include transform(none);
+
+				opacity:1;
+			}
+
+			&.left-scroll-mode {
+				.handle-frame-group .handle-frame .handle-frame-content {
+					.aeto-chevron {
+						$tilt: 55deg;
+
+						&.left {
+							opacity: .3;
+						}
+
+						&.right {
+							opacity: .1;
+
+							.component:nth-child(1) {@include transform(skew(#{-$tilt}, 0deg));}
+							.component:nth-child(2) {@include transform(skew($tilt, 0deg));}
+						}
+					}
+				}
+			}
+
+			&.right-scroll-mode {
+				.handle-frame-group .handle-frame .handle-frame-content {
+					.aeto-chevron {
+						$tilt: 55deg;
+						
+						&.left {
+							opacity: .1;
+
+							.component:nth-child(1) {@include transform(skew($tilt, 0deg));}
+							.component:nth-child(2) {@include transform(skew(#{-$tilt}, 0deg));}
+						}
+
+						&.right {
+							opacity: .3;
+
+							.component:nth-child(1) {@include transform(skew($tilt, 0deg));}
+							.component:nth-child(2) {@include transform(skew(#{-$tilt}, 0deg));}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.anim-enter {
+		$set1Delay: .15s;
+
+		.aeto-ui-bg-container {
+			$bg1Speed: .45s;
+			$bg2Delay: .15s + $set1Delay;
+			$bg2Speed: .5s;
+
+			.dark-back-bg {
+				@include animation(anim-stall $bg2Delay ease-in-out 0s,
+                    bg-dropdown-enter $bg2Speed ease-in-out $bg2Delay);
+			}
+
+			.dark-bg {
+				@include animation(anim-stall $set1Delay ease-in-out 0s,
+                    bg-dropdown-enter $bg1Speed ease-in-out $set1Delay);
+			}
+		}
+
+		$set2Delay: .3s;
+
+		.turn-scroll-bar {
+			$scrollBgSpeed: .7s;
+			$handleDelay: $set2Delay + .5s;
+			$handleSpeed: .4s;
+
+			.scroll-bar-bg {
+				@include animation(anim-stall $set2Delay ease-in-out 0s,
+                    scrollbar-bg-enter $scrollBgSpeed ease-in-out $set2Delay);
+			}
+
+			.turn-scroll-handle-container {
+				@include animation(anim-stall $handleDelay ease-in-out 0s,
+                    handle-enter $handleSpeed ease-in-out $handleDelay);
+			}
+		}
+
+		$set3Delay: .6s;
+
+		.turn-segments-container {
+			$containerSpeed: .4s;
+			$segmentSoftBgDelay: $set3Delay + $containerSpeed * .85;
+			$segmentSoftBgSpeed: .3s;
+			$segmentSoftBgIterationDelay: .1s;
+			$segmentContentDelay: $segmentSoftBgDelay + .25s;
+			$segmentContentSpeed: .35s;
+			$segmentContentIterationDelay: .1s;
+			$segmentDividerSpeed: .4s;
+			$segmentDividerDelay: $segmentContentDelay + $segmentContentIterationDelay * 10;
+			$allianceBarDelay: $segmentDividerDelay + .15s;
+			$allianceBarSpeed: .12s;
+			$allianceBarFadeSpeed: .6s;
+			$allianceBarIterationDelay: .12s;
+			$frameworkIconDelay: $segmentDividerDelay + .3s;
+			$frameworkIconSpeed: .35s;
+			$frameworkIconIterationDelay: .1s;
+			$charNameDelay: $segmentDividerDelay + .4s;
+			$charNameSpeed: .35s;
+			$charNameIterationDelay: .1s;
+			$charIconDelay: $segmentDividerDelay + .55s;
+			$charIconSpeed: .35s;
+			$charIconIterationDelay: .1s;
+			$turnLabelDelay: $segmentDividerDelay + .7s;
+			$turnLabelSpeed: .35s;
+			$turnLabelIterationDelay: .1s;
+			$turnNumberDelay: $segmentDividerDelay + .8s;
+			$turnNumberSpeed: .35s;
+			$turnNumberIterationDelay: .1s;
+
+			@include animation(anim-stall $set3Delay ease-in-out 0s,
+                segment-container-enter $containerSpeed ease-in-out $set3Delay);
+
+			.turn-segment {
+				&.one {
+					.turn-segment-background {
+						@include animation(anim-stall $segmentSoftBgDelay ease-in-out 0s,
+                			segment-soft-bg-enter $segmentSoftBgSpeed ease-in-out $segmentSoftBgDelay);
+					}
+
+					.turn-segment-content {
+						@include animation(anim-stall $segmentContentDelay ease-in-out 0s,
+                			segment-content-enter $segmentContentSpeed ease-in-out $segmentContentDelay);
+
+						.alliance-bar {
+							@include animation(anim-stall $allianceBarDelay ease-in-out 0s,
+                				alliance-bar-enter $allianceBarSpeed linear $allianceBarDelay,
+                				alliance-bar-fade-enter $allianceBarFadeSpeed linear $allianceBarDelay);
+
+							@include transform-origin(left);
+						}
+
+						.framework-icon {
+							@include animation(anim-stall $frameworkIconDelay ease-in-out 0s,
+                			framework-icon-enter $frameworkIconSpeed ease-in-out $frameworkIconDelay);
+						}
+
+						.character-name {
+							@include animation(anim-stall $charNameDelay ease-in-out 0s,
+                			char-name-enter $charNameSpeed ease-in-out $charNameDelay);
+						}
+
+						.character-icon {
+							@include animation(anim-stall $charIconDelay ease-in-out 0s,
+                			char-icon-enter $charIconSpeed ease-in-out $charIconDelay);
+						}
+
+						.turn-number-text {
+							@include animation(anim-stall $turnLabelDelay ease-in-out 0s,
+                				turn-label-enter $turnLabelSpeed ease-in-out $turnLabelDelay);
+						}
+
+						.turn-number {
+							@include animation(anim-stall $turnNumberDelay ease-in-out 0s,
+                				turn-number-enter $turnNumberSpeed ease-in-out $turnNumberDelay);
+						}
+					}
+				}
+
+				&.two {
+					.turn-segment-background {
+						@include animation(anim-stall #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay} ease-in-out 0s,
+                			segment-soft-bg-enter $segmentSoftBgSpeed ease-in-out #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay});
+					}
+
+					.turn-segment-content {
+						@include animation(anim-stall #{$segmentContentDelay + $segmentContentIterationDelay} ease-in-out 0s,
+                			segment-content-enter $segmentContentSpeed ease-in-out #{$segmentContentDelay + $segmentContentIterationDelay});
+
+						.alliance-bar {
+							@include animation(anim-stall #{$allianceBarDelay + $allianceBarIterationDelay} ease-in-out 0s,
+                				alliance-bar-enter $allianceBarSpeed linear #{$allianceBarDelay + $allianceBarIterationDelay},
+                				alliance-bar-fade-enter $allianceBarFadeSpeed linear $allianceBarDelay);
+
+							@include transform-origin(left);
+						}
+
+						.framework-icon {
+							@include animation(anim-stall #{$frameworkIconDelay + $frameworkIconIterationDelay} ease-in-out 0s,
+                			framework-icon-alt-enter $frameworkIconSpeed ease-in-out #{$frameworkIconDelay + $frameworkIconIterationDelay});
+						}
+
+						.character-name {
+							@include animation(anim-stall #{$charNameDelay + $charNameIterationDelay} ease-in-out 0s,
+                			char-name-enter $charNameSpeed ease-in-out #{$charNameDelay + $charNameIterationDelay});
+						}
+
+						.character-icon {
+							@include animation(anim-stall #{$charIconDelay + $charIconIterationDelay} ease-in-out 0s,
+                			char-icon-enter $charIconSpeed ease-in-out #{$charIconDelay + $charIconIterationDelay});
+						}
+
+						.turn-number-text {
+							@include animation(anim-stall #{$turnLabelDelay + $turnLabelIterationDelay} ease-in-out 0s,
+                				turn-label-enter $turnLabelSpeed ease-in-out #{$turnLabelDelay + $turnLabelIterationDelay});
+						}
+
+						.turn-number {
+							@include animation(anim-stall #{$turnNumberDelay + $turnNumberIterationDelay} ease-in-out 0s,
+                				turn-number-enter $turnNumberSpeed ease-in-out #{$turnNumberDelay + $turnNumberIterationDelay});
+						}
+					}
+				}
+
+				&.three {
+					.turn-segment-background {
+						@include animation(anim-stall #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay * 2} ease-in-out 0s,
+                			segment-soft-bg-enter $segmentSoftBgSpeed ease-in-out #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay * 2});
+					}
+
+					.turn-segment-content {
+						@include animation(anim-stall #{$segmentContentDelay + $segmentContentIterationDelay * 2} ease-in-out 0s,
+                			segment-content-enter $segmentContentSpeed ease-in-out #{$segmentContentDelay + $segmentContentIterationDelay * 2});
+
+						.alliance-bar {
+							@include animation(anim-stall #{$allianceBarDelay + $allianceBarIterationDelay * 2} ease-in-out 0s,
+                				alliance-bar-enter $allianceBarSpeed linear #{$allianceBarDelay + $allianceBarIterationDelay * 2},
+                				alliance-bar-fade-enter $allianceBarFadeSpeed linear $allianceBarDelay);
+
+							@include transform-origin(left);
+						}
+
+						.framework-icon {
+							@include animation(anim-stall #{$frameworkIconDelay + $frameworkIconIterationDelay * 2} ease-in-out 0s,
+                			framework-icon-enter $frameworkIconSpeed ease-in-out #{$frameworkIconDelay + $frameworkIconIterationDelay * 2});
+						}
+
+						.character-name {
+							@include animation(anim-stall #{$charNameDelay + $charNameIterationDelay * 2} ease-in-out 0s,
+                				char-name-enter $charNameSpeed ease-in-out #{$charNameDelay + $charNameIterationDelay * 2});
+						}
+
+						.character-icon {
+							@include animation(anim-stall #{$charIconDelay + $charIconIterationDelay * 2} ease-in-out 0s,
+                				char-icon-enter $charIconSpeed ease-in-out #{$charIconDelay + $charIconIterationDelay * 2});
+						}
+
+						.turn-number-text {
+							@include animation(anim-stall #{$turnLabelDelay + $turnLabelIterationDelay * 2} ease-in-out 0s,
+                				turn-label-enter $turnLabelSpeed ease-in-out #{$turnLabelDelay + $turnLabelIterationDelay * 2});
+						}
+
+						.turn-number {
+							@include animation(anim-stall #{$turnNumberDelay + $turnNumberIterationDelay * 2} ease-in-out 0s,
+                				turn-number-enter $turnNumberSpeed ease-in-out #{$turnNumberDelay + $turnNumberIterationDelay * 2});
+						}
+					}
+				}
+
+				&.four {
+					.turn-segment-background {
+						@include animation(anim-stall #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay * 3} ease-in-out 0s,
+                			segment-soft-bg-enter $segmentSoftBgSpeed ease-in-out #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay * 3});
+					}
+
+					.turn-segment-content {
+						@include animation(anim-stall #{$segmentContentDelay + $segmentContentIterationDelay * 3} ease-in-out 0s,
+                			segment-content-enter $segmentContentSpeed ease-in-out #{$segmentContentDelay + $segmentContentIterationDelay * 3});
+
+						.alliance-bar {
+							@include animation(anim-stall #{$allianceBarDelay + $allianceBarIterationDelay * 3} ease-in-out 0s,
+                				alliance-bar-enter $allianceBarSpeed linear #{$allianceBarDelay + $allianceBarIterationDelay * 3},
+                				alliance-bar-fade-enter $allianceBarFadeSpeed linear $allianceBarDelay);
+
+							@include transform-origin(left);
+						}
+
+						.framework-icon {
+							@include animation(anim-stall #{$frameworkIconDelay + $frameworkIconIterationDelay * 3} ease-in-out 0s,
+                			framework-icon-alt-enter $frameworkIconSpeed ease-in-out #{$frameworkIconDelay + $frameworkIconIterationDelay * 3});
+						}
+
+						.character-name {
+							@include animation(anim-stall #{$charNameDelay + $charNameIterationDelay * 3} ease-in-out 0s,
+                			char-name-enter $charNameSpeed ease-in-out #{$charNameDelay + $charNameIterationDelay * 3});
+						}
+
+						.character-icon {
+							@include animation(anim-stall #{$charIconDelay + $charIconIterationDelay * 3} ease-in-out 0s,
+                			char-icon-enter $charIconSpeed ease-in-out #{$charIconDelay + $charIconIterationDelay * 3});
+						}
+
+						.turn-number-text {
+							@include animation(anim-stall #{$turnLabelDelay + $turnLabelIterationDelay * 3} ease-in-out 0s,
+                				turn-label-enter $turnLabelSpeed ease-in-out #{$turnLabelDelay + $turnLabelIterationDelay * 3});
+						}
+
+												.turn-number {
+							@include animation(anim-stall #{$turnNumberDelay + $turnNumberIterationDelay * 3} ease-in-out 0s,
+                				turn-number-enter $turnNumberSpeed ease-in-out #{$turnNumberDelay + $turnNumberIterationDelay * 3});
+						}
+					}
+				}
+
+				&.five {
+					.turn-segment-background {
+						@include animation(anim-stall #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay * 4} ease-in-out 0s,
+	                		segment-soft-bg-enter $segmentSoftBgSpeed ease-in-out #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay * 4});
+					}
+
+					.turn-segment-content {
+						@include animation(anim-stall #{$segmentContentDelay + $segmentContentIterationDelay * 4} ease-in-out 0s,
+                			segment-content-enter $segmentContentSpeed ease-in-out #{$segmentContentDelay + $segmentContentIterationDelay * 4});
+
+						.alliance-bar {
+							@include animation(anim-stall #{$allianceBarDelay + $allianceBarIterationDelay * 4} ease-in-out 0s,
+                				alliance-bar-enter $allianceBarSpeed linear #{$allianceBarDelay + $allianceBarIterationDelay * 4},
+                				alliance-bar-fade-enter $allianceBarFadeSpeed linear $allianceBarDelay);
+
+							@include transform-origin(left);
+						}
+
+						.framework-icon {
+							@include animation(anim-stall #{$frameworkIconDelay + $frameworkIconIterationDelay * 4} ease-in-out 0s,
+                			framework-icon-enter $frameworkIconSpeed ease-in-out #{$frameworkIconDelay + $frameworkIconIterationDelay * 4});
+						}
+
+						.character-name {
+							@include animation(anim-stall #{$charNameDelay + $charNameIterationDelay * 4} ease-in-out 0s,
+                			char-name-enter $charNameSpeed ease-in-out #{$charNameDelay + $charNameIterationDelay * 4});
+						}
+
+						.character-icon {
+							@include animation(anim-stall #{$charIconDelay + $charIconIterationDelay * 4} ease-in-out 0s,
+                			char-icon-enter $charIconSpeed ease-in-out #{$charIconDelay + $charIconIterationDelay * 4});
+						}
+
+						.turn-number-text {
+							@include animation(anim-stall #{$turnLabelDelay + $turnLabelIterationDelay * 4} ease-in-out 0s,
+                				turn-label-enter $turnLabelSpeed ease-in-out #{$turnLabelDelay + $turnLabelIterationDelay * 4});
+						}
+
+						.turn-number {
+							@include animation(anim-stall #{$turnNumberDelay + $turnNumberIterationDelay * 4} ease-in-out 0s,
+                				turn-number-enter $turnNumberSpeed ease-in-out #{$turnNumberDelay + $turnNumberIterationDelay * 4});
+						}
+					}
+				}
+
+				&.six {
+					.turn-segment-background {
+						@include animation(anim-stall #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay * 5} ease-in-out 0s,
+                			segment-soft-bg-enter $segmentSoftBgSpeed ease-in-out #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay * 5});
+					}
+
+					.turn-segment-content {
+						@include animation(anim-stall #{$segmentContentDelay + $segmentContentIterationDelay * 5} ease-in-out 0s,
+                			segment-content-enter $segmentContentSpeed ease-in-out #{$segmentContentDelay + $segmentContentIterationDelay * 5});
+
+						.alliance-bar {
+							@include animation(anim-stall #{$allianceBarDelay + $allianceBarIterationDelay * 5} ease-in-out 0s,
+                				alliance-bar-enter $allianceBarSpeed linear #{$allianceBarDelay + $allianceBarIterationDelay * 5},
+                				alliance-bar-fade-enter $allianceBarFadeSpeed linear $allianceBarDelay);
+
+							@include transform-origin(left);
+						}
+						
+						.framework-icon {
+							@include animation(anim-stall #{$frameworkIconDelay + $frameworkIconIterationDelay * 5} ease-in-out 0s,
+                			framework-icon-alt-enter $frameworkIconSpeed ease-in-out #{$frameworkIconDelay + $frameworkIconIterationDelay * 5});
+						}
+
+						.character-name {
+							@include animation(anim-stall #{$charNameDelay + $charNameIterationDelay * 5} ease-in-out 0s,
+                			char-name-enter $charNameSpeed ease-in-out #{$charNameDelay + $charNameIterationDelay * 5});
+						}
+
+						.character-icon {
+							@include animation(anim-stall #{$charIconDelay + $charIconIterationDelay * 5} ease-in-out 0s,
+                			char-icon-enter $charIconSpeed ease-in-out #{$charIconDelay + $charIconIterationDelay * 5});
+						}
+
+						.turn-number-text {
+							@include animation(anim-stall #{$turnLabelDelay + $turnLabelIterationDelay * 5} ease-in-out 0s,
+                				turn-label-enter $turnLabelSpeed ease-in-out #{$turnLabelDelay + $turnLabelIterationDelay * 5});
+						}
+
+						.turn-number {
+							@include animation(anim-stall #{$turnNumberDelay + $turnNumberIterationDelay * 5} ease-in-out 0s,
+                				turn-number-enter $turnNumberSpeed ease-in-out #{$turnNumberDelay + $turnNumberIterationDelay * 5});
+						}
+					}
+				}
+
+				&.seven {
+					.turn-segment-background {
+						@include animation(anim-stall #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay * 6} ease-in-out 0s,
+                			segment-soft-bg-enter $segmentSoftBgSpeed ease-in-out #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay * 6});
+					}
+
+					.turn-segment-content {
+						@include animation(anim-stall #{$segmentContentDelay + $segmentContentIterationDelay * 6} ease-in-out 0s,
+                			segment-content-enter $segmentContentSpeed ease-in-out #{$segmentContentDelay + $segmentContentIterationDelay * 6});
+
+						.alliance-bar {
+							@include animation(anim-stall #{$allianceBarDelay + $allianceBarIterationDelay * 6} ease-in-out 0s,
+                				alliance-bar-enter $allianceBarSpeed linear #{$allianceBarDelay + $allianceBarIterationDelay * 6},
+                				alliance-bar-fade-enter $allianceBarFadeSpeed linear $allianceBarDelay);
+
+							@include transform-origin(left);
+						}
+
+						.framework-icon {
+							@include animation(anim-stall #{$frameworkIconDelay + $frameworkIconIterationDelay * 6} ease-in-out 0s,
+                			framework-icon-enter $frameworkIconSpeed ease-in-out #{$frameworkIconDelay + $frameworkIconIterationDelay * 6});
+						}
+
+						.character-name {
+							@include animation(anim-stall #{$charNameDelay + $charNameIterationDelay * 6} ease-in-out 0s,
+                			char-name-enter $charNameSpeed ease-in-out #{$charNameDelay + $charNameIterationDelay * 6});
+						}
+
+						.character-icon {
+							@include animation(anim-stall #{$charIconDelay + $charIconIterationDelay * 6} ease-in-out 0s,
+                			char-icon-enter $charIconSpeed ease-in-out #{$charIconDelay + $charIconIterationDelay * 6});
+						}
+
+						.turn-number-text {
+							@include animation(anim-stall #{$turnLabelDelay + $turnLabelIterationDelay * 6} ease-in-out 0s,
+                				turn-label-enter $turnLabelSpeed ease-in-out #{$turnLabelDelay + $turnLabelIterationDelay * 6});
+						}
+
+						.turn-number {
+							@include animation(anim-stall #{$turnNumberDelay + $turnNumberIterationDelay * 6} ease-in-out 0s,
+                				turn-number-enter $turnNumberSpeed ease-in-out #{$turnNumberDelay + $turnNumberIterationDelay * 6});
+						}
+					}
+				}
+
+				&.eight {
+					.turn-segment-background {
+						@include animation(anim-stall #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay * 7} ease-in-out 0s,
+                			segment-soft-bg-enter $segmentSoftBgSpeed ease-in-out #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay * 7});
+					}
+
+					.turn-segment-content {
+						@include animation(anim-stall #{$segmentContentDelay + $segmentContentIterationDelay * 7} ease-in-out 0s,
+                			segment-content-enter $segmentContentSpeed ease-in-out #{$segmentContentDelay + $segmentContentIterationDelay * 7});
+
+						.alliance-bar {
+							@include animation(anim-stall #{$allianceBarDelay + $allianceBarIterationDelay * 7} ease-in-out 0s,
+                				alliance-bar-enter $allianceBarSpeed linear #{$allianceBarDelay + $allianceBarIterationDelay * 7},
+                				alliance-bar-fade-enter $allianceBarFadeSpeed linear $allianceBarDelay);
+
+							@include transform-origin(left);
+						}
+
+						.framework-icon {
+							@include animation(anim-stall #{$frameworkIconDelay + $frameworkIconIterationDelay * 7} ease-in-out 0s,
+                			framework-icon-alt-enter $frameworkIconSpeed ease-in-out #{$frameworkIconDelay + $frameworkIconIterationDelay * 7});
+						}
+
+						.character-name {
+							@include animation(anim-stall #{$charNameDelay + $charNameIterationDelay * 7} ease-in-out 0s,
+                			char-name-enter $charNameSpeed ease-in-out #{$charNameDelay + $charNameIterationDelay * 7});
+						}
+
+						.character-icon {
+							@include animation(anim-stall #{$charIconDelay + $charIconIterationDelay * 7} ease-in-out 0s,
+                			char-icon-enter $charIconSpeed ease-in-out #{$charIconDelay + $charIconIterationDelay * 7});
+						}
+
+						.turn-number-text {
+							@include animation(anim-stall #{$turnLabelDelay + $turnLabelIterationDelay * 7} ease-in-out 0s,
+                				turn-label-enter $turnLabelSpeed ease-in-out #{$turnLabelDelay + $turnLabelIterationDelay * 7});
+						}
+
+						.turn-number {
+							@include animation(anim-stall #{$turnNumberDelay + $turnNumberIterationDelay * 7} ease-in-out 0s,
+                				turn-number-enter $turnNumberSpeed ease-in-out #{$turnNumberDelay + $turnNumberIterationDelay * 7});
+						}
+					}
+				}
+
+				&.nine {
+					.turn-segment-background {
+						@include animation(anim-stall #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay * 8} ease-in-out 0s,
+                			segment-soft-bg-enter $segmentSoftBgSpeed ease-in-out #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay * 8});
+					}
+
+					.turn-segment-content {
+						@include animation(anim-stall #{$segmentContentDelay + $segmentContentIterationDelay * 8} ease-in-out 0s,
+                			segment-content-enter $segmentContentSpeed ease-in-out #{$segmentContentDelay + $segmentContentIterationDelay * 8});
+
+						.alliance-bar {
+							@include animation(anim-stall #{$allianceBarDelay + $allianceBarIterationDelay * 8} ease-in-out 0s,
+                				alliance-bar-enter $allianceBarSpeed linear #{$allianceBarDelay + $allianceBarIterationDelay * 8},
+                				alliance-bar-fade-enter $allianceBarFadeSpeed linear $allianceBarDelay);
+
+							@include transform-origin(left);
+						}
+
+						.framework-icon {
+							@include animation(anim-stall #{$frameworkIconDelay + $frameworkIconIterationDelay * 8} ease-in-out 0s,
+                			framework-icon-enter $frameworkIconSpeed ease-in-out #{$frameworkIconDelay + $frameworkIconIterationDelay * 8});
+						}
+
+						.character-name {
+							@include animation(anim-stall #{$charNameDelay + $charNameIterationDelay * 8} ease-in-out 0s,
+                			char-name-enter $charNameSpeed ease-in-out #{$charNameDelay + $charNameIterationDelay * 8});
+						}
+
+						.character-icon {
+							@include animation(anim-stall #{$charIconDelay + $charIconIterationDelay * 8} ease-in-out 0s,
+                			char-icon-enter $charIconSpeed ease-in-out #{$charIconDelay + $charIconIterationDelay * 8});
+						}
+
+						.turn-number-text {
+							@include animation(anim-stall #{$turnLabelDelay + $turnLabelIterationDelay * 8} ease-in-out 0s,
+                				turn-label-enter $turnLabelSpeed ease-in-out #{$turnLabelDelay + $turnLabelIterationDelay * 8});
+						}
+
+						.turn-number {
+							@include animation(anim-stall #{$turnNumberDelay + $turnNumberIterationDelay * 8} ease-in-out 0s,
+                				turn-number-enter $turnNumberSpeed ease-in-out #{$turnNumberDelay + $turnNumberIterationDelay * 8});
+						}
+					}
+				}
+
+				&.ten {
+					.turn-segment-background {
+						@include animation(anim-stall #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay * 9} ease-in-out 0s,
+                			segment-soft-bg-enter $segmentSoftBgSpeed ease-in-out #{$segmentSoftBgDelay + $segmentSoftBgIterationDelay * 9});
+					}
+
+					.turn-segment-content {
+						@include animation(anim-stall #{$segmentContentDelay + $segmentContentIterationDelay * 9} ease-in-out 0s,
+                			segment-content-enter $segmentContentSpeed ease-in-out #{$segmentContentDelay + $segmentContentIterationDelay * 9});
+
+						.alliance-bar {
+							@include animation(anim-stall #{$allianceBarDelay + $allianceBarIterationDelay * 9} ease-in-out 0s,
+                				alliance-bar-enter $allianceBarSpeed linear #{$allianceBarDelay + $allianceBarIterationDelay * 9},
+                				alliance-bar-fade-enter $allianceBarFadeSpeed linear $allianceBarDelay);
+
+							@include transform-origin(left);
+						}
+
+						.framework-icon {
+							@include animation(anim-stall #{$frameworkIconDelay + $frameworkIconIterationDelay * 9} ease-in-out 0s,
+                			framework-icon-alt-enter $frameworkIconSpeed ease-in-out #{$frameworkIconDelay + $frameworkIconIterationDelay * 9});
+						}
+
+						.character-name {
+							@include animation(anim-stall #{$charNameDelay + $charNameIterationDelay * 9} ease-in-out 0s,
+                			char-name-enter $charNameSpeed ease-in-out #{$charNameDelay + $charNameIterationDelay * 9});
+						}
+
+						.character-icon {
+							@include animation(anim-stall #{$charIconDelay + $charIconIterationDelay * 9} ease-in-out 0s,
+                			char-icon-enter $charIconSpeed ease-in-out #{$charIconDelay + $charIconIterationDelay * 9});
+						}
+
+						.turn-number-text {
+							@include animation(anim-stall #{$turnLabelDelay + $turnLabelIterationDelay * 9} ease-in-out 0s,
+                				turn-label-enter $turnLabelSpeed ease-in-out #{$turnLabelDelay + $turnLabelIterationDelay * 9});
+						}
+
+						.turn-number {
+							@include animation(anim-stall #{$turnNumberDelay + $turnNumberIterationDelay * 9} ease-in-out 0s,
+                				turn-number-enter $turnNumberSpeed ease-in-out #{$turnNumberDelay + $turnNumberIterationDelay * 9});
+						}
+					}
+				}
+
+				.segment-divider.left {
+					@include animation(anim-stall $segmentDividerDelay ease-in-out 0s,
+	        			left-segment-divider-enter $segmentDividerSpeed ease-in-out $segmentDividerDelay);
+				}
+
+				.segment-divider.right {
+					@include animation(anim-stall $segmentDividerDelay ease-in-out 0s,
+	        			right-segment-divider-enter $segmentDividerSpeed ease-in-out $segmentDividerDelay);
+				}
+
+				.turn-segment-content {
+					div {
+						// visibility: hidden;
+					}
+
+					.alliance-bar, .framework-icon, .character-name, .character-icon {
+						// visibility: visible;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include keyframes(hover-flag-pulse) {
+	0% {
+		@include transform(rotate(45deg) scale(0.8));
+
+	}
+    50% {
+        @include box-shadow(inset 0 0 0 2px #FFF);
+        @include transform(rotate(225deg));
+    }
+    100% {
+		@include transform(rotate(405deg) scale(0.8));
+    }
+}
+
+// Entry Animations
+
+// --- Bg
+
+@include keyframes(bg-dropdown-enter) {
+	0% {
+		@include transform(translatey(-100%));
+	}
+	70% {
+		@include transform(translatey(5%));
+	}
+}
+
+// Scrollbar
+
+@include keyframes(scrollbar-bg-enter) {
+	0% {
+		@include transform(translatey(-5px) scale(0, 0.1667));
+		
+		opacity: .2;
+	}
+}
+
+@include keyframes(handle-enter) {
+	0% {
+		@include transform(translatex(30px));
+		
+		opacity: 0;
+	}
+	70% {
+		@include transform(translatex(-4px));
+	}
+}
+
+// Segments
+
+@include keyframes(segment-container-enter) {
+	0% {
+		@include transform(translatey(30px));
+		
+		opacity: 0;
+	}
+	70% {
+		@include transform(translatey(-4px));
+	}
+}
+
+@include keyframes(segment-soft-bg-enter) {
+	0% {
+		// @include transform(translatey(-100%));
+
+		opacity: 0;
+	}
+	70% {
+		
+	}
+}
+
+@include keyframes(segment-content-enter) {
+	0% {
+		@include transform(translatey(100%));
+
+		opacity: 0;
+	}
+	70% {
+		@include transform( translatey(-10%));
+	}
+}
+
+@include keyframes(left-segment-divider-enter) {
+	0% {
+		@include transform(translatex(-20px));
+
+		opacity: 0;
+	}
+}
+
+@include keyframes(right-segment-divider-enter) {
+	0% {
+		@include transform(translatex(20px));
+
+		opacity: 0;
+	}
+}
+
+@include keyframes(alliance-bar-enter) {
+	0% {
+		@include transform(scale(0, 1));
+	}
+}
+
+@include keyframes(alliance-bar-fade-enter) {
+	0% {
+		opacity: 0.2;
+	}
+}
+
+@include keyframes(framework-icon-enter) {
+	0% {
+		@include transform(translatey(-30px));
+	}
+	70% {
+		@include transform(translatey(4px));
+	}
+}
+
+@include keyframes(framework-icon-alt-enter) {
+	0% {
+		@include transform(translatey(-30px));
+	}
+	70% {
+		@include transform(translatey(4px));
+	}
+}
+
+@include keyframes(char-name-enter) {
+	0% {
+		@include transform(translatex(-40px));
+
+		opacity: 0;
+	}
+	70% {
+		@include transform(translatex(4px));
+	}
+}
+
+@include keyframes(char-icon-enter) {
+	0% {
+		@include transform(translatey(30px));
+	}
+	70% {
+		@include transform(translatey(-4px));
+	}
+}
+
+@include keyframes(turn-label-enter) {
+	0% {
+		@include transform(translatey(-30px));
+	}
+	70% {
+		@include transform(translatey(4px));
+	}
+}
+
+@include keyframes(turn-number-enter) {
+	0% {
+		@include transform(translatex(30px));
+	}
+	70% {
+		@include transform(translatex(-4px));
+	}
+}
+
+// Active turn cycling
+
+@include keyframes(active-turn-rotate) {
+	0% {
+		@include transform(rotate(45deg));
+	}
+    50% {
+        @include transform(rotate(225deg));
+    }
+    100% {
+		@include transform(rotate(405deg));
+    }
+}
+
+@include keyframes(active-turn-rotate-two) {
+	0% {
+	}
+    50% {
+        @include transform(rotate(180deg));
+    }
+    100% {
+		@include transform(rotate(360deg));
+    }
+}
+
+// Timer Animations
+
+@include keyframes(timer-bg-drop) {
+	0% {
+		@include transform(translatey(-30px));
+
+		opacity: 0;
+	}
+	70% {
+		@include transform(translatey(-4px));
+	}
+}
+
+@include keyframes(clock-circle-enter) {
+	0% {
+		@include transform(scale(1.5));
+		
+		opacity: 0;
+	}
+}
+
+@include keyframes(clock-hand-enter) {
+	0% {
+		@include transform(scale(1, 0));
+		
+		opacity: 0;
+	}
+}
+
+@include keyframes(timer-seconds-enter) {
+	0% {
+		@include transform(translatex(-30px));
+
+		opacity: 0;
+	}
+}
+
+@include keyframes(timer-cseconds-enter) {
+	0% {
+		@include transform(translatex(30px));
+
+		opacity: 0;
+	}
+}
+
+@include keyframes(timer-apostrophe-enter) {
+	0% {
+		@include transform(translatey(30px));
+
+		opacity: 0;
+	}
+}

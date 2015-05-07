@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>AETO</title>
+
+		<meta charset="utf-8">
+
+		<link rel="stylesheet" href="AetoClient/AETO-2D/assets/css/support/reset.css">
+		<link rel="stylesheet" href="AetoClient/AETO-2D/assets/css/support/bootstrap.min.css">
+		<link rel="stylesheet" href="AetoClient/AETO-2D/assets/css/aeto-ui-core.css">
+		<link rel="stylesheet" href="AetoClient/AETO-2D/assets/css/aeto-ui-utility.css">
+		<link rel="stylesheet" href="AetoClient/AETO-2D/assets/css/aeto-ui-hudbar.css">
+		<link rel="stylesheet" href="AetoClient/AETO-2D/assets/css/aeto-ui-turnbar.css">
+		<link rel="stylesheet" href="AetoClient/AETO-2D/assets/css/aeto-ui-battle-menu.css">
+		<link rel="stylesheet" href="AetoClient/AETO-2D/assets/fonts/aeto-font-sheet.css">
+		<link rel="stylesheet" href="AetoClient/AETO-2D/assets/fonts/stylesheet1.css">
+		<link rel="stylesheet" href="AetoClient/AETO-2D/assets/fonts/stylesheet2.css">
+		<link rel="stylesheet" href="AetoClient/AETO-2D/assets/fonts/stylesheet3.css">
+	</head>
+	
+	<body>
+		<!-- <canvas id="gameCanvas"></canvas> -->
+        <!-- <script src="http://localhost:8000/socket.io/socket.io.js"></script>  -->
+		<script src="AetoClient/AETO-UTILITY/frameworks/three.min.js"></script>
+		<script src="AetoClient/AETO-UTILITY/frameworks/aui-min.js"></script>
+		<script src="AetoClient/AETO-UTILITY/frameworks/velocity.min.js"></script>
+		<script src="AetoClient/AETO-UTILITY/frameworks/TweenMax.min.js"></script>
+		<script src="AetoClient/AETO-UTILITY/frameworks/TimelineMax.min.js"></script>
+
+		<script src="AetoClient/AETO-UTILITY/frameworks/requestAnimationFrame.js"></script>
+		<script src="AetoClient/AETO-UTILITY/AetoUtil.js"></script>
+		
+		<!--  -->
+		<script src="AetoClient/AetoClientMasterController.js"></script>
+		<!--  -->
+
+		<script src="AetoClient/AETO-UI/AetoUIController.js"></script>
+		<script src="AetoClient/AETO-UI/assets/js/AetoUISettings.js"></script>
+		<script src="AetoClient/AETO-2D/Aeto2DViewController.js"></script>
+		<script src="AetoClient/AETO-2D/assets/js/Aeto2DUtil.js"></script>
+		<script src="AetoClient/AETO-2D/assets/js/AetoCombatInterface.js"></script>
+		<script src="AetoClient/AETO-2D/assets/js/AetoHudbar.js"></script>
+		<script src="AetoClient/AETO-2D/assets/js/AetoTurnbar.js"></script>
+		<script src="AetoClient/AETO-2D/assets/js/AetoBattleMenu.js"></script>
+
+		<!--<script src="assets/js/Keys.js"></script>
+		<script src="assets/js/Player.js"></script>
+		<script src="assets/js/GameSetup.js"></script>-->
+
+		<div class="game-container" id="test">
+			<div class="aeto-ui">
+				
+			</div>
+		</div>
+
+
+		<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
+<g>
+	<path fill="none" d="M209.876,247.28c-15.834,7.457-35.35,11.75-58.625,8.973C89.73,239.224,61.608,193.61,76.249,126.25
+		c0,0.369-22.242-26.225-55-53.75C14.079,82.787,0,110.51,0,150c0,81.793,67.157,150,150,150c35.828,0,64.657-12.513,85.002-27.502
+		C229.626,263.221,219.342,252.932,209.876,247.28z M276.252,148.749c-3.616,28.696-14.766,51.092-26.25,66.254
+		c7.304,11.108,12.318,14.872,21.973,21.616C289.594,212.002,300,182.019,300,150C300,68.383,232.942,0,150,0
+		c-13.13,0-26.309,1.343-43.75,6.249C181.184-5.859,280.692,37.969,276.252,148.749z M287.391,266.715c0,0-3.066-3.219-3.103-3.407
+		c0,0-34.896-21.566-53.015-53.167c-0.284,0,16.251-25.94,16.251-25.94s-1.439-4.827,1.679-16.825
+		c-0.016,0.015-0.864-1.297-1.053-2.635c-0.03-0.203-20.961,20.498-20.976,20.518c0,0-117.448-99.711-169.42-165.788
+		C57.752,19.732,39.472,9.603,9.201,7.518c0.018-0.008-0.351,0.208-0.44,0.19c1.884,30.223,11.872,48.597,11.609,48.597
+		c65.522,52.775,164.115,171.312,164.115,171.312c-0.016,0.01-20.782,20.594-20.585,20.625c1.333,0.208,2.635,1.078,2.62,1.093
+		c11.978-2.944,16.779-1.438,16.779-1.438s25.966-16.119,25.961-15.839c31.138,16.52,52.902,53.314,52.902,53.314
+		c0.193,0.035,3.388,3.133,3.388,3.133s6.836,0.224,10.971,2.681c2.559,1.058,14.425-10.9,13.397-13.469
+		C287.513,273.562,287.391,266.715,287.391,266.715z M210.181,210.664l-0.244,0.239l-11.973,2.752c0,0-83.965-98.11-166.811-176.281
+		c-2.629,4.034-3.095,9.138-3.095,9.138s-5.867-8.416-6.205-25.724c-0.084-0.086,0.155-0.323,0.239-0.239
+		c17.51,0.313,25.889,6.235,25.889,6.235s-5.173,0.483-9.315,3.154c77.212,83.749,174.566,168.595,174.566,168.595L210.181,210.664z
+		"/>
+</g>
+</svg>
+
+	</body>
+</html>

@@ -1,0 +1,35 @@
+@import 'compass/css3';
+@import "compass/css3/user-interface";
+
+.anim-hidden {
+	visibility: hidden;
+}
+
+.anim-visible {
+	visibility: visible;
+}
+
+.text-animate {
+
+}
+
+.shake {
+	@include animation(shake-little 100ms ease-in-out 0s infinite);
+	@include transform-origin(center, center);
+
+	display:inline-block;
+}
+
+@include keyframes(anim-stall) {
+	0% {
+		visibility: hidden;
+	}
+	100% {
+		visibility: hidden;
+	}
+}
+
+@include keyframes(shake-little) {
+	0%{@include transform(translate(0px, 0px) rotate(0deg));}2%{@include transform(translate(-1px, 0px) rotate(-0.5deg));}4%{@include transform(translate(-1px, -1px) rotate(-0.5deg));}6%{@include transform(translate(-1px, -1px) rotate(-0.5deg));}8%{@include transform(translate(0px, 0px) rotate(-0.5deg));}10%{@include transform(translate(0px, -1px) rotate(-0.5deg));}12%{@include transform(translate(-1px, 0px) rotate(-0.5deg));}14%{@include transform(translate(-1px, -1px) rotate(-0.5deg));}16%{@include transform(translate(0px, 0px) rotate(-0.5deg));}18%{@include transform(translate(-1px, -1px) rotate(-0.5deg));}20%{@include transform(translate(-1px, -1px) rotate(-0.5deg));}22%{@include transform(translate(0px, -1px) rotate(-0.5deg));}24%{@include transform(translate(0px, 0px) rotate(-0.5deg));}26%{@include transform(translate(-1px, -1px) rotate(-0.5deg));}28%{@include transform(translate(-1px, -1px) rotate(-0.5deg));}30%{@include transform(translate(-1px, -1px) rotate(-0.5deg));}32%{@include transform(translate(0px, -1px) rotate(-0.5deg));}34%{@include transform(translate(-1px, -1px) rotate(-0.5deg));}36%{@include transform(translate(0px, -1px) rotate(-0.5deg));}38%{@include transform(translate(-1px, 0px) rotate(-0.5deg));}40%{@include transform(translate(0px, 0px) rotate(-0.5deg));}42%{@include transform(translate(-1px, -1px) rotate(-0.5deg));}44%{@include transform(translate(-1px, 0px) rotate(-0.5deg));}46%{@include transform(translate(0px, 0px) rotate(-0.5deg));}48%{@include transform(translate(-1px, -1px) rotate(-0.5deg));}50%{@include transform(translate(0px, 0px) rotate(-0.5deg));}52%{@include transform(translate(0px, 0px) rotate(-0.5deg));}54%{@include transform(translate(0px, 0px) rotate(-0.5deg));}56%{@include transform(translate(-1px, 0px) rotate(-0.5deg));}58%{@include transform(translate(0px, -1px) rotate(-0.5deg));}60%{@include transform(translate(-1px, -1px) rotate(-0.5deg));}62%{@include transform(translate(-1px, -1px) rotate(-0.5deg));}64%{@include transform(translate(-1px, 0px) rotate(-0.5deg));}66%{@include transform(translate(0px, 0px) rotate(-0.5deg));}68%{@include transform(translate(-1px, 0px) rotate(-0.5deg));}70%{@include transform(translate(0px, -1px) rotate(-0.5deg));}72%{@include transform(translate(0px, -1px) rotate(-0.5deg));}74%{@include transform(translate(-1px, -1px) rotate(-0.5deg));}76%{@include transform(translate(0px, 0px) rotate(-0.5deg));}78%{@include transform(translate(0px, -1px) rotate(-0.5deg));}80%{@include transform(translate(0px, -1px) rotate(-0.5deg));}82%{@include transform(translate(-1px, 0px) rotate(-0.5deg));}84%{@include transform(translate(-1px, 0px) rotate(-0.5deg));}86%{@include transform(translate(0px, 0px) rotate(-0.5deg));}88%{@include transform(translate(0px, 0px) rotate(-0.5deg));}90%{@include transform(translate(-1px, -1px) rotate(-0.5deg));}92%{@include transform(translate(0px, 0px) rotate(-0.5deg));}94%{@include transform(translate(0px, 0px) rotate(-0.5deg));}96%{@include transform(translate(-1px, -1px) rotate(-0.5deg));}98%{@include transform(translate(0px, 0px) rotate(-0.5deg));}
+}
+

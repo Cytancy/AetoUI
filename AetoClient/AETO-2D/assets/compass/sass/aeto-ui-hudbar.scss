@@ -1,0 +1,2770 @@
+@import 'compass/css3';
+@import "compass/css3/user-interface";
+
+@import url(http://fonts.googleapis.com/css?family=Gilda+Display|Libre+Baskerville|Crimson+Text|Cardo|Gentium+Book+Basic|Lusitana);
+
+.aeto-ui-hudbar-container {
+    $hudBarHeight: 260px;
+    $frameColor: #FAFAFA;
+    $barOffset: 100px;
+
+    @include transform-origin(left, bottom);
+ 
+    bottom: 30px;
+    height: $hudBarHeight;
+    left: 50px;
+    position: fixed;
+
+    .aeto-ui-hudbar {
+        position: relative;
+        height: 100%;
+    }
+
+    .frame-header-holder {
+        left: 200px;
+        position: absolute;
+        top: 65px;
+        z-index: 5;
+    }
+
+    .frame-header-content {
+        position: relative;
+        height: 76px;
+
+        .frame-header-icon {
+            width: 56px;
+            height: 56px;
+            position: absolute;
+            background: url("http://i.imgur.com/mpR6O4U.png");
+            background-size: contain;
+            left: 38px;
+            top: 8px;
+        }
+
+        .frame-header-framework-name {
+            background-size: contain;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            left: 108px;
+            position: absolute;
+            top: 8px;
+        }
+
+        .frame-header-name {
+            font-family: 'Josefin Sans', sans-serif;
+            color: rgb(60, 60, 60);
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 20px;
+            padding-left: 106px;
+            padding-right: 106px;
+            position: relative;
+            top: 35px;
+        }
+    }
+
+    $statFrameOffset: 6px;
+    $barStrokeWidth: 18px;
+
+    .back-bg-group {
+        height: 100%;
+        opacity: .75;
+        z-index: 1;
+
+        .dark-bg {
+            opacity: .34;
+            position: relative;
+            height: 100%;
+
+            .bg-circle {
+                height: 100%;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: $hudBarHeight;
+
+                .bg-circle-fill {
+                    @include box-shadow(inset 0 0 0 #{$hudBarHeight/2} #000, 0 0 4px 2px rgba(0, 0, 0, .6));
+                    @include border-radius(50%);
+
+                    height: 100%;
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                }
+            }
+
+            .bg-header-tab {
+                height: 7px;
+                top: 58px;
+                left: #{$hudBarHeight * 0.915};
+                width: 56px;
+                background: #000;    
+                position: absolute;
+
+                &:after {
+                    right: -6px;
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 7px 0 0 6px;
+                    border-color: transparent transparent transparent #000;
+                    top: 0;
+                }       
+            }
+        }
+
+        .stat-status-bar-group {
+            opacity: .42;
+            z-index: 2;
+        }
+    }
+
+    .stat-frame {
+        height: #{$hudBarHeight - 2 * $statFrameOffset + 1};
+        left: $statFrameOffset;
+        position: absolute;
+        top: $statFrameOffset;
+        width:  #{$hudBarHeight - 2 * $statFrameOffset};
+        z-index: 2;
+
+        .stat-frame-bar {
+            @include transition-duration(.35s);
+            @include transition-property(stroke-dashoffset);
+            @include transition-timing-function(ease-in-out);
+                            
+            stroke: #000;
+            stroke-dasharray: 540; // length
+            stroke-dashoffset: 0; // length - x2
+            stroke-width: $barStrokeWidth;
+        }
+    }
+
+    .effects-bar-frame {
+        @include transition-duration(.4s);
+        @include transition-property(width);
+        @include transition-timing-function(ease-in-out);
+
+        bottom: #{$statFrameOffset - 0.6};
+        height: #{$barStrokeWidth + 0.4};
+        left: #{$hudBarHeight/2};
+        position: absolute;
+        width: 30px;
+
+        .effect-bar-bg {
+            background: #000;
+            border-color: rgba(0, 0, 0, .3);
+            border-style: solid;
+            border-width: 1px 0;
+            bottom: 0;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            width: 100%;
+
+        }
+
+        .effect-bar-edge {
+            border-color: #000 transparent transparent transparent;
+            border-style: solid;
+            border-width: #{$barStrokeWidth + 0.4} #{$barStrokeWidth} 0 0;
+            height: 0;
+            position: absolute;
+            right: #{-$barStrokeWidth + 0.1};
+            top: 0;
+            width: 0;
+        }
+    }
+
+    .frame-header-bg {
+        $gradientFillWidth: 80px;
+
+        left: 200px;
+        position: absolute;
+        top: 65px;
+        z-index: 3;
+
+        .frame-bg {
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+
+            .bg-solid-fill {
+                background: #FFF;
+                height: 100%;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: calc(80% - #{$gradientFillWidth});
+                z-index: 1;
+            }
+
+            .bg-gradient-fill {
+                @include background-image(linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%));
+
+                top: 0;
+                right: 1px;
+                height: 100%;
+                position: absolute;
+                width: calc(20% + #{$gradientFillWidth});
+                z-index: 1;
+            } 
+        }
+    }
+
+    .outer-frame {
+        $frameCircleHeight: 203px;
+
+        height: $frameCircleHeight; 
+        left: #{($hudBarHeight - $frameCircleHeight) / 2};
+        opacity: .21;
+        position: absolute;
+        top: #{($hudBarHeight - $frameCircleHeight) / 2};
+
+        .frame-circle {
+            height:  $hudBarHeight; 
+            top: #{(-$hudBarHeight + $frameCircleHeight) / 2};
+            left: #{(-$hudBarHeight + $frameCircleHeight) / 2};
+            position: absolute;
+            width:  $hudBarHeight;
+
+            .frame-circle-fill {
+                @include border-radius(50%);
+                @include box-shadow(0 0 3px 3px rgba(0, 0, 0, 0.5));
+
+                background: #000;
+                position: absolute;
+                height: $frameCircleHeight; 
+                left: #{($hudBarHeight - $frameCircleHeight) / 2};
+                top: #{($hudBarHeight - $frameCircleHeight) / 2};
+                width: $frameCircleHeight;
+                height: $frameCircleHeight;
+            }
+        }
+
+        .frame-bar-container {
+            $frameBarHeight: 95px;
+
+            bottom: 0;
+            height: $frameBarHeight;
+            left: #{$barOffset + 4};
+            position: absolute;
+            width: 617px;
+
+            .frame-bar {
+                -webkit-clip-path: url(../svgs/aeto-gray-frame.svg);
+                clip-path: url(../svgs/aeto-gray-frame.svg#svgClip);
+                -webkit-mask: url(../svgs/aeto-gray-frame.svg);
+
+                height: 100%;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                z-index: 2;
+
+                .frame-bar-fill {
+                    background: #000;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+
+                    &:after {
+                        $arrowWidth: 40px;
+
+                        border-color: transparent transparent transparent #000;
+                        border-style: solid;
+                        border-width: #{$frameBarHeight / 2} 0 #{$frameBarHeight / 2} $arrowWidth;
+                        content: "";
+                        height: 0;
+                        position: absolute;
+                        right: #{-$arrowWidth};
+                        width: 0;
+                    }
+                }
+            }
+
+            .frame-bar-shadow {
+                @include transform(scale(1.015));
+                @include filter(blur(3px));
+                
+                background: url(../svgs/aeto-gray-frame.svg);
+                height: 100%;
+                left: 0;
+                opacity: .85;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                z-index: 1;
+            }
+        }
+    }
+
+    $frameCircleHeight: 196px;
+    $frameOuterLineOffset: 6px;
+    $frameInnerLineOffset: 8px;
+
+    .white-frame-group {
+        position: absolute;
+        top: 0;
+        z-index: 6;
+    }
+
+    .white-frame {
+        height: $frameCircleHeight; 
+        left: #{($hudBarHeight - $frameCircleHeight) / 2};
+        position: absolute;
+        top: #{($hudBarHeight - $frameCircleHeight) / 2};
+
+        .frame-circle {
+            height: 100%; 
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: $frameCircleHeight;
+
+            .frame-circle-fill {
+                @include border-radius(50%);
+            
+                background: $frameColor;
+                height: 100%;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 100%;
+            }
+        }
+
+        .frame-bar {
+            clip-path: url(../svgs/aeto-white-frame.svg#svgClip);
+            -webkit-clip-path: url(../svgs/aeto-white-frame.svg);
+            -webkit-mask: url(../svgs/aeto-white-frame.svg);
+
+            bottom: 0;
+            height: 87px;
+            left: $barOffset;
+            position: absolute;
+            width: 609px;
+
+            .frame-bar-fill {
+                $item1Height: 16px;
+                $item2Height: 45px;
+                $item3Height: 26px;
+
+                position: absolute;
+                background: $frameColor;
+                left: 0;
+                width: 100%;
+
+                &:after {
+                    border-color: transparent transparent transparent $frameColor;
+                    border-style: solid;
+                    content: "";
+                    height: 0;
+                    position: absolute;
+                    width: 0;
+                }
+
+                &:nth-child(1) {
+                    height: $item1Height;
+                    top: 0;
+
+                    &:after {
+                        border-width: #{$item1Height / 2} 0 #{$item1Height / 2} $item1Height;
+                        right: #{-$item1Height};
+                    }
+                }
+
+                &:nth-child(2) {
+                    height: $item2Height;
+                    top: $item1Height;
+
+                     &:after {
+                        border-width: #{$item2Height / 2} 0 #{$item2Height / 2} $item2Height;
+                        right: #{-$item2Height};
+                    }
+                }
+
+                &:nth-child(3) {
+                    height: $item3Height;
+                    top: #{$item1Height + $item2Height};
+
+                    &:after {
+                        border-width: #{$item3Height / 2} 0 #{$item3Height / 2} $item3Height;
+                        right: #{-$item3Height};
+                    }
+                }
+            }
+        }
+    }
+
+    .portrait-outer-outline {
+        @include transform(rotate(-90deg) scale(1, -1));
+
+        height: #{$frameCircleHeight - $frameOuterLineOffset * 2};
+        left: #{($hudBarHeight - $frameCircleHeight) / 2 + $frameOuterLineOffset};
+        position: absolute;
+        top: #{($hudBarHeight - $frameCircleHeight) / 2 + $frameOuterLineOffset};
+        width: #{$frameCircleHeight - $frameOuterLineOffset * 2};
+
+        .portrait-outer-path {
+            stroke: #D7D7D7;
+            stroke-dasharray: 572; // length
+            stroke-dashoffset: 0; // length - x2
+            stroke-width: 2px;
+        }
+    }
+
+    .portrait-inner-outline {
+        @include transform(rotate(90deg));
+
+        height: #{$frameCircleHeight - ($frameOuterLineOffset + $frameInnerLineOffset) * 2};
+        left: #{($hudBarHeight - $frameCircleHeight) / 2 + $frameOuterLineOffset + $frameInnerLineOffset};
+        position: absolute;
+        top: #{($hudBarHeight - $frameCircleHeight) / 2 + $frameOuterLineOffset + $frameInnerLineOffset};
+        width: #{$frameCircleHeight - ($frameOuterLineOffset + $frameInnerLineOffset) * 2};
+
+        .portrait-inner-path {
+            @include transition-duration(.35s);
+            @include transition-property(all);
+            @include transition-timing-function(ease-in-out);
+                                        
+            stroke: #DDDDDD;
+            stroke-dasharray: 180;
+            stroke-dashoffset: 186;
+            stroke-width: 2px;
+        }
+    }
+
+    .portrait-image {
+        background-image: url("http://i.imgur.com/677flw5.png");
+        background-size: contain;
+        height: 150px;
+        left: 56px;
+        opacity: 0.4;
+        position: absolute;
+        top: 50px;
+        width: 150px;
+    }
+
+    .portrait-header {
+        $expandExtra: 1px;
+        $headerHeight: #{$frameCircleHeight / 2 - ($frameOuterLineOffset + $frameInnerLineOffset) + $expandExtra};
+        $headerBarHeight: 1px;
+
+        @include border-bottom-left-radius($headerHeight);
+        @include border-bottom-right-radius($headerHeight);
+
+        height: #{$headerHeight};
+        left: #{($hudBarHeight - $frameCircleHeight) / 2 + $frameOuterLineOffset + $frameInnerLineOffset - $expandExtra};
+        position: absolute;
+        top: #{$hudBarHeight / 2 - $expandExtra};
+        width: #{$frameCircleHeight - ($frameOuterLineOffset + $frameInnerLineOffset) * 2 + $expandExtra * 2};
+        overflow: hidden;
+        z-index: 1;
+
+
+        .portrait-bar {
+            background: #C5C5C5;
+            height: $headerBarHeight;
+            left: $expandExtra;
+            margin-top: 11px;
+            position: relative;
+            width: calc(100% - #{$expandExtra * 2});
+            z-index: 1;
+        }
+
+        .portrait-body {
+            @include box-shadow(0 -4px 2px -1px rgba(0, 0, 0, 0.06));
+
+            background: $frameColor;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+
+        .portrait-percent {
+            text-align: center;
+            position: relative;
+            top: -8px;
+
+            .percent-value {
+                color: #8E8E8E;
+                display: inline-block;
+                font-family: 'Cinzel', serif;
+                font-size: 46px;
+                position: relative;
+                z-index: 1;
+                line-height: 70px;
+                left: 0;
+            }
+
+            .percent-sign {
+                color: #AEAEAE;
+                display: inline-block;
+                font-family: 'Crimson Text', serif;
+                font-size: 27px;
+                margin-left: -5px;
+                position: relative;
+                top: -8px;
+                right: 0;
+            }
+        }
+        
+        .portrait-synch {
+            color: #676767;
+            bottom: 18px;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 14px;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    .bar-frame {
+        $tpBarHeight: 16px;
+        $hpBarHeight: 35px;
+        $epBarHeight: 26px;
+
+        clip-path: url(../svgs/aeto-bar-frame.svg#svgClip);
+        -webkit-clip-path: url(../svgs/aeto-bar-frame.svg);
+        -webkit-mask: url(../svgs/aeto-bar-frame.svg);
+
+        height: 77px;
+        left: #{$barOffset + 62};
+        position: absolute;
+        top: 146px;
+        width: 569px;
+        z-index: 7;
+
+        .bar-after-fx-bg {
+            z-index: 2;
+
+            .dark-bg, .light-bg {
+                @include transition-duration(0.35s);
+                @include transition-property(opacity);
+                @include transition-timing-function(ease-in-out);
+
+                    height: 100%;
+                    left: 0;
+                    
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                }
+
+            .dark-bg {
+                @include background-image(linear-gradient(left, rgba(0,0,0,1) 0%,rgba(0,0,0,0.55) 100%));
+            
+                opacity: .45;
+            }
+
+            .light-bg {
+                @include background-image(linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0.65) 100%));
+
+                opacity: .85;
+            }
+
+            &.dark .light-bg {
+                opacity: 0;
+            }
+            
+            &.light .dark-bg {
+                opacity: 0;
+            }
+        }
+
+        .bar-subframe {
+            z-index: 3;
+        }
+
+        .bar-subframe, .bar-after-fx-bg {
+            $frameAnimationSpeed: 0.85s;
+
+            @include transition-duration($frameAnimationSpeed);
+            @include transition-property(margin);
+            @include transition-timing-function(ease-in-out);
+
+            height: 100%;
+            left: -14px;
+            position: absolute;
+            top: 0;
+            width: calc(100% + 20px);
+
+            .segment-container {
+                @include user-select(none);
+
+                height: 100%;
+                position: absolute;
+                text-align: left;
+                width: 500%;
+
+                .segment-measurer {
+                    @include transition-duration($frameAnimationSpeed);
+                    @include transition-property(margin);
+                    @include transition-timing-function(ease-in-out);
+
+                    display: inline-block;
+                    height: 100%;
+                    position: relative;
+                    z-index: 1;
+
+                    .segment-fill {
+                        height: 100%;
+                        left: 0;
+                        position: relative;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .bar-shine-overlay {
+            background: #FFF;
+            height: 50%;
+            left: 0;
+            opacity: .3;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 4;
+        }
+
+        .bar-gradient-overlay {
+            @include background-image(linear-gradient(top, rgba(0,0,0,0.0) 0%,rgba(0,0,0,1) 100%));
+
+            height: 60%;
+            left: 0;
+            opacity: .18;
+            position: absolute;
+            top: 40%;
+            width: 100%;
+            z-index: 5;
+        }
+
+        .tp-frame, .hp-frame, .ep-frame {
+            background: #D8D8D8;
+        }
+
+        .tp-frame {
+            clip-path: url(../svgs/aeto-tp-bar-frame.svg#svgClip);
+            -webkit-clip-path: url(../svgs/aeto-tp-bar-frame.svg);
+            -webkit-mask: url(../svgs/aeto-tp-bar-frame.svg);
+
+            height: #{$tpBarHeight};
+            position: absolute;
+            top: 0;
+            width: 324px;
+
+            .segment-container {
+                $tpOffset: 76px; //62
+                $segmentWidth: 12px;
+                
+                left: $tpOffset;
+
+                .tp-segment {
+                    height: 100%;
+                    left: 0;
+                    margin: 0px;
+                    position: absolute;
+                    width: $segmentWidth;
+                    z-index: 1;
+                    
+                    .segment-fill {
+                        &:before, &:after {
+                            border-style: solid;
+                            border-width: 0 #{$segmentWidth/2} 6px #{$segmentWidth/2};
+                            content: "";
+                            height: 0;
+                            position: absolute;
+                            top: -6px;
+                            width: 0;
+                        }
+
+                        &:after {
+                            top: 100%;
+                            bottom: -6px;
+                            border-width: 6px #{$segmentWidth/2} 0 #{$segmentWidth/2};
+                        }
+
+                        .cube {
+                            @include transform-style(preserve-3d);
+                            
+                            position: relative;
+                            width: 100%;
+                            height: 100%;
+
+                            div {
+                                height: 100%;
+                                position: absolute;
+                                width: 100%;
+
+                                &.front {
+                                    @include transform(translateZ(#{$segmentWidth/2}));
+                                }
+
+                                &.left {
+                                    @include transform(rotateY(270deg) translateX(#{-$segmentWidth/2}));
+                                    @include transform-origin(center, left);
+
+                                    background: #9FE28E;
+                                }
+
+                                &.right {
+                                    @include transform(rotateY(-270deg) translateX(#{$segmentWidth/2}));
+                                    @include transform-origin(top, right);
+
+                                    background: #ACED9B;
+                                }
+
+                                &.back {
+                                    @include transform(translateZ(#{-$segmentWidth/2}) rotateY(180deg));
+                                }
+                            }
+                        }
+                    }
+
+                    &.dark .segment-fill {
+                        $segmentColor: #D7D7D7;
+
+                        &:before {
+                            border-color: transparent transparent $segmentColor transparent;
+                        }
+
+                        &:after {
+                            border-color: $segmentColor transparent transparent transparent;
+
+                        }
+
+                        .front, .back {
+                            background: $segmentColor;
+                        }
+
+                        .cube {
+                            @include transform(rotateY(90deg))
+                        }
+                    }
+
+                    &.light .segment-fill {
+                        $segmentColor: #E7E7E7;
+
+                        &:before {
+                            border-color: transparent transparent $segmentColor transparent;
+                        }
+
+                        &:after {
+                            border-color: $segmentColor transparent transparent transparent;
+                            
+                        }
+
+                        .front, .back {
+                            background: $segmentColor;
+                        }
+
+                        .cube {
+                            @include transform(rotateY(-90deg))
+                        }
+                    }
+
+                    $dropInSpeed: 0.65s;
+                    $rotateSpeed: 0.65s;
+
+                    &.anim-enter {
+                        &.dark .segment-fill {
+                            @include animation(tp-segment-enter-t1 $dropInSpeed ease-in-out 0s);
+
+                            .cube {
+                                @include animation(tp-segment-rotate-left $rotateSpeed ease-in-out $dropInSpeed);
+                                @include transform(rotateY(0deg));
+                            }
+                        }
+
+                        &.light .segment-fill {
+                            @include animation(tp-segment-enter-t2 $dropInSpeed ease-in-out 0s);
+
+                            .cube {
+                                @include animation(tp-segment-rotate-right $rotateSpeed ease-in-out $dropInSpeed);
+                                @include transform(rotateY(0deg));
+                            }
+                        }
+                    }
+
+                    &.anim-exit {
+                        &.dark .segment-fill {
+
+                            @include animation(tp-segment-enter-t1 $dropInSpeed ease-in-out $rotateSpeed reverse);
+
+                            .cube {
+                                @include animation(tp-segment-rotate-left $rotateSpeed ease-in-out 0s reverse);
+                                @include transform(rotateY(0deg));
+
+                            }
+                        }
+
+                        &.light .segment-fill {
+                            @include animation(tp-segment-enter-t2 $dropInSpeed ease-in-out $rotateSpeed reverse);
+
+                            .cube {
+                                @include animation(tp-segment-rotate-right $rotateSpeed ease-in-out 0s reverse);
+                                @include transform(rotateY(0deg));
+
+                            }
+                        }
+                    }
+                }
+            }
+
+            .bar-subframe, .bar-after-fx-bg {
+                clip-path: url(../svgs/aeto-tp-bar-frame.svg#svgClip);
+                -webkit-clip-path: url(../svgs/aeto-tp-bar-frame.svg);
+                -webkit-mask: url(../svgs/aeto-tp-bar-frame.svg);
+                
+                
+
+                 &.anim-cycle .segment-container {
+                    @include animation(tp-bar-loop 1.3s linear 0s infinite);
+                }
+            }
+        }
+
+        .hp-frame {
+            clip-path: url(../svgs/aeto-hp-bar-frame.svg#svgClip);
+            -webkit-clip-path: url(../svgs/aeto-hp-bar-frame.svg);
+            -webkit-mask: url(../svgs/aeto-hp-bar-frame.svg);
+
+            position: absolute;
+            top: #{$tpBarHeight};
+            width: 580px;
+            height: #{$hpBarHeight};
+
+            .bar-subframe, .bar-after-fx-bg {
+                clip-path: url(../svgs/aeto-hp-bar-frame.svg#svgClip);
+                -webkit-clip-path: url(../svgs/aeto-hp-bar-frame.svg);
+                -webkit-mask: url(../svgs/aeto-hp-bar-frame.svg);
+
+                .segment-container {
+                    $hpOffset: 56px;
+                    $segmentWidth: 24px;
+
+                    left: $hpOffset;
+
+                   .hp-segment {
+                        height: 100%;
+                        position: absolute;
+                        width: $segmentWidth;
+                        z-index: 1;
+
+                        .chevron-segment {
+                            background: inherit;
+                            height: 100%;
+                            left: -80%;
+                            position: absolute;
+                            width: 102%;
+
+                            &:nth-child(1) {
+                                @include transform(skew(40deg, 0deg));
+
+                                top: -50%;
+                                z-index: 2;
+                            }
+
+                            &:nth-child(2) {
+                                @include transform(skew(-40deg, 0deg));
+                                
+                                bottom: calc(-50% + 1px); // Firefox transform bug fix;
+                                z-index: 1;
+                            }
+                        }
+
+                        &.dark .hp-segment-colorer {
+                            background: #88C9FF;
+                        }
+
+                        &.light .hp-segment-colorer {
+                            background: #7CB8EA;
+                        }
+
+                        $dropInSpeed: 0.65s;
+                        $unskewSpeed: 0.55s;
+                        $dropInDelay: 0.5s;
+
+                        &.anim-enter {
+                            &.dark .chevron-segment,  &.light .chevron-segment {
+                                &:nth-child(1) {
+                                    @include transform(skew(65deg, 0deg));
+
+                                    @include animation(hp-segment-top-drop $dropInSpeed ease-in-out 0s,
+                                        hp-segment-top-unskew $unskewSpeed ease-in-out #{$dropInDelay + $dropInSpeed});
+                                }
+
+                                &:nth-child(2) {
+                                    @include animation(
+                                        hp-segment-bottom-drop-stall $dropInDelay ease-in-out 0s, 
+                                        hp-segment-bottom-drop $dropInSpeed ease-in-out $dropInDelay,
+                                        hp-segment-bottom-unskew $unskewSpeed ease-in-out #{$dropInDelay + $dropInSpeed});
+                                }
+                            }
+                        }
+
+                        &.anim-exit {
+                            &.dark .chevron-segment,  &.light .chevron-segment {
+                                &:nth-child(1) {
+                                    @include animation(
+                                        hp-segment-top-unskew $unskewSpeed ease-in-out 0s reverse,
+                                        hp-segment-top-drop $dropInSpeed ease-in-out #{$dropInDelay + $unskewSpeed} reverse
+                                        );
+
+                                    @include transform(skew(65deg, 0deg));
+                                }
+
+                                &:nth-child(2) {
+                                    @include animation(
+                                        hp-segment-bottom-unskew $unskewSpeed ease-in-out 0s reverse,
+                                        hp-segment-bottom-drop $dropInSpeed ease-in-out $unskewSpeed reverse,
+                                        hp-segment-bottom-drop-stall $dropInSpeed ease-in-out #{$dropInDelay + $unskewSpeed}
+                                       );
+
+                                    @include transform(skew(-65deg, 0deg));
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.anim-cycle .segment-container {
+                    @include animation(hp-bar-loop 3.4s linear 0s infinite);
+                }
+            }
+        }
+
+        .ep-frame {
+            clip-path: url(../svgs/aeto-ep-bar-frame.svg#svgClip);
+            -webkit-clip-path: url(../svgs/aeto-ep-bar-frame.svg);
+            -webkit-mask: url(../svgs/aeto-ep-bar-frame.svg);
+
+            position: absolute;
+            top: #{$tpBarHeight + $hpBarHeight};
+            width: 440px;
+            height: #{$epBarHeight};
+
+            .bar-subframe, .bar-after-fx-bg {
+                clip-path: url(../svgs/aeto-ep-bar-frame.svg#svgClip);
+                -webkit-clip-path: url(../svgs/aeto-ep-bar-frame.svg);
+                -webkit-mask: url(../svgs/aeto-ep-bar-frame.svg);
+
+                .segment-container {
+                    $epOffset: 2px;
+
+                    left: 4px;
+
+                   .ep-segment {
+                        $segmentWidth: 16px;
+
+                        height: 100%;
+                        position: absolute;
+                        width: $segmentWidth;
+                        margin-left: -4px;
+                        
+                        .slant-segment {
+                            @include transform(rotate(40deg));
+                            
+                            height: 400%;
+                            left: 0;
+                            position: absolute;
+                            top: -150%;
+                            width: 84%;
+                        }
+
+                        &.dark .slant-segment {
+                            @include background-image(linear-gradient(top, rgba(243,220,124,0) 0%, #ECD368 25%, #ECD368 75%,rgba(243,220,124,0) 100%));
+                        }
+
+                        &.light .slant-segment {
+                            @include background-image(linear-gradient(top, rgba(245,226,140,0) 0%, #F2DF7C 25%, #F2DF7C 75%,rgba(243,226,140,0) 100%));
+                        }
+
+
+                        // &.dark .slant-segment {
+                        //     background: #f3dc7c;
+                        // }
+
+                        // &.light .slant-segment {
+                        //     background: #f5e28c;
+                        // }
+
+
+                        $slideSpeed: 0.65s;
+                        $ballDelay: .55s;
+                        $ballSpeed: 1.05s;
+                        $ballFormSpeed: .65s;
+                        $floatSpeed: 1.25s;
+
+                        &.anim-enter {
+                            &.dark .slant-segment {
+                                @include animation(ep-segment-slide-from-top $slideSpeed ease-in-out 0s,
+                                    ep-segment-ball-form-dark $ballSpeed ease-in-out $ballDelay);
+                            }
+
+                            &.light .slant-segment {
+                                 @include animation(ep-segment-slide-from-bottom $slideSpeed ease-in-out 0s,
+                                    ep-segment-ball-form-light $ballSpeed ease-in-out $ballDelay);
+                            }
+                        }
+
+                        &.anim-exit {
+                             &.dark .slant-segment {
+                                @include animation(ep-segment-ball-form-dark $ballSpeed ease-in-out 0s reverse,
+                                    ep-segment-slide-from-bottom $slideSpeed ease-in-out $ballSpeed reverse);
+                            }
+
+                            &.light .slant-segment {
+                                 @include animation(ep-segment-ball-form-light $ballSpeed ease-in-out 0s reverse, ep-segment-slide-from-top $slideSpeed ease-in-out $ballSpeed reverse
+                                    );
+                            }
+                            //  &.dark .slant-segment {
+                            //     @include animation(ep-segment-exit-ball-dark $ballFormSpeed ease-in-out 0s,
+                            //        ep-segment-float-dark $floatSpeed ease-in-out $ballFormSpeed infinite);
+                            // }
+
+                            // &.light .slant-segment {
+                            //      @include animation(ep-segment-exit-ball-light $ballFormSpeed ease-in-out 0s,
+                            //        ep-segment-float-light $floatSpeed ease-in-out $ballFormSpeed infinite);
+                            // }
+                        }
+
+                    } 
+                }
+
+
+                &.anim-cycle .segment-container {
+                    @include animation(ep-bar-loop 1.4s linear 0s infinite);
+                }
+            }
+        }
+    }
+
+    .hudbar-overlay-content {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 8;
+
+        .stat-text-frame {
+            opacity: .55;
+        }
+
+        .bar-info-item {
+           @include background-image(linear-gradient(top, #FFF 0%, #F5F5F5 100%));
+            @include border-radius(4px);
+            @include box-shadow(0 0 2px 1px rgba(0, 0, 0, 0.2));
+
+            color: #B2B2B2;
+            font-family: 'Raleway', sans-serif;
+            font-size: 21px;
+            font-weight: bold;
+            height: 26px;
+            line-height: 26px;
+            position: absolute;
+            text-align: center;
+            width: 40px;
+
+            &:before {
+                background: #FFF;
+                content: "";
+                height: 50%;
+                left: 0;
+                opacity: 0.12;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                z-index: 1;
+            }
+
+            .bar-info-text {
+                display: inline-block;
+            }
+
+            &.tp {
+                top: 134px;
+                left: 198px;
+            }
+
+            &.hp {
+                top: 166px;
+                left: 185px;
+            }
+
+            &.ep {
+                top: 197px;
+                left: 172px;
+            }
+        }
+
+        .bar-value {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: bold;
+            color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            text-align: center;
+            left: 240px;
+            width: 200px;
+
+            .bar-val {
+                display: inline-block;
+                position: relative;
+                width: calc(50% - 10px);
+
+                &.first {
+                    text-align: right;
+                }
+
+                &.second {
+                    text-align: left;
+                }
+            }
+
+            span {
+                display: inline-block;
+                position: relative;
+            }
+
+            &.tp {
+                font-size: 18px;
+                height: 16px;
+                line-height: 16px;
+                top: 146px;
+
+                .bar-regen-val {
+                    font-size: 15px;
+                    right: -28px;
+                }
+
+                .divider {
+                    margin: 0 3px;
+                }
+            }
+
+            &.hp {
+                font-size: 28px;
+                height: 35px;
+                line-height: 35px;
+                top: 162px;
+
+                .bar-regen-val {
+                    font-size: 18px;
+                    right: -264px;
+                }
+
+                .divider {
+                    margin: 0 2px;
+                }
+            }
+
+            &.ep {
+                font-size: 26px;
+                height: 26px;
+                line-height: 28px;
+                top: 197px;
+
+                .bar-regen-val {
+                    font-size: 16px;
+                    right: -140px;
+                }
+
+                .divider {
+                    margin: 0 2px;
+                }
+            }
+
+            .bar-regen-val {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: bold;
+                position: absolute;
+                text-align: right;
+                top: 0;
+                width: 100px;
+            }
+        }
+
+        .effect-items {
+            position: absolute;
+            left: 128px;
+            bottom: -1px;
+            height: 22px;
+            width: 600px;
+
+           .effects-item-container {
+                display: inline-block;
+                height: 100%;
+                position: relative;
+
+                .effect-item {
+                    $outerFrameWidth: 69px;
+                    $middleFrameOffset: 3px;
+                    $innerFrameOffset: 2px;
+
+                     @include transition-duration(.4s);
+                    @include transition-property(left);
+                    @include transition-timing-function(ease-in-out);
+
+                    height: 100%;
+                    margin-right: -18px;
+                    position: absolute;
+                    top: 0;
+                    width: $outerFrameWidth;
+
+                    .effect-outer-frame {
+                        clip-path: url(../svgs/aeto-status-item-outer.svg#svgClip);
+                        -webkit-clip-path: url(../svgs/aeto-status-item-outer.svg);
+                        -webkit-mask: url(../svgs/aeto-status-item-outer.svg);
+
+                        @include transition-duration(.45s);
+                        @include transition-property(transform);
+                        @include transition-timing-function(ease-in-out);
+
+                        height: 100%;
+                        width: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background: rgba(0, 0, 0, 0.15);
+
+                        .effect-middle-frame {
+                            clip-path: url(../svgs/aeto-status-item-middle.svg#svgClip);
+                            -webkit-clip-path: url(../svgs/aeto-status-item-middle.svg);
+                            -webkit-mask: url(../svgs/aeto-status-item-middle.svg);
+
+                            height: calc(100% - 5px);
+                            width: calc(100% - 14px);
+                            position: absolute;
+                            top: $middleFrameOffset;
+                            left: #{$middleFrameOffset * 2 + 1};
+                            background: #FFF;
+
+                            .effect-inner-frame {
+                                clip-path: url(../svgs/aeto-status-item-inner.svg#svgClip);
+                                -webkit-clip-path: url(../svgs/aeto-status-item-inner.svg);
+                                -webkit-mask: url(../svgs/aeto-status-item-inner.svg);
+
+                                @include transition-duration(.45s);
+                                @include transition-property(transform);
+                                @include transition-timing-function(ease-in-out);
+
+                                height: calc(100% - 2px);
+                                width: calc(100% - 5px);
+                                position: absolute;
+                                top: $innerFrameOffset;
+                                left: #{$innerFrameOffset * 2 + 1};
+                                background: rgb(179, 179, 179);
+
+                                .effect-content {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                        }
+                    }
+
+                    $enterSpeed: .55s;
+
+                    &:nth-child(2n + 1) {
+                        &.anim-enter {
+                            @include animation(effect-bottom-enter $enterSpeed ease-in-out 0s);
+                        }
+
+                        &.anim-exit {
+                            @include animation(effect-top-exit $enterSpeed ease-in-out 0s);
+                        }
+
+                        .effect-outer-frame {
+                            @include transform(scale(1, -1));
+
+                            .effect-content {
+                                @include transform(scale(1, -1));
+                            }
+                        }
+                    }
+
+                    &:nth-child(2n) {
+                        &.anim-enter {
+                            @include animation(effect-top-enter $enterSpeed ease-in-out 0s);
+                        }
+
+                        &.anim-exit {
+                            @include animation(effect-bottom-exit $enterSpeed ease-in-out 0s);
+                        }
+                    }
+                }
+            } 
+        }
+    }
+
+    .stat-text-frame {
+        @include transform-origin(54.5%, 54.2%);
+
+        height: 237px;
+        left: 1px;
+        position: absolute;
+        top: 1.5px;
+        width: 237px;
+        z-index: 3;
+
+        text {
+            font-size: 14px;
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: bold;
+            text-anchor: end;
+            fill: #FFF;
+        }
+    }
+
+    &.anim-enter {
+        // Set One
+
+        $expandSpeed: 0.5s;
+        $contractSpeed: 0.65s;
+        $shadowDelay: 0.2s;
+        $shadowEarly: 0.2s;
+        $shadowExpandSpeed: 0.4s;
+        $reexpandSpeed: .65s;
+        $whiteEarly: 0.15s;
+
+        .bg-circle .bg-circle-fill {
+            @include animation(bg-circle-expand $expandSpeed ease-in-out 0s, 
+                bg-circle-contract $contractSpeed ease-in $expandSpeed,
+                bg-circle-shadow-contract $shadowExpandSpeed ease-in $shadowDelay,
+                bg-circle-shadow-expand #{($contractSpeed + $expandSpeed) - ($shadowExpandSpeed + $shadowDelay)} ease-in-out #{$shadowExpandSpeed + $shadowDelay},
+                 bg-circle-reexpand $reexpandSpeed ease-out #{$expandSpeed + $contractSpeed});
+        }
+
+        $outerContractSpeed: 0.35s;
+        $outerEarly: 0.15s;
+
+        .outer-frame .frame-circle .frame-circle-fill {
+           @include animation(bg-circle-expand $expandSpeed ease-in-out 0s, 
+                bg-circle-contract $contractSpeed ease-in $expandSpeed,
+                bg-circle-shadow-contract $shadowExpandSpeed ease-in $shadowDelay,
+                bg-circle-shadow-expand #{($contractSpeed + $expandSpeed) - ($shadowExpandSpeed + $shadowDelay)} ease-in-out #{$shadowExpandSpeed + $shadowDelay},
+                bg-circle-reexpand $reexpandSpeed ease-out #{$expandSpeed + $contractSpeed},
+                outer-bg-circle-contract $outerContractSpeed ease-out #{$reexpandSpeed + $expandSpeed + $contractSpeed - $outerEarly});
+        }
+
+        //Set Two
+
+        $set2Delay: $expandSpeed + $contractSpeed + $reexpandSpeed - .35s;
+        $outerFrameEnterSpeed: .7s;
+        $outerShadowFadeSpeed: 0.8s;
+        $whiteFrameEnterDelay: 0.3s;
+        $whiteFrameEnterDelay2: $whiteFrameEnterDelay + 0.25s;
+        $whiteFrameEnterDelay3: $whiteFrameEnterDelay2 + 0.25s;
+        $whiteFrameEnterSpeed: 0.75s;
+        $whiteCircleFadeSpeed: 0.35s;
+
+        .outer-frame {
+            .frame-bar .frame-bar-fill {
+                @include animation(anim-stall $set2Delay ease-in-out 0s,
+                    left-enter $outerFrameEnterSpeed ease-in-out $set2Delay);
+            }
+
+            .frame-bar-shadow {
+                @include animation(anim-stall #{$set2Delay + $outerFrameEnterSpeed} ease-in-out 0s,
+                    fade-in $outerShadowFadeSpeed ease-in-out #{$set2Delay + $outerFrameEnterSpeed});
+            }
+        }
+
+        .white-frame-group {
+            .frame-bar .frame-bar-fill {
+                &:nth-child(1) {
+                    @include animation(anim-stall #{$set2Delay + $whiteFrameEnterDelay} ease-in-out 0s,
+                        left-enter $whiteFrameEnterSpeed ease-in-out #{$set2Delay + $whiteFrameEnterDelay});
+                }
+
+                &:nth-child(2) {
+                    @include animation(anim-stall #{$set2Delay + $whiteFrameEnterDelay2} ease-in-out 0s,
+                        left-enter $whiteFrameEnterSpeed ease-in-out #{$set2Delay + $whiteFrameEnterDelay2});
+                }
+
+                &:nth-child(3) {
+                    @include animation(anim-stall #{$set2Delay + $whiteFrameEnterDelay3} ease-in-out 0s,
+                        left-enter $whiteFrameEnterSpeed ease-in-out #{$set2Delay + $whiteFrameEnterDelay3});
+                }
+            }
+        }
+
+        .white-frame .frame-circle .frame-circle-fill {
+            @include animation(
+                // Set 1
+                anim-stall #{$expandSpeed + $contractSpeed} ease-in-out 0s,
+                white-bg-circle-expand #{$reexpandSpeed + $whiteEarly} ease-in-out #{$expandSpeed + $contractSpeed - $whiteEarly},
+                // Set 2    
+                white-circle-fade-stall #{$set2Delay + $whiteFrameEnterDelay - $whiteCircleFadeSpeed} ease-in-out 0s,
+                white-circle-fade-in $whiteCircleFadeSpeed ease-in-out #{$set2Delay + $whiteFrameEnterDelay - $whiteCircleFadeSpeed});
+        }
+
+        $portraitBarSpeed: .65s;
+        $portraitBarDelay: .2s;
+        $outerPathDelay: .5s;
+        $outerPathSpeed: .85s;
+        $innerPathDelay: .8s;
+        $innerPathSpeed: .95s;
+        $leftPercentSpeed: .75s;
+        $leftPercentDelay: .35s;
+        $rightPercentDelay: .55s;
+        $portraitEnterSpeed: .7s;
+        $portraitDelay: 1s;
+        $syncDelay: .75;
+        $syncSpeed: .55s;
+
+        .white-frame-group {
+            .portrait-image {
+                @include animation(anim-stall #{$set2Delay + $portraitDelay} ease-in-out 0s,
+                    portrait-image-enter $portraitEnterSpeed ease-in-out #{$set2Delay + $portraitDelay});
+            }
+
+            .portrait-outer-path {
+                @include animation(anim-stall #{$set2Delay + $outerPathDelay} ease-in-out 0s,
+                    outer-path-enter $outerPathSpeed ease-in-out #{$set2Delay + $outerPathDelay});
+            }
+
+            .portrait-inner-path {
+                 @include animation(anim-stall #{$set2Delay + $innerPathDelay} ease-in-out 0s,
+                    inner-path-enter $innerPathSpeed ease-in-out #{$set2Delay + $innerPathDelay});
+            }
+
+            .portrait-header  {
+                .portrait-bar {
+                    @include animation(background-stall #{$set2Delay + $portraitBarDelay} ease-in-out 0s,
+                    portrait-bar-expand $portraitBarSpeed ease-in-out #{$set2Delay + $portraitBarDelay});
+                }
+
+                .portrait-body {
+                     @include animation(anim-stall #{$set2Delay + $whiteFrameEnterDelay + $whiteCircleFadeSpeed} ease-in-out 0s);
+
+                    .percent-value {
+                        @include animation(anim-stall #{$set2Delay + $leftPercentDelay} ease-in-out 0s,
+                            percent-left-enter $leftPercentSpeed ease-in-out #{$set2Delay + $leftPercentDelay});
+                    }
+
+                    .percent-sign {
+                         @include animation(anim-stall #{$set2Delay + $rightPercentDelay} ease-in-out 0s,
+                            percent-right-enter $leftPercentSpeed ease-in-out #{$set2Delay + $rightPercentDelay});
+                    }
+
+                    .portrait-synch {
+                        @include animation(anim-stall #{$set2Delay + $syncDelay} ease-in-out 0s,
+                            sync-enter $syncSpeed ease-in-out #{$set2Delay + $syncDelay});
+                    }
+                    
+                }
+            }
+        }
+
+        // Set Three
+
+        $set3Delay: $set2Delay + $portraitDelay +  $portraitEnterSpeed - .55s;
+        $frameHeaderSpeed: .75s;
+        $headerIconDelay: $set3Delay + .15s;
+        $headerIconSpeed: .65s;
+        $headerFramenameDelay: $set3Delay + .35s;
+        $headerFramenameSpeed: .65s;
+        $headerNameDelay: $set3Delay + .55s;
+        $headerNameSpeed: .65s;
+
+        .frame-header-bg .frame-bg {
+            @include animation(anim-stall $set3Delay ease-in-out 0s, 
+                frame-header-enter $frameHeaderSpeed ease-in-out $set3Delay)
+        }
+
+        .frame-header-content {
+            .frame-header-icon {
+                @include animation(anim-stall $headerIconDelay ease-in-out 0s, 
+                    frame-header-icon-enter $headerIconSpeed ease-in-out $headerIconDelay)
+            }
+
+            .frame-header-framework-name {
+                @include animation(anim-stall $headerFramenameDelay ease-in-out 0s, 
+                    frame-header-framename-enter $headerFramenameSpeed ease-in-out $headerFramenameDelay)
+            }
+
+            .frame-header-name {
+                @include animation(anim-stall $headerNameDelay ease-in-out 0s, 
+                    frame-header-name-enter $headerNameSpeed ease-in-out $headerNameDelay)
+            }
+        }
+    
+        $bgHeaderTabDelay: $set3Delay + .35s;
+        $bgHeaderTabSpeed: .45s;
+
+        .bg-header-tab {
+            @include animation(anim-stall $bgHeaderTabDelay ease-in-out 0s, 
+                bg-header-tab-enter $bgHeaderTabSpeed ease-in-out $bgHeaderTabDelay)
+        }
+
+
+        $statFrameDelay: $set3Delay + .6s;
+        $statFrameSpeed: .65s;
+        $statDelay: $statFrameDelay + .35s;
+        $statSpeed: .75s; 
+
+        .back-bg-group {
+            .stat-frame-bar {
+                @include animation(anim-stall $statFrameDelay ease-in-out 0s, 
+                    stat-frame-enter $statFrameSpeed ease-in $statFrameDelay)
+            }
+
+            .stat-text-frame {
+                @include animation(anim-stall $statDelay ease-in-out 0s, 
+                    stats-enter $statSpeed ease-in $statDelay)
+            }
+
+            .effect-bar-bg {
+                 @include animation(anim-stall #{$statFrameDelay + $statFrameSpeed} ease-in-out 0s, 
+                    stat-frame-bar-enter #{$statFrameSpeed * .085} ease-out #{$statFrameDelay + $statFrameSpeed})
+            }
+
+            .effect-bar-edge {
+                @include animation(anim-stall #{$statFrameDelay + $statFrameSpeed * 1.085} ease-in-out 0s, 
+                    stat-frame-edge-enter #{$statFrameSpeed * .35} ease-out #{$statFrameDelay + $statFrameSpeed * 1.085})
+            }
+        }
+
+        $tpBarDelay: $set3Delay + .55s;
+        $tpBarSpeed: .65s;
+        $hpBarDelay: $tpBarDelay + .3s;
+        $hpBarSpeed: .7s;
+        $epBarDelay: $hpBarDelay + .3s;
+        $epBarSpeed: .7s;
+
+        .bar-frame {
+            .tp-frame {
+                @include animation(anim-stall $tpBarDelay ease-in-out 0s, 
+                    point-bar-enter $tpBarSpeed ease-in-out $tpBarDelay)
+            }
+
+            .hp-frame {
+                @include animation(anim-stall $hpBarDelay ease-in-out 0s, 
+                    point-bar-enter $hpBarSpeed ease-in-out $hpBarDelay)
+            }
+
+            .ep-frame {
+                @include animation(anim-stall $epBarDelay ease-in-out 0s, 
+                    point-bar-enter $epBarSpeed ease-in-out $epBarDelay)
+            }
+        }
+
+        $tpDropInSpeed: .55s;
+        $hpDropInSpeed: .55s;
+        $epDropInSpeed: .55s;
+
+        $tpTextSpeed: .4s;
+        $tpTextSubWait: 0.15s;
+        $tpTextDelay: $tpBarDelay + .4s;
+
+        $hpTextSpeed: .4s;
+        $hpTextSubWait: 0.15s;
+        $hpTextDelay: $hpBarDelay + .4s;
+
+        $epTextSpeed: .4s;
+        $epTextSubWait: 0.15s;
+        $epTextDelay: $epBarDelay + .4s;
+
+        .hudbar-overlay-content {
+           .stat-text-frame {
+                $statEnhanceDelay: $statDelay + .45s;
+                $statEnhanceSpeed: .4s;
+
+                @include animation(anim-stall $statEnhanceDelay ease-in-out 0s, 
+                    fade-in $statEnhanceSpeed ease-in $statEnhanceDelay)
+            }
+
+            .bar-info-item.tp {
+                @include animation(anim-stall $tpBarDelay ease-in-out 0s, 
+                    tp-info-enter $tpDropInSpeed ease-in-out $tpBarDelay)
+            }
+
+            .bar-info-item.hp {
+               @include animation(anim-stall $hpBarDelay ease-in-out 0s, 
+                    hp-info-enter $hpDropInSpeed ease-in-out $hpBarDelay)
+            }
+
+            .bar-info-item.ep {
+                @include animation(anim-stall $epBarDelay ease-in-out 0s, 
+                    ep-info-enter $epDropInSpeed ease-in-out $epBarDelay)
+            }
+
+            .bar-value.tp {
+                .bar-val.first {
+                    @include animation(anim-stall $tpTextDelay ease-in-out 0s, 
+                        tp-inner-text-enter $tpTextSpeed ease-in-out $tpTextDelay)   
+                }
+
+                .divider {
+                    @include animation(anim-stall #{$tpTextDelay + $tpTextSubWait} ease-in-out 0s, 
+                        tp-inner-text-enter $tpTextSpeed ease-in-out #{$tpTextDelay + $tpTextSubWait})   
+                }
+
+                .bar-val.second {
+                    @include animation(anim-stall #{$tpTextDelay + $tpTextSubWait * 2} ease-in-out 0s, 
+                        tp-inner-text-enter $tpTextSpeed ease-in-out #{$tpTextDelay + $tpTextSubWait * 2})   
+                }
+
+                .bar-regen-val {
+                    @include animation(anim-stall #{$tpTextDelay + $tpTextSubWait * 3} ease-in-out 0s, 
+                        regen-text-enter $tpTextSpeed ease-in-out #{$tpTextDelay + $tpTextSubWait * 3}) 
+                }
+            }
+
+            .bar-value.hp {
+                .bar-val.first {
+                    @include animation(anim-stall $hpTextDelay ease-in-out 0s, 
+                        hp-inner-text-enter $hpTextSpeed ease-in-out $hpTextDelay)   
+                }
+
+                .divider {
+                    @include animation(anim-stall #{$hpTextDelay + $hpTextSubWait} ease-in-out 0s, 
+                        hp-inner-text-enter $hpTextSpeed ease-in-out #{$hpTextDelay + $hpTextSubWait})   
+                }
+
+                .bar-val.second {
+                    @include animation(anim-stall #{$hpTextDelay + $hpTextSubWait * 2} ease-in-out 0s, 
+                        hp-inner-text-enter $hpTextSpeed ease-in-out #{$hpTextDelay + $hpTextSubWait * 2})   
+                }
+
+                .bar-regen-val {
+                    @include animation(anim-stall #{$hpTextDelay + $hpTextSubWait * 3} ease-in-out 0s, 
+                        regen-text-enter $hpTextSpeed ease-in-out #{$hpTextDelay + $hpTextSubWait * 3}) 
+                }
+            }
+            
+            .bar-value.ep {
+                .bar-val.first {
+                    @include animation(anim-stall $epTextDelay ease-in-out 0s, 
+                        ep-inner-text-enter $epTextSpeed ease-in-out $epTextDelay)   
+                }
+
+                .divider {
+                    @include animation(anim-stall #{$epTextDelay + $epTextSubWait} ease-in-out 0s, 
+                        ep-inner-text-enter $epTextSpeed ease-in-out #{$epTextDelay + $epTextSubWait})   
+                }
+
+                .bar-val.second {
+                    @include animation(anim-stall #{$epTextDelay + $epTextSubWait * 2} ease-in-out 0s, 
+                        ep-inner-text-enter $epTextSpeed ease-in-out #{$epTextDelay + $epTextSubWait * 2})   
+                }
+
+                .bar-regen-val {
+                    @include animation(anim-stall #{$epTextDelay + $epTextSubWait * 3} ease-in-out 0s, 
+                        regen-text-enter $epTextSpeed ease-in-out #{$epTextDelay + $epTextSubWait * 3}) 
+                }
+            }
+        }
+
+        &.right-align {
+            .white-frame-group {
+                .portrait-image {
+                    @include animation(anim-stall #{$set2Delay + $portraitDelay} ease-in-out 0s,
+                        ra-portrait-image-enter $portraitEnterSpeed ease-in-out #{$set2Delay + $portraitDelay});
+                }
+
+                .portrait-header .portrait-body {
+                    .percent-value {
+                        @include animation(anim-stall #{$set2Delay + $leftPercentDelay} ease-in-out 0s,
+                            ra-percent-left-enter $leftPercentSpeed ease-in-out #{$set2Delay + $leftPercentDelay});
+                    }
+
+                    .percent-sign {
+                         @include animation(anim-stall #{$set2Delay + $rightPercentDelay} ease-in-out 0s,
+                            ra-percent-right-enter $leftPercentSpeed ease-in-out #{$set2Delay + $rightPercentDelay});
+                    }
+
+                    .portrait-synch {
+                        @include animation(anim-stall #{$set2Delay + $syncDelay} ease-in-out 0s,
+                            ra-sync-enter $syncSpeed ease-in-out #{$set2Delay + $syncDelay});
+                    }
+                }
+            }
+
+            .back-bg-group .stat-text-frame {
+                @include animation(anim-stall $statDelay ease-in-out 0s, 
+                    ra-stats-enter $statSpeed ease-in $statDelay)
+            }
+
+            .frame-header-content {
+                .frame-header-icon {
+                    @include animation(anim-stall $headerIconDelay ease-in-out 0s, 
+                        ra-frame-header-icon-enter $headerIconSpeed ease-in-out $headerIconDelay)
+                }
+
+                .frame-header-framework-name {
+                    @include animation(anim-stall $headerFramenameDelay ease-in-out 0s, 
+                        ra-frame-header-framename-enter $headerFramenameSpeed ease-in-out $headerFramenameDelay)
+                }
+
+                .frame-header-name {
+                    @include animation(anim-stall $headerNameDelay ease-in-out 0s, 
+                        ra-frame-header-name-enter $headerNameSpeed ease-in-out $headerNameDelay)
+                }
+            }
+
+            .hudbar-overlay-content {
+                .bar-info-item.tp {
+                    @include animation(anim-stall $tpBarDelay ease-in-out 0s, 
+                        ra-tp-info-enter $tpDropInSpeed ease-in-out $tpBarDelay)
+                }
+
+                .bar-info-item.hp {
+                   @include animation(anim-stall $hpBarDelay ease-in-out 0s, 
+                        ra-hp-info-enter $hpDropInSpeed ease-in-out $hpBarDelay)
+                }
+
+                .bar-info-item.ep {
+                    @include animation(anim-stall $epBarDelay ease-in-out 0s, 
+                        ra-ep-info-enter $epDropInSpeed ease-in-out $epBarDelay)
+                }
+
+                .bar-value.tp {
+                    .bar-val.first {
+                        @include animation(anim-stall $tpTextDelay ease-in-out 0s, 
+                            ra-tp-inner-text-enter $tpTextSpeed ease-in-out $tpTextDelay)   
+                    }
+
+                    .divider {
+                        @include animation(anim-stall #{$tpTextDelay + $tpTextSubWait} ease-in-out 0s, 
+                            ra-tp-inner-text-enter $tpTextSpeed ease-in-out #{$tpTextDelay + $tpTextSubWait})   
+                    }
+
+                    .bar-val.second {
+                        @include animation(anim-stall #{$tpTextDelay + $tpTextSubWait * 2} ease-in-out 0s, 
+                            ra-tp-inner-text-enter $tpTextSpeed ease-in-out #{$tpTextDelay + $tpTextSubWait * 2})   
+                    }
+
+                    .bar-regen-val {
+                        @include animation(anim-stall #{$tpTextDelay + $tpTextSubWait * 3} ease-in-out 0s, 
+                            ra-regen-text-enter $tpTextSpeed ease-in-out #{$tpTextDelay + $tpTextSubWait * 3}) 
+                    }
+                }
+
+                .bar-value.hp {
+                    .bar-val.first {
+                        @include animation(anim-stall $hpTextDelay ease-in-out 0s, 
+                            ra-hp-inner-text-enter $hpTextSpeed ease-in-out $hpTextDelay)   
+                    }
+
+                    .divider {
+                        @include animation(anim-stall #{$hpTextDelay + $hpTextSubWait} ease-in-out 0s, 
+                            ra-hp-inner-text-enter $hpTextSpeed ease-in-out #{$hpTextDelay + $hpTextSubWait})   
+                    }
+
+                    .bar-val.second {
+                        @include animation(anim-stall #{$hpTextDelay + $hpTextSubWait * 2} ease-in-out 0s, 
+                            ra-hp-inner-text-enter $hpTextSpeed ease-in-out #{$hpTextDelay + $hpTextSubWait * 2})   
+                    }
+
+                    .bar-regen-val {
+                        @include animation(anim-stall #{$hpTextDelay + $hpTextSubWait * 3} ease-in-out 0s, 
+                            ra-regen-text-enter $hpTextSpeed ease-in-out #{$hpTextDelay + $hpTextSubWait * 3}) 
+                    }
+                }
+                
+                .bar-value.ep {
+                    .bar-val.first {
+                        @include animation(anim-stall $epTextDelay ease-in-out 0s, 
+                            ra-ep-inner-text-enter $epTextSpeed ease-in-out $epTextDelay)   
+                    }
+
+                    .divider {
+                        @include animation(anim-stall #{$epTextDelay + $epTextSubWait} ease-in-out 0s, 
+                            ra-ep-inner-text-enter $epTextSpeed ease-in-out #{$epTextDelay + $epTextSubWait})   
+                    }
+
+                    .bar-val.second {
+                        @include animation(anim-stall #{$epTextDelay + $epTextSubWait * 2} ease-in-out 0s, 
+                            ra-ep-inner-text-enter $epTextSpeed ease-in-out #{$epTextDelay + $epTextSubWait * 2})   
+                    }
+
+                    .bar-regen-val {
+                        @include animation(anim-stall #{$epTextDelay + $epTextSubWait * 3} ease-in-out 0s, 
+                            ra-regen-text-enter $epTextSpeed ease-in-out #{$epTextDelay + $epTextSubWait * 3}) 
+                    }
+                }
+            }
+
+            // .percent-value, .percent-sign, .portrait-synch, .portrait-image
+        }
+    }
+
+    &.anim-enter-simple {
+        @include animation(hudbar-simple-entry .4s ease-in-out 0s);
+    }
+
+    &.anim-exit-simple {
+        @include animation(hudbar-simple-exit .4s ease-in-out 0s);
+    }
+
+    &.player-team {
+        $playerColor: rgb(55, 164, 255);
+
+        .frame-header-framework-name {
+            color: $playerColor;
+        }
+
+        .aeto-ui-hudbar .white-frame-group .portrait-inner-outline {
+            opacity: .5;
+            
+            .portrait-inner-path {
+                stroke: $playerColor;
+            }
+        } 
+    }
+
+    &.cycle-portrait {
+        .portrait-inner-outline {
+            @include animation(portrait-path-cycle-rotate 7.5s linear 0 infinite);
+
+            .portrait-inner-path {
+                @include animation(portrait-path-cycle 28s linear 0 infinite);
+            }
+        }
+    }
+
+    &.right-align {
+        right: 50px;
+
+        .aeto-ui-hudbar {
+            @include transform(scale(-1, 1));
+        }
+
+        .stat-text-frame {
+            @include transform(scale(-1, 1) rotate(35deg));
+        }
+
+        .aeto-ui-hudbar .hudbar-overlay-content .bar-value {
+            direction: rtl;
+
+            .bar-val, .divider {
+                @include transform(scale(-1, 1));
+            }
+
+            .bar-regen-val {
+                @include transform(scale(-1, 1));
+
+                text-align: left;
+
+                span {
+                    float: left;
+                }
+            }
+        }
+
+        .aeto-ui-hudbar .frame-header-holder .frame-header-content {
+            .frame-header-name, .frame-header-framework-name, .frame-header-icon {
+                @include transform(scale(-1, 1));                
+            }
+        }
+
+        .bar-info-item, .percent-value, .percent-sign, .portrait-synch, .portrait-image {
+            @include transform(scale(-1, 1));
+        }
+
+        .portrait-percent {
+            direction: rtl;
+        }
+    }
+}
+
+
+@include keyframes(tp-bar-loop) {
+    100% {
+    	@include transform(translatex(24px));
+    }
+}
+
+@include keyframes(hp-bar-loop) {
+    100% {
+        @include transform(translatex(48px));
+    }
+}
+
+@include keyframes(ep-bar-loop) {
+    100% {
+        @include transform(translatex(32px));
+    }
+}
+
+@include keyframes(tp-segment-enter-t1) {
+    0% {
+        top: calc(-100% - 6px);
+    }
+    70% {
+        top: 3px;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@include keyframes(tp-segment-enter-t2) {
+    0% {
+        top: calc(100% + 6px);
+    }
+    70% {
+        top: -3px;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@include keyframes(tp-segment-rotate-left) {
+    0% {
+        @include transform(rotateY(0deg));
+    }
+    70% {
+        @include transform(rotateY(100deg));
+    }
+    100% {
+         @include transform(rotateY(90deg));
+    }
+}
+
+@include keyframes(tp-segment-rotate-right) {
+    0% {
+        @include transform(rotateY(0deg));
+    }
+    70% {
+        @include transform(rotateY(-100deg));
+    }
+    100% {
+         @include transform(rotateY(-90deg));
+    }
+}
+
+@include keyframes(hp-segment-top-drop) {
+    0% {
+        @include transform(skew(65deg, 0deg) translate(-60%, 150%));
+    }
+    70% {
+        @include transform(skew(65deg, 0deg) translate(0%, -12%));
+    }
+    100% {
+        @include transform(skew(65deg, 0deg));
+    }
+}
+
+
+@include keyframes(hp-segment-top-unskew) {
+    0% {
+        @include transform(skew(65deg, 0deg));
+    }
+    70% {
+        @include transform(skew(35deg, 0deg));
+    }
+    100% {
+        @include transform(skew(40deg, 0deg));
+    }
+}
+
+@include keyframes(hp-segment-bottom-drop) {
+    0% {
+        @include transform(skew(-65deg, 0deg) translate(-60%, -150%));
+    }
+    70% {
+        @include transform(skew(-65deg, 0deg) translate(0%, 12%));
+    }
+    100% {
+        @include transform(skew(-65deg, 0deg));
+    }
+}
+
+@include keyframes(hp-segment-bottom-drop-stall) {
+    0% {
+        @include transform(skew(-65deg, 0deg) translate(-60%, -150%));
+    }
+    100% {
+        @include transform(skew(-65deg, 0deg) translate(-60%, -150%));
+    }
+}
+
+@include keyframes(hp-segment-bottom-unskew) {
+    0% {
+        @include transform(skew(-65deg, 0deg));
+    }
+    70% {
+        @include transform(skew(-35deg, 0deg));
+    }
+    100% {
+        @include transform(skew(-40deg, 0deg));
+    }
+}
+
+@include keyframes(ep-segment-slide-from-top) {
+    0% {
+        @include transform(rotate(40deg) translate(0%, -72%));
+    }
+    65% {
+        // top: -75%;
+        // left: -102%;
+    }
+}
+
+@include keyframes(ep-segment-slide-from-bottom) {
+    0% {
+        @include transform(rotate(40deg) translate(0%, 72%));
+    }
+    65% {
+        // top: -225%;
+        // left: 102%;
+    }
+}
+
+@include keyframes(ep-segment-ball-form-dark) {
+    30% {
+        @include border-radius(50%);
+
+        background: #f3dc7c;
+        height: 10px;
+        top: 8px;
+        width: 10px;
+    }
+    70% {
+        @include border-radius(50%);
+        
+        background: #f3dc7c;
+        height: 40px;
+        left: -20px;
+        top: -9px;
+        width: 40px;
+    }
+}
+
+@include keyframes(ep-segment-ball-form-light) {
+    30% {
+        @include border-radius(50%);
+
+        background: #f5e28c;
+        height: 10px;
+        top: 8px;
+        width: 10px;
+    }
+    70% {
+        @include border-radius(50%);
+
+        background: #f5e28c;
+        height: 40px;
+        left: -20px;
+        top: -9px;
+        width: 40px;
+    }
+}
+
+@include keyframes(ep-segment-exit-ball-dark) {
+    100% {
+        @include border-radius(50%);
+
+        background: #f3dc7c;
+        height: 8px;
+        left: 3px;
+        top: 9px;
+        width: 8px;
+    }
+}
+
+@include keyframes(ep-segment-exit-ball-light) {
+    100% {
+        @include border-radius(50%);
+
+        background: #f5e28c;
+        height: 8px;
+        left: 3px;
+        top: 9px;
+        width: 8px;
+    }
+}
+
+
+@include keyframes(ep-segment-float-dark) {
+    0% {
+        @include border-radius(50%);
+
+        background: #f3dc7c;
+        height: 8px;
+        left: 3px;
+        top: 9px;
+        width: 8px;
+    }
+    25% {
+        top: 6px;
+    }
+    75% {
+        top: 12px;
+    }
+    100% {
+        @include border-radius(50%);
+
+        background: #f3dc7c;
+        height: 8px;
+        left: 3px;
+        top: 9px;
+        width: 8px;
+    }
+}
+
+@include keyframes(ep-segment-float-light) {
+    0% {
+        @include border-radius(50%);
+
+        background: #f5e28c;
+        height: 8px;
+        left: 3px;
+        top: 9px;
+        width: 8px;
+    }
+    25% {
+        top: 6px;
+    }
+    75% {
+        top: 12px;
+    }
+    100% {
+        @include border-radius(50%);
+
+        background: #f5e28c;
+        height: 8px;
+        left: 3px;
+        top: 9px;
+        width: 8px;
+    }
+}
+
+// Hudbar Enter Animations
+
+// Set One
+
+@include keyframes(bg-circle-expand) {
+    0% {
+        // @include transform(scale(.3));
+        height: 30%;
+        width: 30%;
+        top: 35%;
+        left: 35%;
+        opacity: 0;
+    }
+    100% {
+        // @include transform(scale(1.1));
+        height: 110%;
+        width: 110%;
+        top: -5%;
+        left: -5%;
+        opacity: 0.5;  
+    }
+}
+
+@include keyframes(bg-circle-contract) {
+    0% {
+        height: 110%;
+        width: 110%;
+        top: -5%;
+        left: -5%;
+        opacity: 0.5;  
+    }
+    100% {
+        height: 0%;
+        width: 0%;
+        top: 50%;
+        left: 50%;
+    }
+}
+
+@include keyframes(bg-circle-reexpand) {
+    0% {
+        height: 0%;
+        width: 0%;
+        top: 50%;
+        left: 50%;
+    }
+    75% {
+        height: 105%;
+        width: 105%;
+        top: -2.5%;
+        left: -2.5%;
+    }
+    100% {
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%
+    }
+}
+
+@include keyframes(white-bg-circle-expand) {
+    0% {
+        @include transform(scale(0));
+
+        // height: 0%;
+        // width: 0%;
+        // top: 50%;
+        // left: 50%;
+    }
+    75% {
+        @include transform(scale(1.05));
+
+        // height: 105%;
+        // width: 105%;
+        // top: -2.5%;
+        // left: -2.5%;
+    }
+    100% {
+    }
+}
+
+@include keyframes(outer-bg-circle-contract) {
+    0% {
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%
+    }
+}
+
+@include keyframes(bg-circle-shadow-contract) {
+    100% {
+        @include box-shadow(inset 0 0 0 20px #000);
+    }
+}
+
+@include keyframes(bg-circle-shadow-expand) {
+    0% {
+        @include box-shadow(inset 0 0 0 20px #000);
+
+    }
+}
+
+// Set Two
+
+@include keyframes(left-enter) {
+    0% {
+        @include transform(translatex(-100%));
+
+        opacity: .3;
+    }
+}
+
+@include keyframes(fade-in) {
+    0% {
+        opacity: 0;
+    }
+}
+
+@include keyframes(white-circle-fade-stall) {
+    0% {
+        opacity: .75;
+    }
+    100% {
+        opacity: .75;
+    }
+}
+
+@include keyframes(white-circle-fade-in) {
+    0% {
+        opacity: .75;
+    }
+}
+
+@include keyframes(portrait-bar-expand) {
+    0% {
+        @include transform(scale(0, 1));
+
+        opacity: .45;
+    }
+}
+
+@include keyframes(outer-path-enter) {
+    0% {
+        stroke-dashoffset: -572;
+    }
+}
+
+@include keyframes(inner-path-enter) {
+    0% {
+        // stroke-dashoffset: 0;
+        stroke-dasharray: 70;
+        opacity: .5;
+    }
+}
+
+@include keyframes(percent-left-enter) {
+    0% {
+        @include transform(translatex(-35px));
+
+        opacity: 0;
+        left: -35px;
+    }
+}
+
+@include keyframes(percent-right-enter) {
+    0% {
+        @include transform(translatex(35px));
+
+        opacity: 0;
+    }
+}
+
+@include keyframes(ra-percent-left-enter) {
+    0% {
+        @include transform(scale(-1, 1) translatex(-35px));
+
+        opacity: 0;
+        left: -35px;
+    }
+}
+
+@include keyframes(ra-percent-right-enter) {
+    0% {
+        @include transform(scale(-1, 1) translatex(35px));
+
+        opacity: 0;
+    }
+}
+
+@include keyframes(background-stall) {
+    0% {
+        background: none;
+    }
+    99% {
+        background: none;
+    }
+}
+
+@include keyframes(background-fade) {
+    0% {
+        background: none;
+    }
+    99% {
+        background: none;
+    }
+}
+
+@include keyframes(sync-enter) {
+    0% {
+        @include transform(translatey(12px));
+
+        opacity: 0;
+    }
+}
+
+@include keyframes(ra-sync-enter) {
+    0% {
+        @include transform(scale(-1, 1) translatey(12px));
+
+        opacity: 0;
+    }
+}
+
+@include keyframes(portrait-image-enter) {
+    0% {
+        @include transform(translatey(-40px));
+
+        opacity: 0;
+    }
+    75% {
+        @include transform(translatey(4px));
+    }
+}
+
+@include keyframes(ra-portrait-image-enter) {
+    0% {
+        @include transform(scale(-1, 1) translatey(-40px));
+
+        opacity: 0;
+    }
+    75% {
+        @include transform(scale(-1, 1) translatey(4px));
+    }
+}
+
+// Set Three
+
+@include keyframes(frame-header-enter) {
+    0% {
+        width: 0;
+        opacity: .2;
+    }
+}
+
+@include keyframes(frame-header-icon-enter) {
+    0% {
+        @include transform(translatey(70px));
+
+        opacity: .4;
+    }
+    70% {
+        @include transform(translatey(-5px));
+    }
+}
+
+@include keyframes(frame-header-framename-enter) {
+    0% {
+        @include transform(translatey(65px));
+        
+        opacity: .4;
+    }
+    75% {
+        @include transform(translatey(-3px));
+    }
+}
+
+@include keyframes(frame-header-name-enter) {
+    0% {
+        @include transform(translatey(48px));
+
+        opacity: .4;
+    }
+    75% {
+         @include transform(translatey(-3px));
+    }
+}
+
+@include keyframes(ra-frame-header-icon-enter) {
+    0% {
+        @include transform(scale(-1, 1) translatey(70px));
+
+        opacity: .4;
+    }
+    70% {
+        @include transform(scale(-1, 1) translatey(-5px));
+    }
+}
+
+@include keyframes(ra-frame-header-framename-enter) {
+    0% {
+        @include transform(scale(-1, 1) translatey(65px));
+        
+        opacity: .4;
+    }
+    75% {
+        @include transform(scale(-1, 1) translatey(-3px));
+    }
+}
+
+@include keyframes(ra-frame-header-name-enter) {
+    0% {
+        @include transform(scale(-1, 1) translatey(48px));
+
+        opacity: .4;
+    }
+    75% {
+         @include transform(scale(-1, 1) translatey(-3px));
+    }
+}
+
+@include keyframes(stat-frame-enter) {
+    0% {
+        stroke-dashoffset: -490;
+        stroke-width: 9px;
+        opacity: .5;
+    }
+}
+
+@include keyframes(stat-frame-bar-enter) {
+    0% {
+        width: 0;
+    }
+}
+
+@include keyframes(stat-frame-edge-enter) {
+    0% {
+        right: 0;
+        border-right-width: 0;
+    }
+}
+
+@include keyframes(stats-enter) {
+    0% {
+        @include transform(rotate(180deg));
+
+        opacity: 0;
+    }
+    70% {
+        @include transform(rotate(-6deg));
+    }
+}
+
+@include keyframes(ra-stats-enter) {
+    0% {
+        @include transform(scale(-1, 1) rotate(-145deg));
+
+        opacity: 0;
+    }
+    70% {
+        @include transform(scale(-1, 1) rotate(41deg));
+    }
+}
+
+@include keyframes(bg-header-tab-enter) {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+@include keyframes(point-bar-enter) {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+@include keyframes(tp-info-enter) {
+    0% {
+        @include transform(translatey(-35px));
+
+        opacity: 0;
+    }
+    70% {
+        @include transform(translatey(2px));
+    }
+}
+
+@include keyframes(hp-info-enter) {
+    0% {
+        @include transform(translatex(-35px));
+
+        opacity: 0;
+    }
+    70% {
+        @include transform(translatex(2px));
+    }
+}
+
+@include keyframes(ep-info-enter) {
+    0% {
+        @include transform(translatey(35px));
+
+        opacity: 0;
+    }
+    70% {
+        @include transform(translatey(-2px));
+    }
+}
+
+@include keyframes(ra-tp-info-enter) {
+    0% {
+        @include transform(scale(-1, 1) translatey(-35px));
+
+        opacity: 0;
+    }
+    70% {
+        @include transform(scale(-1, 1) translatey(2px));
+    }
+}
+
+@include keyframes(ra-hp-info-enter) {
+    0% {
+        @include transform(scale(-1, 1) translatex(35px));
+
+        opacity: 0;
+    }
+    70% {
+        @include transform(scale(-1, 1) translatex(-2px));
+    }
+}
+
+@include keyframes(ra-ep-info-enter) {
+    0% {
+        @include transform(scale(-1, 1) translatey(35px));
+
+        opacity: 0;
+    }
+    70% {
+        @include transform(scale(-1, 1) translatey(-2px));
+    }
+}
+
+@include keyframes(tp-inner-text-enter) {
+    0% {
+        @include transform(translatey(-16px));
+
+        opacity: 0;
+    }
+    75% {
+        @include transform(translatey(2px));
+    }
+}
+
+@include keyframes(hp-inner-text-enter) {
+    0% {
+        @include transform(translatex(-18px));
+        
+        opacity: 0;
+    }
+    75% {
+        @include transform(translatex(2px));
+    }
+}
+
+@include keyframes(ep-inner-text-enter) {
+    0% {
+        @include transform(translatey(16px));
+
+        opacity: 0;
+    }
+    75% {
+        @include transform(translatey(-2px));
+    }
+}
+
+@include keyframes(regen-text-enter) {
+    0% {
+        @include transform(translatex(24px));
+        
+        opacity: 0;
+    }
+    75% {
+        @include transform(translatex(-2px));
+    }
+}
+
+@include keyframes(ra-tp-inner-text-enter) {
+    0% {
+        @include transform(scale(-1, 1) translatey(-16px));
+
+        opacity: 0;
+    }
+    75% {
+        @include transform(scale(-1, 1) translatey(2px));
+    }
+}
+
+@include keyframes(ra-hp-inner-text-enter) {
+    0% {
+        @include transform(scale(-1, 1) translatex(18px));
+        
+        opacity: 0;
+    }
+    75% {
+        @include transform(scale(-1, 1) translatex(-2px));
+    }
+}
+
+@include keyframes(ra-ep-inner-text-enter) {
+    0% {
+        @include transform(tscale(-1, 1) ranslatey(16px));
+
+        opacity: 0;
+    }
+    75% {
+        @include transform(scale(-1, 1) translatey(-2px));
+    }
+}
+
+@include keyframes(ra-regen-text-enter) {
+    0% {
+        @include transform(scale(-1, 1) translatex(-24px));
+        
+        opacity: 0;
+    }
+    75% {
+        @include transform(scale(-1, 1) translatex(2px));
+    }
+}
+
+//  Effect Items
+
+@include keyframes(effect-top-enter) {
+    0% {
+        @include transform(translatey(-30px));
+
+        opacity: 0;
+    }
+    70% {
+        @include transform(translatey(3px));
+    }
+}
+
+@include keyframes(effect-bottom-enter) {
+    0% {
+        @include transform(translatey(30px));
+
+        opacity: 0;
+    }
+    70% {
+        @include transform(translatey(-3px));
+    }
+}
+
+
+@include keyframes(effect-top-exit) {
+    30% {
+        @include transform(translatey(3px));
+    }
+    100% {
+        @include transform(translatey(-30px));
+        
+        opacity: 0;
+    }
+}
+
+@include keyframes(effect-bottom-exit) {
+    30% {
+        @include transform(translatey(-3px));
+    }
+    100% {
+        @include transform(translatey(-30px));
+        
+        opacity: 0;
+    }
+}
+
+// Loop
+
+@include keyframes(portrait-path-cycle) {
+    25% {
+        stroke-dasharray: 120;
+    }
+    75% {
+        stroke-dasharray: 240;
+    }
+
+}
+
+@include keyframes(portrait-path-cycle-rotate) {
+    100% {
+        @include transform(rotate(450deg));
+    }
+}
+
+//
+@include keyframes(hudbar-simple-entry) {
+    0% {
+        @include transform(translatey(-40px));
+        
+        opacity: 0;
+    }
+    75% {
+        @include transform(translatey(4px));
+    }
+}
+
+@include keyframes(hudbar-simple-exit) {
+    25% {
+        @include transform(translatey(-4px));
+    }
+    100% {
+        @include transform(translatey(40px));
+        
+        opacity: 0;
+    }
+}
