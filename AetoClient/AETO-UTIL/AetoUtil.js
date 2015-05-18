@@ -15,17 +15,30 @@ function AetoUtil() {
 	    return id;
 	}
 
+    // Adds two functions to an object and a bunch of magic hash lists, making it observable
 	this.callMeMaybe = function(objectType) {
 		var AetoCallbackPrototype = {
-			on: function(cond, func, isContinous) {
+			// Adds a function to the object's callback queue based on a condition 'cond'
+			// 'cond' follows the following formats:
+			//     'conditionOne' >>> Run the function on 'conditionOne'
+			//     ['conditionOne', 'conditionTwo', 'conditionThree'] >>> Run the function on 'conditionOne', 'conditionTwo', or 'conditionThree'
+			//     {cond1: 'conditionOne', cond2: 'conditionTwo'} >>> Run the function if both 'conditionOne' and 'conditionTwo' are met
+			//     [{cond1: ['wow', 'yes'], cond2: ['you', 'can', 'really']}, {cond1: 'do', cond2: 'this'}] >>> Run the function if the conditions 'wow' or 'yes' and the conditions 'you', 'can', or 'really' are met or the conditions 'do' and 'this' are met
+			// 'func' is the function that is executed when the condition is met.
+			//  'params' is an optional parameter object in the following format (all parameters are optional):
+			//     {isContinuous: boolean, args: Array}
+			//      'isContinuous' determines whether or not the function will run more than once. If true, the function will run everytime the condition is met. This defaults to false.
+			// There is only one parameter available at this time.
+			on: function(cond, func, params) {
 				if (this.callbackQueue == null) this.callbackQueue = {};
 				if (this.functionHash == null) this.functionHash = {};
 
 				var functionId, 
-				callbackQueue = this.callbackQueue,
-				functionHash = this.functionHash;
+					callbackQueue = this.callbackQueue,
+					functionHash = this.functionHash,
+					isContinuous = null;
 				
-				if (isContinous == null) isContinous = false; 
+				if (params != null && params.isContinuous != null && params.isContinuous) isContinuous = true; 
 
 				while (functionId == null || functionHash[functionId] != null) functionId = AetoUtil.generateRandomIdOfLength(2);
 
@@ -70,7 +83,7 @@ function AetoUtil() {
 							}
 							else {
 								var oneIsArray = Array.isArray(checkedCond.cond1),
-					                twoIsArray = Array.isArray(checkedCond.cond2);
+					                		twoIsArray = Array.isArray(checkedCond.cond2);
 
 								if (oneIsArray || twoIsArray) {
 									if (oneIsArray) {
@@ -106,10 +119,21 @@ function AetoUtil() {
 
 						if (callbackQueue[finalCond] == null) callbackQueue[finalCond] = [];
 
-						callbackQueue[finalCond].push({funcId: functionId, isContinous: isContinous});
+						callbackQueue[finalCond].push({funcId: functionId, isContinuous: isContinuous});
 					}
 				} 
-			}, 
+			},
+			// Runs all callbacks for a given condition. The condition format differs from the 'on' function.
+			// 'cond' follows the following formats:
+			//     ['conditionOne', 'conditionTwo', 'conditionThree'] >>> Run the callback functions for 'conditionOne', 'conditionTwo', and 'conditionThree'
+			//     {cond1: 'conditionOne', cond2: 'conditionTwo'} >>> Runs function for the following on conditions:
+			//          object.on('condition1', func, param);
+			//          object.on('condition2', func, param);
+			//          object.on({cond1: 'condition2', cond2: 'condition1'}, func, param);
+			//          object.on({cond1: 'condition1', cond2: 'condition2'}, func, param);
+			//          object.on({cond1: 'condition2', cond2: 'condition1'}, func, param);
+			//          object.on(['apple', 'pomegranate', 'jackfruit', 'condition1'], func, param);
+			//          object.on(['apple', 'pomegranate', 'jackfruit', 'condition1', 'condition2'], func, param); will run twice
 			callback: function(cond, eventObject) {
 				if (this.callbackQueue == null) this.callbackQueue = {};
 				if (this.functionHash == null) this.functionHash = {};
@@ -175,7 +199,7 @@ function AetoUtil() {
 
 								if (callbackedFunction != null) callbackedFunction({cond: finalCond, eventObject: eventObject});
 
-								if (!queue[idx].isContinous) {
+								if (!queue[idx].isContinuous) {
 									functionHash[queue[idx].funcId] = null;
 
 									queue.splice(idx, 1);
@@ -193,8 +217,6 @@ function AetoUtil() {
 
 		objectType.prototype = Object.create(AetoCallbackPrototype);
 		objectType.prototype.constructor = objectType;
-
-		return objectType;
 	}
 
 	this.clamp = function(number, min, max) {

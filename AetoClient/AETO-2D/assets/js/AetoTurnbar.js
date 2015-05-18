@@ -275,11 +275,11 @@ function AetoTurnbar(A, GUID, parentNode, parameters) {
 							});
 
 							TweenMax.killTweensOf(attribNode.dividerDomLeft, {
-								opacity: true
+								opacity: true, autoAlpha: true
 							});
 
 							TweenMax.to(attribNode.dividerDomLeft, 0, {
-								opacity: 0,
+								autoAlpha: 0,
 								ease: Power2.easeInOut
 							});
 
@@ -296,11 +296,11 @@ function AetoTurnbar(A, GUID, parentNode, parameters) {
 							});
 
 							TweenMax.killTweensOf(attribNode.dividerDomRight, {
-								opacity: true
+								opacity: true, autoAlpha: true
 							});
 
 							TweenMax.to(attribNode.dividerDomRight, 0, {
-								opacity: 0,
+								autoAlpha: 0,
 								ease: Power2.easeInOut
 							});
 
@@ -318,15 +318,15 @@ function AetoTurnbar(A, GUID, parentNode, parameters) {
 							});
 
 							TweenMax.killTweensOf(attribNode.dividerDomLeft, {
-								opacity: true
+								opacity: true, autoAlpha: true
 							});
 
 							TweenMax.killTweensOf(attribNode.dividerDomRight, {
-								opacity: true
+								opacity: true, autoAlpha: true
 							});
 
 							TweenMax.to([attribNode.dividerDomLeft, attribNode.dividerDomRight], 0, {
-								opacity: segmentValues['dividerOpacity'],
+								autoAlpha: segmentValues['dividerOpacity'],
 								ease: Power2.easeInOut
 							});
 
@@ -535,7 +535,7 @@ function AetoTurnbar(A, GUID, parentNode, parameters) {
 								borderRadius: '50%',
 								boxShadow: 'inset 0 0 0 2px rgb(166, 166, 166)',
 								rotation: 0,
-								opacity: 1,
+								autoAlpha: 1,
 								ease: Power2.easeInOut
 							}, 0);
 
@@ -711,16 +711,16 @@ function AetoTurnbar(A, GUID, parentNode, parameters) {
 
 							scrollMode = "left";
 
-							TweenMax.killTweensOf(doms['leftChevron'], {opacity: true});
+							TweenMax.killTweensOf(doms['leftChevron'], {opacity: true, autoAlpha: true});
 
 							leftModeTimeline.to(doms['leftChevron'], .35, {
-								opacity: .3
+								autoAlpha: .3
 							}, 0);
 
 							TweenMax.killTweensOf(doms['rightChevron'], {opacity: true});
 
 							leftModeTimeline.to(doms['rightChevron'], .35, {
-								opacity: .1
+								autoAlpha: .1
 							}, 0);
 
 							TweenMax.killTweensOf(doms['rightChevronSegments'][0], {skewX: true});
@@ -775,16 +775,16 @@ function AetoTurnbar(A, GUID, parentNode, parameters) {
 
 							scrollMode = "right";
 
-							TweenMax.killTweensOf(doms['rightChevron'], {opacity: true});
+							TweenMax.killTweensOf(doms['rightChevron'], {opacity: true, autoAlpha: true});
 
 							rightModeTimeline.to(doms['rightChevron'], .35, {
-								opacity: .3
+								autoAlpha: .3
 							}, 0);
 
-							TweenMax.killTweensOf(doms['leftChevron'], {opacity: true});
+							TweenMax.killTweensOf(doms['leftChevron'], {opacity: true, autoAlpha: true});
 
 							rightModeTimeline.to(doms['leftChevron'], .35, {
-								opacity: .1
+								autoAlpha: .1
 							}, 0);
 
 							TweenMax.killTweensOf(doms['rightChevronSegments'][0], {skewX: true});
@@ -843,11 +843,11 @@ function AetoTurnbar(A, GUID, parentNode, parameters) {
 
 									scrollMode = "none";
 
-									TweenMax.killTweensOf(doms['leftChevron'], {opacity: true});
-									TweenMax.killTweensOf(doms['rightChevron'], {opacity: true});
+									TweenMax.killTweensOf(doms['leftChevron'], {opacity: true, autoAlpha: true});
+									TweenMax.killTweensOf(doms['rightChevron'], {opacity: true, autoAlpha: true});
 
 									noneModeTimeline.to([doms['leftChevron'], doms['rightChevron']], .35, {
-										opacity: chevronValues['opacity']
+										autoAlpha: chevronValues['opacity']
 									}, 0);
 
 
@@ -999,48 +999,48 @@ function AetoTurnbar(A, GUID, parentNode, parameters) {
 		 	}, .15);
 
 		 	timelines['timerEnter'].from(darkDom, .5, {
-		 		opacity: 0
+		 		autoAlpha: 0
 		 	}, 0);
 
 		 	timelines['timerEnter'].from(lightDom,.5, {
-		 		opacity: 0
+		 		autoAlpha: 0
 		 	}, .15);
 
 		 	timelines['timerEnter'].from(clockCircleDom, .45, {
-		 		opacity: 0,
+		 		autoAlpha: 0,
 		 		scale: 1.5,
 		 		ease: Power2.easeInOut
 		 	}, .2);
 
 		 	timelines['timerEnter'].from(timerDoms['longHand'], .45, {
 		 		scaleY: 0,
-				opacity: 0,
+				autoAlpha: 0,
 				transformOrigin: "bottom center",
 		 		ease: Power2.easeIn
 		 	}, .2);
 
 		 	timelines['timerEnter'].from(timerDoms['shortHand'], .45, {
 				scaleY: 0,
-				opacity: 0,
+				autoAlpha: 0,
 				transformOrigin: "bottom center",
 		 		ease: Power2.easeIn
 		 	}, .35);
 
 		 	timelines['timerEnter'].from(timerDoms['sec'], .4, {
 				x: -30,
-				opacity: 0,
+				autoAlpha: 0,
 		 		ease: Power2.easeInOut
 		 	}, .55);
 
 		 	timelines['timerEnter'].from(timerDoms['csec'], .4, {
 				x: 30,
-				opacity: 0,
+				autoAlpha: 0,
 		 		ease: Power2.easeInOut
 		 	}, .55);
 
 		 	timelines['timerEnter'].from(apostropheDom, .4, {
 				y: -20,
-				opacity: 0,
+				autoAlpha: 0,
 		 		ease: Power2.easeInOut
 		 	}, .7);
 
@@ -1177,19 +1177,19 @@ function AetoTurnbar(A, GUID, parentNode, parameters) {
 
 			entryTimeline.from(turnbarContainerNode.one('.scroll-bar-bg').getDOMNode(), .75, {
 				scaleX: 0,
-				opacity: .2,
+				autoAlpha: .2,
 				ease: Power2.easeInOut
 			}, .3);
 
 			entryTimeline.from(turnbarContainerNode.one('.turn-scroll-handle-container').getDOMNode(), .45, {
 				x: 30,
-				opacity: 0,
+				autoAlpha: 0,
 				ease: Back.easeOut.config(1.3)
 			}, .85);
 
 			entryTimeline.from(turnbarContainerNode.one('.turn-segments-container').getDOMNode(), .55, {
 				y: 30,
-				opacity: 0,
+				autoAlpha: 0,
 				ease: Back.easeOut.config(1.3)
 			}, .6);
 
@@ -1199,11 +1199,11 @@ function AetoTurnbar(A, GUID, parentNode, parameters) {
 				var itemTimeline = new TimelineMax();
 
 				itemTimeline.from(turnbarSegmentNodes[segmentIndex + idx].node.one('.turn-segment-background').getDOMNode(), .3, {
-					opacity: 0
+					autoAlpha: 0
 				}, 0);
 
 				itemTimeline.from(turnbarSegmentNodes[segmentIndex + idx].node.one('.turn-segment-content').getDOMNode(), .45, {
-					opacity: 0,
+					autoAlpha: 0,
 					skewY: .3
 				}, .25);
 
@@ -1224,7 +1224,7 @@ function AetoTurnbar(A, GUID, parentNode, parameters) {
 
 				itemTimeline.from(turnbarSegmentNodes[segmentIndex + idx].node.one('.character-name').getDOMNode(), .4, {
 					x: -40,
-					opacity: 0,
+					autoAlpha: 0,
 					ease: Back.easeOut.config(1.3)
 				}, .75);
 
@@ -1241,7 +1241,7 @@ function AetoTurnbar(A, GUID, parentNode, parameters) {
 				entryTimeline.add(itemTimeline, 1 + idx * .1);
 
 				entryTimeline.from([turnbarSegmentNodes[segmentIndex + idx].node.one('.segment-divider.left').getDOMNode(), turnbarSegmentNodes[segmentIndex + idx].node.one('.segment-divider.right').getDOMNode()], .35, {
-					opacity: 0
+					autoAlpha: 0
 				}, 2.4);
 
 				entryTimeline.from(turnbarSegmentNodes[segmentIndex + idx].node.one('.alliance-bar').getDOMNode(), allianceBarRate, {
@@ -1264,25 +1264,6 @@ function AetoTurnbar(A, GUID, parentNode, parameters) {
 			});
 
 			entryTimeline.play();
-
-			// function handler(e) {
-			// 	animCounter++;
-				
-			// 	if (animCounter >= 500) {
-			// 		Aeto2DUtil.removeAnimationEndListener(turnbarContainerNode, handler);
-
-			// 		turnbarContainerNode.removeClass("anim-enter");
-			// 		turnbarContainerNode.removeClass("marked-for-anim-enter");
-			// 		_this.callback('entered', GUID);
-			// 	}
-			// }
-
-			// turnbarContainerNode.addClass("marked-for-anim-enter");
-
-			// Aeto2DUtil.addAnimationEndListener(turnbarContainerNode, handler);
-
-			// Aeto2DUtil.unhideNode(turnbarContainerNode);
-			// turnbarContainerNode.addClass("anim-enter");
 		}
 		else {
 			Aeto2DUtil.unhideNode(turnbarContainerNode);

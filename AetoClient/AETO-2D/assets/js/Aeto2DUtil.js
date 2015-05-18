@@ -331,8 +331,12 @@ function Aeto2DUtil() {
 	    }
 	};
 
+	this.radiansToDegrees = function(radians) {
+		return radians * 180 / Math.PI;
+	}
+
 	this.angleBetweenPointsInDegrees = function(p1, p2) {
-		return _this.angleBetweenPoints(p1, p2) * 180 / Math.PI;
+		return _this.radiansToDegrees(_this.angleBetweenPoints(p1, p2));
 	};
 
 	this.angleBetweenPoints = function(p1, p2) {

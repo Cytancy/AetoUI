@@ -9,25 +9,26 @@
   height: 260px;
   left: 50px;
   position: fixed;
+  z-index: 5;
 }
-/* line 18, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 19, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .aeto-ui-hudbar {
   position: relative;
   height: 100%;
 }
-/* line 23, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 24, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .frame-header-holder {
   left: 200px;
   position: absolute;
   top: 65px;
   z-index: 5;
 }
-/* line 30, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 31, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .frame-header-content {
   position: relative;
   height: 76px;
 }
-/* line 34, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 35, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .frame-header-content .frame-header-icon {
   width: 56px;
   height: 56px;
@@ -37,7 +38,7 @@
   left: 38px;
   top: 8px;
 }
-/* line 44, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 45, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .frame-header-content .frame-header-framework-name {
   background-size: contain;
   font-family: 'Montserrat', sans-serif;
@@ -46,7 +47,7 @@
   position: absolute;
   top: 8px;
 }
-/* line 53, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 54, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .frame-header-content .frame-header-name {
   font-family: 'Josefin Sans', sans-serif;
   color: #3c3c3c;
@@ -58,19 +59,19 @@
   position: relative;
   top: 35px;
 }
-/* line 69, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 70, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .back-bg-group {
   height: 100%;
   opacity: .75;
   z-index: 1;
 }
-/* line 74, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 75, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .back-bg-group .dark-bg {
-  opacity: .34;
+  opacity: .4;
   position: relative;
   height: 100%;
 }
-/* line 79, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 80, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .back-bg-group .dark-bg .bg-circle {
   height: 100%;
   left: 0;
@@ -78,7 +79,7 @@
   top: 0;
   width: 260px;
 }
-/* line 86, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 87, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .back-bg-group .dark-bg .bg-circle .bg-circle-fill {
   -moz-box-shadow: inset 0 0 0 130px #000, 0 0 4px 2px rgba(0, 0, 0, 0.6);
   -webkit-box-shadow: inset 0 0 0 130px #000, 0 0 4px 2px rgba(0, 0, 0, 0.6);
@@ -92,7 +93,7 @@
   top: 0;
   width: 100%;
 }
-/* line 98, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 99, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .back-bg-group .dark-bg .bg-header-tab {
   height: 7px;
   top: 58px;
@@ -101,7 +102,7 @@
   background: #000;
   position: absolute;
 }
-/* line 106, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 107, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .back-bg-group .dark-bg .bg-header-tab:after {
   right: -6px;
   content: "";
@@ -113,12 +114,12 @@
   border-color: transparent transparent transparent #000;
   top: 0;
 }
-/* line 120, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 121, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .back-bg-group .stat-status-bar-group {
   opacity: .42;
   z-index: 2;
 }
-/* line 126, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 127, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .stat-frame {
   height: 249px;
   left: 6px;
@@ -127,7 +128,7 @@
   width: 248px;
   z-index: 2;
 }
-/* line 134, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 135, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .stat-frame .stat-frame-bar {
   -moz-transition-duration: 0.35s;
   -o-transition-duration: 0.35s;
@@ -146,7 +147,7 @@
   stroke-dashoffset: 0;
   stroke-width: 18px;
 }
-/* line 146, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 147, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .effects-bar-frame {
   -moz-transition-duration: 0.4s;
   -o-transition-duration: 0.4s;
@@ -166,7 +167,7 @@
   position: absolute;
   width: 30px;
 }
-/* line 157, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 158, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .effects-bar-frame .effect-bar-bg {
   background: #000;
   border-color: rgba(0, 0, 0, 0.3);
@@ -178,7 +179,7 @@
   position: absolute;
   width: 100%;
 }
-/* line 170, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 171, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .effects-bar-frame .effect-bar-edge {
   border-color: #000 transparent transparent transparent;
   border-style: solid;
@@ -189,14 +190,14 @@
   top: 0;
   width: 0;
 }
-/* line 182, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 183, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .frame-header-bg {
   left: 200px;
   position: absolute;
   top: 65px;
   z-index: 3;
 }
-/* line 190, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 191, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .frame-header-bg .frame-bg {
   height: 100%;
   left: 0;
@@ -204,7 +205,7 @@
   top: 0;
   width: 100%;
 }
-/* line 197, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 198, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .frame-header-bg .frame-bg .bg-solid-fill {
   background: #FFF;
   height: 100%;
@@ -214,7 +215,7 @@
   width: calc(80% - 80px);
   z-index: 1;
 }
-/* line 207, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 208, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .frame-header-bg .frame-bg .bg-gradient-fill {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
@@ -229,7 +230,7 @@
   width: calc(20% + 80px);
   z-index: 1;
 }
-/* line 220, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 221, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .outer-frame {
   height: 203px;
   left: 28.5px;
@@ -237,7 +238,7 @@
   position: absolute;
   top: 28.5px;
 }
-/* line 229, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 230, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .outer-frame .frame-circle {
   height: 260px;
   top: -28.5px;
@@ -245,7 +246,7 @@
   position: absolute;
   width: 260px;
 }
-/* line 236, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 237, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .outer-frame .frame-circle .frame-circle-fill {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -261,7 +262,7 @@
   width: 203px;
   height: 203px;
 }
-/* line 250, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 251, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .outer-frame .frame-bar-container {
   bottom: 0;
   height: 95px;
@@ -269,7 +270,7 @@
   position: absolute;
   width: 617px;
 }
-/* line 259, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 260, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .outer-frame .frame-bar-container .frame-bar {
   -webkit-clip-path: url(../svgs/aeto-gray-frame.svg);
   clip-path: url(../svgs/aeto-gray-frame.svg#svgClip);
@@ -281,7 +282,7 @@
   width: 100%;
   z-index: 2;
 }
-/* line 271, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 272, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .outer-frame .frame-bar-container .frame-bar .frame-bar-fill {
   background: #000;
   position: absolute;
@@ -290,7 +291,7 @@
   width: 100%;
   height: 100%;
 }
-/* line 279, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 280, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .outer-frame .frame-bar-container .frame-bar .frame-bar-fill:after {
   border-color: transparent transparent transparent #000;
   border-style: solid;
@@ -301,7 +302,7 @@
   right: -40px;
   width: 0;
 }
-/* line 294, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 295, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .outer-frame .frame-bar-container .frame-bar-shadow {
   -moz-transform: scale(1.015);
   -ms-transform: scale(1.015);
@@ -318,20 +319,20 @@
   width: 100%;
   z-index: 1;
 }
-/* line 314, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 315, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .white-frame-group {
   position: absolute;
   top: 0;
   z-index: 6;
 }
-/* line 320, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 321, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .white-frame {
   height: 196px;
   left: 32px;
   position: absolute;
   top: 32px;
 }
-/* line 326, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 327, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .white-frame .frame-circle {
   height: 100%;
   left: 0;
@@ -339,7 +340,7 @@
   top: 0;
   width: 196px;
 }
-/* line 333, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 334, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .white-frame .frame-circle .frame-circle-fill {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -351,7 +352,7 @@
   top: 0;
   width: 100%;
 }
-/* line 345, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 346, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .white-frame .frame-bar {
   clip-path: url(../svgs/aeto-white-frame.svg#svgClip);
   -webkit-clip-path: url(../svgs/aeto-white-frame.svg);
@@ -362,14 +363,14 @@
   position: absolute;
   width: 609px;
 }
-/* line 356, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 357, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .white-frame .frame-bar .frame-bar-fill {
   position: absolute;
   background: #FAFAFA;
   left: 0;
   width: 100%;
 }
-/* line 366, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 367, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .white-frame .frame-bar .frame-bar-fill:after {
   border-color: transparent transparent transparent #FAFAFA;
   border-style: solid;
@@ -378,37 +379,37 @@
   position: absolute;
   width: 0;
 }
-/* line 375, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 376, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .white-frame .frame-bar .frame-bar-fill:nth-child(1) {
   height: 16px;
   top: 0;
 }
-/* line 379, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 380, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .white-frame .frame-bar .frame-bar-fill:nth-child(1):after {
   border-width: 8px 0 8px 16px;
   right: -16px;
 }
-/* line 385, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 386, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .white-frame .frame-bar .frame-bar-fill:nth-child(2) {
   height: 45px;
   top: 16px;
 }
-/* line 389, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 390, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .white-frame .frame-bar .frame-bar-fill:nth-child(2):after {
   border-width: 22.5px 0 22.5px 45px;
   right: -45px;
 }
-/* line 395, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 396, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .white-frame .frame-bar .frame-bar-fill:nth-child(3) {
   height: 26px;
   top: 61px;
 }
-/* line 399, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 400, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .white-frame .frame-bar .frame-bar-fill:nth-child(3):after {
   border-width: 13px 0 13px 26px;
   right: -26px;
 }
-/* line 408, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 409, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .portrait-outer-outline {
   -moz-transform: rotate(-90deg) scale(1, -1);
   -ms-transform: rotate(-90deg) scale(1, -1);
@@ -420,14 +421,14 @@
   top: 38px;
   width: 184px;
 }
-/* line 417, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 418, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .portrait-outer-outline .portrait-outer-path {
   stroke: #D7D7D7;
   stroke-dasharray: 572;
   stroke-dashoffset: 0;
   stroke-width: 2px;
 }
-/* line 425, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 426, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .portrait-inner-outline {
   -moz-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
@@ -439,7 +440,7 @@
   top: 46px;
   width: 168px;
 }
-/* line 434, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 435, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .portrait-inner-outline .portrait-inner-path {
   -moz-transition-duration: 0.35s;
   -o-transition-duration: 0.35s;
@@ -458,7 +459,7 @@
   stroke-dashoffset: 186;
   stroke-width: 2px;
 }
-/* line 446, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 447, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .portrait-image {
   background-image: url("http://i.imgur.com/677flw5.png");
   background-size: contain;
@@ -469,7 +470,7 @@
   top: 50px;
   width: 150px;
 }
-/* line 457, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 458, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .portrait-header {
   -moz-border-radius-bottomleft: 85px;
   -webkit-border-bottom-left-radius: 85px;
@@ -485,7 +486,7 @@
   overflow: hidden;
   z-index: 1;
 }
-/* line 474, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 475, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .portrait-header .portrait-bar {
   background: #C5C5C5;
   height: 1px;
@@ -495,7 +496,7 @@
   width: calc(100% - 2px);
   z-index: 1;
 }
-/* line 484, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 485, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .portrait-header .portrait-body {
   -moz-box-shadow: 0 -4px 2px -1px rgba(0, 0, 0, 0.06);
   -webkit-box-shadow: 0 -4px 2px -1px rgba(0, 0, 0, 0.06);
@@ -506,13 +507,13 @@
   position: relative;
   z-index: 1;
 }
-/* line 495, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 496, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .portrait-header .portrait-percent {
   text-align: center;
   position: relative;
   top: -8px;
 }
-/* line 500, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 501, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .portrait-header .portrait-percent .percent-value {
   color: #8E8E8E;
   display: inline-block;
@@ -523,7 +524,7 @@
   line-height: 70px;
   left: 0;
 }
-/* line 511, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 512, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .portrait-header .portrait-percent .percent-sign {
   color: #AEAEAE;
   display: inline-block;
@@ -534,7 +535,7 @@
   top: -8px;
   right: 0;
 }
-/* line 523, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 524, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .portrait-header .portrait-synch {
   color: #676767;
   bottom: 18px;
@@ -544,7 +545,7 @@
   text-align: center;
   width: 100%;
 }
-/* line 534, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 535, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame {
   clip-path: url(../svgs/aeto-bar-frame.svg#svgClip);
   -webkit-clip-path: url(../svgs/aeto-bar-frame.svg);
@@ -556,11 +557,11 @@
   width: 569px;
   z-index: 7;
 }
-/* line 550, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 551, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .bar-after-fx-bg {
   z-index: 2;
 }
-/* line 553, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 554, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .bar-after-fx-bg .dark-bg, .aeto-ui-hudbar-container .bar-frame .bar-after-fx-bg .light-bg {
   -moz-transition-duration: 0.35s;
   -o-transition-duration: 0.35s;
@@ -580,7 +581,7 @@
   top: 0;
   width: 100%;
 }
-/* line 566, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 567, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .bar-after-fx-bg .dark-bg {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjU1Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background-size: 100%;
@@ -590,7 +591,7 @@
   background-image: linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0.55) 100%);
   opacity: .45;
 }
-/* line 572, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 573, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .bar-after-fx-bg .light-bg {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjY1Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background-size: 100%;
@@ -600,19 +601,19 @@
   background-image: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0.65) 100%);
   opacity: .85;
 }
-/* line 578, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 579, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .bar-after-fx-bg.dark .light-bg {
   opacity: 0;
 }
-/* line 582, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 583, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .bar-after-fx-bg.light .dark-bg {
   opacity: 0;
 }
-/* line 587, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 588, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .bar-subframe {
   z-index: 3;
 }
-/* line 591, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 592, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .bar-subframe, .aeto-ui-hudbar-container .bar-frame .bar-after-fx-bg {
   -moz-transition-duration: 0.85s;
   -o-transition-duration: 0.85s;
@@ -632,7 +633,7 @@
   top: 0;
   width: calc(100% + 20px);
 }
-/* line 604, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 605, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .bar-subframe .segment-container, .aeto-ui-hudbar-container .bar-frame .bar-after-fx-bg .segment-container {
   -moz-user-select: -moz-none;
   -ms-user-select: none;
@@ -643,7 +644,7 @@
   text-align: left;
   width: 500%;
 }
-/* line 612, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 613, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .bar-subframe .segment-container .segment-measurer, .aeto-ui-hudbar-container .bar-frame .bar-after-fx-bg .segment-container .segment-measurer {
   -moz-transition-duration: 0.85s;
   -o-transition-duration: 0.85s;
@@ -662,14 +663,14 @@
   position: relative;
   z-index: 1;
 }
-/* line 622, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 623, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .bar-subframe .segment-container .segment-measurer .segment-fill, .aeto-ui-hudbar-container .bar-frame .bar-after-fx-bg .segment-container .segment-measurer .segment-fill {
   height: 100%;
   left: 0;
   position: relative;
   width: 100%;
 }
-/* line 632, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 633, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .bar-shine-overlay {
   background: #FFF;
   height: 50%;
@@ -680,7 +681,7 @@
   width: 100%;
   z-index: 4;
 }
-/* line 643, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 644, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .bar-gradient-overlay {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
@@ -696,11 +697,11 @@
   width: 100%;
   z-index: 5;
 }
-/* line 655, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 656, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame, .aeto-ui-hudbar-container .bar-frame .hp-frame, .aeto-ui-hudbar-container .bar-frame .ep-frame {
   background: #D8D8D8;
 }
-/* line 659, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 660, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame {
   clip-path: url(../svgs/aeto-tp-bar-frame.svg#svgClip);
   -webkit-clip-path: url(../svgs/aeto-tp-bar-frame.svg);
@@ -710,11 +711,11 @@
   top: 0;
   width: 324px;
 }
-/* line 669, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 670, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container {
   left: 76px;
 }
-/* line 675, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 676, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment {
   height: 100%;
   left: 0;
@@ -723,7 +724,7 @@
   width: 12px;
   z-index: 1;
 }
-/* line 684, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 685, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment .segment-fill:before, .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment .segment-fill:after {
   border-style: solid;
   border-width: 0 6px 6px 6px;
@@ -733,13 +734,13 @@
   top: -6px;
   width: 0;
 }
-/* line 694, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 695, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment .segment-fill:after {
   top: 100%;
   bottom: -6px;
   border-width: 6px 6px 0 6px;
 }
-/* line 700, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 701, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment .segment-fill .cube {
   -moz-transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
@@ -748,20 +749,20 @@
   width: 100%;
   height: 100%;
 }
-/* line 707, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 708, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment .segment-fill .cube div {
   height: 100%;
   position: absolute;
   width: 100%;
 }
-/* line 712, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 713, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment .segment-fill .cube div.front {
   -moz-transform: translateZ(6px);
   -ms-transform: translateZ(6px);
   -webkit-transform: translateZ(6px);
   transform: translateZ(6px);
 }
-/* line 716, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 717, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment .segment-fill .cube div.left {
   -moz-transform: rotateY(270deg) translateX(-6px);
   -ms-transform: rotateY(270deg) translateX(-6px);
@@ -773,7 +774,7 @@
   transform-origin: center left;
   background: #9FE28E;
 }
-/* line 723, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 724, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment .segment-fill .cube div.right {
   -moz-transform: rotateY(-270deg) translateX(6px);
   -ms-transform: rotateY(-270deg) translateX(6px);
@@ -785,58 +786,58 @@
   transform-origin: top right;
   background: #ACED9B;
 }
-/* line 730, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 731, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment .segment-fill .cube div.back {
   -moz-transform: translateZ(-6px) rotateY(180deg);
   -ms-transform: translateZ(-6px) rotateY(180deg);
   -webkit-transform: translateZ(-6px) rotateY(180deg);
   transform: translateZ(-6px) rotateY(180deg);
 }
-/* line 740, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 741, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.dark .segment-fill:before {
   border-color: transparent transparent #D7D7D7 transparent;
 }
-/* line 744, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 745, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.dark .segment-fill:after {
   border-color: #D7D7D7 transparent transparent transparent;
 }
-/* line 749, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 750, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.dark .segment-fill .front, .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.dark .segment-fill .back {
   background: #D7D7D7;
 }
-/* line 753, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 754, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.dark .segment-fill .cube {
   -moz-transform: rotateY(90deg);
   -ms-transform: rotateY(90deg);
   -webkit-transform: rotateY(90deg);
   transform: rotateY(90deg);
 }
-/* line 761, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 762, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.light .segment-fill:before {
   border-color: transparent transparent #E7E7E7 transparent;
 }
-/* line 765, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 766, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.light .segment-fill:after {
   border-color: #E7E7E7 transparent transparent transparent;
 }
-/* line 770, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 771, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.light .segment-fill .front, .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.light .segment-fill .back {
   background: #E7E7E7;
 }
-/* line 774, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 775, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.light .segment-fill .cube {
   -moz-transform: rotateY(-90deg);
   -ms-transform: rotateY(-90deg);
   -webkit-transform: rotateY(-90deg);
   transform: rotateY(-90deg);
 }
-/* line 783, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 784, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.anim-enter.dark .segment-fill {
   -moz-animation: tp-segment-enter-t1 0.65s ease-in-out 0s;
   -webkit-animation: tp-segment-enter-t1 0.65s ease-in-out 0s;
   animation: tp-segment-enter-t1 0.65s ease-in-out 0s;
 }
-/* line 786, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 787, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.anim-enter.dark .segment-fill .cube {
   -moz-animation: tp-segment-rotate-left 0.65s ease-in-out 0.65s;
   -webkit-animation: tp-segment-rotate-left 0.65s ease-in-out 0.65s;
@@ -846,13 +847,13 @@
   -webkit-transform: rotateY(0deg);
   transform: rotateY(0deg);
 }
-/* line 792, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 793, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.anim-enter.light .segment-fill {
   -moz-animation: tp-segment-enter-t2 0.65s ease-in-out 0s;
   -webkit-animation: tp-segment-enter-t2 0.65s ease-in-out 0s;
   animation: tp-segment-enter-t2 0.65s ease-in-out 0s;
 }
-/* line 795, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 796, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.anim-enter.light .segment-fill .cube {
   -moz-animation: tp-segment-rotate-right 0.65s ease-in-out 0.65s;
   -webkit-animation: tp-segment-rotate-right 0.65s ease-in-out 0.65s;
@@ -862,13 +863,13 @@
   -webkit-transform: rotateY(0deg);
   transform: rotateY(0deg);
 }
-/* line 803, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 804, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.anim-exit.dark .segment-fill {
   -moz-animation: tp-segment-enter-t1 0.65s ease-in-out 0.65s reverse;
   -webkit-animation: tp-segment-enter-t1 0.65s ease-in-out 0.65s reverse;
   animation: tp-segment-enter-t1 0.65s ease-in-out 0.65s reverse;
 }
-/* line 807, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 808, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.anim-exit.dark .segment-fill .cube {
   -moz-animation: tp-segment-rotate-left 0.65s ease-in-out 0s reverse;
   -webkit-animation: tp-segment-rotate-left 0.65s ease-in-out 0s reverse;
@@ -878,13 +879,13 @@
   -webkit-transform: rotateY(0deg);
   transform: rotateY(0deg);
 }
-/* line 814, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 815, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.anim-exit.light .segment-fill {
   -moz-animation: tp-segment-enter-t2 0.65s ease-in-out 0.65s reverse;
   -webkit-animation: tp-segment-enter-t2 0.65s ease-in-out 0.65s reverse;
   animation: tp-segment-enter-t2 0.65s ease-in-out 0.65s reverse;
 }
-/* line 817, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 818, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .segment-container .tp-segment.anim-exit.light .segment-fill .cube {
   -moz-animation: tp-segment-rotate-right 0.65s ease-in-out 0s reverse;
   -webkit-animation: tp-segment-rotate-right 0.65s ease-in-out 0s reverse;
@@ -894,19 +895,19 @@
   -webkit-transform: rotateY(0deg);
   transform: rotateY(0deg);
 }
-/* line 827, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 828, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .bar-subframe, .aeto-ui-hudbar-container .bar-frame .tp-frame .bar-after-fx-bg {
   clip-path: url(../svgs/aeto-tp-bar-frame.svg#svgClip);
   -webkit-clip-path: url(../svgs/aeto-tp-bar-frame.svg);
   -webkit-mask: url(../svgs/aeto-tp-bar-frame.svg);
 }
-/* line 834, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 835, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .tp-frame .bar-subframe.anim-cycle .segment-container, .aeto-ui-hudbar-container .bar-frame .tp-frame .bar-after-fx-bg.anim-cycle .segment-container {
   -moz-animation: tp-bar-loop 1.3s linear 0s infinite;
   -webkit-animation: tp-bar-loop 1.3s linear 0s infinite;
   animation: tp-bar-loop 1.3s linear 0s infinite;
 }
-/* line 840, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 841, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .hp-frame {
   clip-path: url(../svgs/aeto-hp-bar-frame.svg#svgClip);
   -webkit-clip-path: url(../svgs/aeto-hp-bar-frame.svg);
@@ -916,24 +917,24 @@
   width: 580px;
   height: 35px;
 }
-/* line 850, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 851, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe, .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg {
   clip-path: url(../svgs/aeto-hp-bar-frame.svg#svgClip);
   -webkit-clip-path: url(../svgs/aeto-hp-bar-frame.svg);
   -webkit-mask: url(../svgs/aeto-hp-bar-frame.svg);
 }
-/* line 855, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 856, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe .segment-container, .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg .segment-container {
   left: 56px;
 }
-/* line 861, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 862, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe .segment-container .hp-segment, .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg .segment-container .hp-segment {
   height: 100%;
   position: absolute;
   width: 24px;
   z-index: 1;
 }
-/* line 867, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 868, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe .segment-container .hp-segment .chevron-segment, .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg .segment-container .hp-segment .chevron-segment {
   background: inherit;
   height: 100%;
@@ -941,7 +942,7 @@
   position: absolute;
   width: 102%;
 }
-/* line 874, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 875, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe .segment-container .hp-segment .chevron-segment:nth-child(1), .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg .segment-container .hp-segment .chevron-segment:nth-child(1) {
   -moz-transform: skew(40deg, 0deg);
   -ms-transform: skew(40deg, 0deg);
@@ -950,7 +951,7 @@
   top: -50%;
   z-index: 2;
 }
-/* line 881, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 882, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe .segment-container .hp-segment .chevron-segment:nth-child(2), .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg .segment-container .hp-segment .chevron-segment:nth-child(2) {
   -moz-transform: skew(-40deg, 0deg);
   -ms-transform: skew(-40deg, 0deg);
@@ -959,15 +960,15 @@
   bottom: calc(-50% + 1px);
   z-index: 1;
 }
-/* line 889, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 890, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe .segment-container .hp-segment.dark .hp-segment-colorer, .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg .segment-container .hp-segment.dark .hp-segment-colorer {
   background: #88C9FF;
 }
-/* line 893, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 894, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe .segment-container .hp-segment.light .hp-segment-colorer, .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg .segment-container .hp-segment.light .hp-segment-colorer {
   background: #7CB8EA;
 }
-/* line 903, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 904, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe .segment-container .hp-segment.anim-enter.dark .chevron-segment:nth-child(1), .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe .segment-container .hp-segment.anim-enter.light .chevron-segment:nth-child(1), .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg .segment-container .hp-segment.anim-enter.dark .chevron-segment:nth-child(1), .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg .segment-container .hp-segment.anim-enter.light .chevron-segment:nth-child(1) {
   -moz-transform: skew(65deg, 0deg);
   -ms-transform: skew(65deg, 0deg);
@@ -977,13 +978,13 @@
   -webkit-animation: hp-segment-top-drop 0.65s ease-in-out 0s, hp-segment-top-unskew 0.55s ease-in-out 1.15s;
   animation: hp-segment-top-drop 0.65s ease-in-out 0s, hp-segment-top-unskew 0.55s ease-in-out 1.15s;
 }
-/* line 910, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 911, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe .segment-container .hp-segment.anim-enter.dark .chevron-segment:nth-child(2), .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe .segment-container .hp-segment.anim-enter.light .chevron-segment:nth-child(2), .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg .segment-container .hp-segment.anim-enter.dark .chevron-segment:nth-child(2), .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg .segment-container .hp-segment.anim-enter.light .chevron-segment:nth-child(2) {
   -moz-animation: hp-segment-bottom-drop-stall 0.5s ease-in-out 0s, hp-segment-bottom-drop 0.65s ease-in-out 0.5s, hp-segment-bottom-unskew 0.55s ease-in-out 1.15s;
   -webkit-animation: hp-segment-bottom-drop-stall 0.5s ease-in-out 0s, hp-segment-bottom-drop 0.65s ease-in-out 0.5s, hp-segment-bottom-unskew 0.55s ease-in-out 1.15s;
   animation: hp-segment-bottom-drop-stall 0.5s ease-in-out 0s, hp-segment-bottom-drop 0.65s ease-in-out 0.5s, hp-segment-bottom-unskew 0.55s ease-in-out 1.15s;
 }
-/* line 921, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 922, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe .segment-container .hp-segment.anim-exit.dark .chevron-segment:nth-child(1), .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe .segment-container .hp-segment.anim-exit.light .chevron-segment:nth-child(1), .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg .segment-container .hp-segment.anim-exit.dark .chevron-segment:nth-child(1), .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg .segment-container .hp-segment.anim-exit.light .chevron-segment:nth-child(1) {
   -moz-animation: hp-segment-top-unskew 0.55s ease-in-out 0s reverse, hp-segment-top-drop 0.65s ease-in-out 1.05s reverse;
   -webkit-animation: hp-segment-top-unskew 0.55s ease-in-out 0s reverse, hp-segment-top-drop 0.65s ease-in-out 1.05s reverse;
@@ -993,7 +994,7 @@
   -webkit-transform: skew(65deg, 0deg);
   transform: skew(65deg, 0deg);
 }
-/* line 930, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 931, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe .segment-container .hp-segment.anim-exit.dark .chevron-segment:nth-child(2), .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe .segment-container .hp-segment.anim-exit.light .chevron-segment:nth-child(2), .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg .segment-container .hp-segment.anim-exit.dark .chevron-segment:nth-child(2), .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg .segment-container .hp-segment.anim-exit.light .chevron-segment:nth-child(2) {
   -moz-animation: hp-segment-bottom-unskew 0.55s ease-in-out 0s reverse, hp-segment-bottom-drop 0.65s ease-in-out 0.55s reverse, hp-segment-bottom-drop-stall 0.65s ease-in-out 1.05s;
   -webkit-animation: hp-segment-bottom-unskew 0.55s ease-in-out 0s reverse, hp-segment-bottom-drop 0.65s ease-in-out 0.55s reverse, hp-segment-bottom-drop-stall 0.65s ease-in-out 1.05s;
@@ -1003,13 +1004,13 @@
   -webkit-transform: skew(-65deg, 0deg);
   transform: skew(-65deg, 0deg);
 }
-/* line 944, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 945, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-subframe.anim-cycle .segment-container, .aeto-ui-hudbar-container .bar-frame .hp-frame .bar-after-fx-bg.anim-cycle .segment-container {
   -moz-animation: hp-bar-loop 3.4s linear 0s infinite;
   -webkit-animation: hp-bar-loop 3.4s linear 0s infinite;
   animation: hp-bar-loop 3.4s linear 0s infinite;
 }
-/* line 950, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 951, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .ep-frame {
   clip-path: url(../svgs/aeto-ep-bar-frame.svg#svgClip);
   -webkit-clip-path: url(../svgs/aeto-ep-bar-frame.svg);
@@ -1019,24 +1020,24 @@
   width: 440px;
   height: 26px;
 }
-/* line 960, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 961, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-subframe, .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-after-fx-bg {
   clip-path: url(../svgs/aeto-ep-bar-frame.svg#svgClip);
   -webkit-clip-path: url(../svgs/aeto-ep-bar-frame.svg);
   -webkit-mask: url(../svgs/aeto-ep-bar-frame.svg);
 }
-/* line 965, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 966, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-subframe .segment-container, .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-after-fx-bg .segment-container {
   left: 4px;
 }
-/* line 970, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 971, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-subframe .segment-container .ep-segment, .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-after-fx-bg .segment-container .ep-segment {
   height: 100%;
   position: absolute;
   width: 16px;
   margin-left: -4px;
 }
-/* line 978, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 979, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-subframe .segment-container .ep-segment .slant-segment, .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-after-fx-bg .segment-container .ep-segment .slant-segment {
   -moz-transform: rotate(40deg);
   -ms-transform: rotate(40deg);
@@ -1048,7 +1049,7 @@
   top: -150%;
   width: 84%;
 }
-/* line 988, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 989, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-subframe .segment-container .ep-segment.dark .slant-segment, .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-after-fx-bg .segment-container .ep-segment.dark .slant-segment {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YzZGM3YyIgc3RvcC1vcGFjaXR5PSIwLjAiLz48c3RvcCBvZmZzZXQ9IjI1JSIgc3RvcC1jb2xvcj0iI2VjZDM2OCIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjZWNkMzY4Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZjNkYzdjIiBzdG9wLW9wYWNpdHk9IjAuMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
@@ -1057,7 +1058,7 @@
   background-image: -webkit-linear-gradient(top, rgba(243, 220, 124, 0) 0%, #ecd368 25%, #ecd368 75%, rgba(243, 220, 124, 0) 100%);
   background-image: linear-gradient(to bottom, rgba(243, 220, 124, 0) 0%, #ecd368 25%, #ecd368 75%, rgba(243, 220, 124, 0) 100%);
 }
-/* line 992, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 993, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-subframe .segment-container .ep-segment.light .slant-segment, .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-after-fx-bg .segment-container .ep-segment.light .slant-segment {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y1ZTI4YyIgc3RvcC1vcGFjaXR5PSIwLjAiLz48c3RvcCBvZmZzZXQ9IjI1JSIgc3RvcC1jb2xvcj0iI2YyZGY3YyIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjZjJkZjdjIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZjNlMjhjIiBzdG9wLW9wYWNpdHk9IjAuMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
@@ -1066,48 +1067,48 @@
   background-image: -webkit-linear-gradient(top, rgba(245, 226, 140, 0) 0%, #f2df7c 25%, #f2df7c 75%, rgba(243, 226, 140, 0) 100%);
   background-image: linear-gradient(to bottom, rgba(245, 226, 140, 0) 0%, #f2df7c 25%, #f2df7c 75%, rgba(243, 226, 140, 0) 100%);
 }
-/* line 1013, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1014, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-subframe .segment-container .ep-segment.anim-enter.dark .slant-segment, .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-after-fx-bg .segment-container .ep-segment.anim-enter.dark .slant-segment {
   -moz-animation: ep-segment-slide-from-top 0.65s ease-in-out 0s, ep-segment-ball-form-dark 1.05s ease-in-out 0.55s;
   -webkit-animation: ep-segment-slide-from-top 0.65s ease-in-out 0s, ep-segment-ball-form-dark 1.05s ease-in-out 0.55s;
   animation: ep-segment-slide-from-top 0.65s ease-in-out 0s, ep-segment-ball-form-dark 1.05s ease-in-out 0.55s;
 }
-/* line 1018, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1019, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-subframe .segment-container .ep-segment.anim-enter.light .slant-segment, .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-after-fx-bg .segment-container .ep-segment.anim-enter.light .slant-segment {
   -moz-animation: ep-segment-slide-from-bottom 0.65s ease-in-out 0s, ep-segment-ball-form-light 1.05s ease-in-out 0.55s;
   -webkit-animation: ep-segment-slide-from-bottom 0.65s ease-in-out 0s, ep-segment-ball-form-light 1.05s ease-in-out 0.55s;
   animation: ep-segment-slide-from-bottom 0.65s ease-in-out 0s, ep-segment-ball-form-light 1.05s ease-in-out 0.55s;
 }
-/* line 1025, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1026, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-subframe .segment-container .ep-segment.anim-exit.dark .slant-segment, .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-after-fx-bg .segment-container .ep-segment.anim-exit.dark .slant-segment {
   -moz-animation: ep-segment-ball-form-dark 1.05s ease-in-out 0s reverse, ep-segment-slide-from-bottom 0.65s ease-in-out 1.05s reverse;
   -webkit-animation: ep-segment-ball-form-dark 1.05s ease-in-out 0s reverse, ep-segment-slide-from-bottom 0.65s ease-in-out 1.05s reverse;
   animation: ep-segment-ball-form-dark 1.05s ease-in-out 0s reverse, ep-segment-slide-from-bottom 0.65s ease-in-out 1.05s reverse;
 }
-/* line 1030, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1031, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-subframe .segment-container .ep-segment.anim-exit.light .slant-segment, .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-after-fx-bg .segment-container .ep-segment.anim-exit.light .slant-segment {
   -moz-animation: ep-segment-ball-form-light 1.05s ease-in-out 0s reverse, ep-segment-slide-from-top 0.65s ease-in-out 1.05s reverse;
   -webkit-animation: ep-segment-ball-form-light 1.05s ease-in-out 0s reverse, ep-segment-slide-from-top 0.65s ease-in-out 1.05s reverse;
   animation: ep-segment-ball-form-light 1.05s ease-in-out 0s reverse, ep-segment-slide-from-top 0.65s ease-in-out 1.05s reverse;
 }
-/* line 1049, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1050, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-subframe.anim-cycle .segment-container, .aeto-ui-hudbar-container .bar-frame .ep-frame .bar-after-fx-bg.anim-cycle .segment-container {
   -moz-animation: ep-bar-loop 1.4s linear 0s infinite;
   -webkit-animation: ep-bar-loop 1.4s linear 0s infinite;
   animation: ep-bar-loop 1.4s linear 0s infinite;
 }
-/* line 1056, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1057, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content {
   height: 100%;
   position: absolute;
   top: 0;
   z-index: 8;
 }
-/* line 1062, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1063, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .stat-text-frame {
   opacity: .55;
 }
-/* line 1066, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1067, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-info-item {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y1ZjVmNSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
@@ -1131,7 +1132,7 @@
   text-align: center;
   width: 40px;
 }
-/* line 1081, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1082, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-info-item:before {
   background: #FFF;
   content: "";
@@ -1143,26 +1144,26 @@
   width: 100%;
   z-index: 1;
 }
-/* line 1093, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1094, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-info-item .bar-info-text {
   display: inline-block;
 }
-/* line 1097, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1098, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-info-item.tp {
   top: 134px;
   left: 198px;
 }
-/* line 1102, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1103, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-info-item.hp {
   top: 166px;
   left: 185px;
 }
-/* line 1107, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1108, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-info-item.ep {
   top: 197px;
   left: 172px;
 }
-/* line 1113, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1114, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-value {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: bold;
@@ -1172,74 +1173,74 @@
   left: 240px;
   width: 200px;
 }
-/* line 1122, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1123, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-value .bar-val {
   display: inline-block;
   position: relative;
   width: calc(50% - 10px);
 }
-/* line 1127, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1128, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-value .bar-val.first {
   text-align: right;
 }
-/* line 1131, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1132, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-value .bar-val.second {
   text-align: left;
 }
-/* line 1136, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1137, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-value span {
   display: inline-block;
   position: relative;
 }
-/* line 1141, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1142, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-value.tp {
   font-size: 18px;
   height: 16px;
   line-height: 16px;
   top: 146px;
 }
-/* line 1147, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1148, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-value.tp .bar-regen-val {
   font-size: 15px;
   right: -28px;
 }
-/* line 1152, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1153, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-value.tp .divider {
   margin: 0 3px;
 }
-/* line 1157, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1158, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-value.hp {
   font-size: 28px;
   height: 35px;
   line-height: 35px;
   top: 162px;
 }
-/* line 1163, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1164, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-value.hp .bar-regen-val {
   font-size: 18px;
   right: -264px;
 }
-/* line 1168, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1169, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-value.hp .divider {
   margin: 0 2px;
 }
-/* line 1173, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1174, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-value.ep {
   font-size: 26px;
   height: 26px;
   line-height: 28px;
   top: 197px;
 }
-/* line 1179, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1180, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-value.ep .bar-regen-val {
   font-size: 16px;
   right: -140px;
 }
-/* line 1184, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1185, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-value.ep .divider {
   margin: 0 2px;
 }
-/* line 1189, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1190, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .bar-value .bar-regen-val {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
@@ -1248,7 +1249,7 @@
   top: 0;
   width: 100px;
 }
-/* line 1199, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1200, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .effect-items {
   position: absolute;
   left: 128px;
@@ -1256,13 +1257,13 @@
   height: 22px;
   width: 600px;
 }
-/* line 1206, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1207, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .effect-items .effects-item-container {
   display: inline-block;
   height: 100%;
   position: relative;
 }
-/* line 1211, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1212, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .effect-items .effects-item-container .effect-item {
   -moz-transition-duration: 0.4s;
   -o-transition-duration: 0.4s;
@@ -1282,7 +1283,7 @@
   top: 0;
   width: 69px;
 }
-/* line 1226, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1227, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .effect-items .effects-item-container .effect-item .effect-outer-frame {
   clip-path: url(../svgs/aeto-status-item-outer.svg#svgClip);
   -webkit-clip-path: url(../svgs/aeto-status-item-outer.svg);
@@ -1306,7 +1307,7 @@
   left: 0;
   background: rgba(0, 0, 0, 0.15);
 }
-/* line 1242, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1243, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .effect-items .effects-item-container .effect-item .effect-outer-frame .effect-middle-frame {
   clip-path: url(../svgs/aeto-status-item-middle.svg#svgClip);
   -webkit-clip-path: url(../svgs/aeto-status-item-middle.svg);
@@ -1318,7 +1319,7 @@
   left: 7px;
   background: #FFF;
 }
-/* line 1254, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1255, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .effect-items .effects-item-container .effect-item .effect-outer-frame .effect-middle-frame .effect-inner-frame {
   clip-path: url(../svgs/aeto-status-item-inner.svg#svgClip);
   -webkit-clip-path: url(../svgs/aeto-status-item-inner.svg);
@@ -1342,7 +1343,7 @@
   left: 5px;
   background: #b3b3b3;
 }
-/* line 1270, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1271, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .effect-items .effects-item-container .effect-item .effect-outer-frame .effect-middle-frame .effect-inner-frame .effect-content {
   position: absolute;
   top: 0;
@@ -1350,45 +1351,45 @@
   width: 100%;
   height: 100%;
 }
-/* line 1284, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1285, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .effect-items .effects-item-container .effect-item:nth-child(2n + 1).anim-enter {
   -moz-animation: effect-bottom-enter 0.55s ease-in-out 0s;
   -webkit-animation: effect-bottom-enter 0.55s ease-in-out 0s;
   animation: effect-bottom-enter 0.55s ease-in-out 0s;
 }
-/* line 1288, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1289, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .effect-items .effects-item-container .effect-item:nth-child(2n + 1).anim-exit {
   -moz-animation: effect-top-exit 0.55s ease-in-out 0s;
   -webkit-animation: effect-top-exit 0.55s ease-in-out 0s;
   animation: effect-top-exit 0.55s ease-in-out 0s;
 }
-/* line 1292, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1293, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .effect-items .effects-item-container .effect-item:nth-child(2n + 1) .effect-outer-frame {
   -moz-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
   -webkit-transform: scale(1, -1);
   transform: scale(1, -1);
 }
-/* line 1295, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1296, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .effect-items .effects-item-container .effect-item:nth-child(2n + 1) .effect-outer-frame .effect-content {
   -moz-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
   -webkit-transform: scale(1, -1);
   transform: scale(1, -1);
 }
-/* line 1302, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1303, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .effect-items .effects-item-container .effect-item:nth-child(2n).anim-enter {
   -moz-animation: effect-top-enter 0.55s ease-in-out 0s;
   -webkit-animation: effect-top-enter 0.55s ease-in-out 0s;
   animation: effect-top-enter 0.55s ease-in-out 0s;
 }
-/* line 1306, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1307, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .hudbar-overlay-content .effect-items .effects-item-container .effect-item:nth-child(2n).anim-exit {
   -moz-animation: effect-bottom-exit 0.55s ease-in-out 0s;
   -webkit-animation: effect-bottom-exit 0.55s ease-in-out 0s;
   animation: effect-bottom-exit 0.55s ease-in-out 0s;
 }
-/* line 1315, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1316, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .stat-text-frame {
   -moz-transform-origin: 54.5% 54.2%;
   -ms-transform-origin: 54.5% 54.2%;
@@ -1401,7 +1402,7 @@
   width: 237px;
   z-index: 3;
 }
-/* line 1325, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1326, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container .stat-text-frame text {
   font-size: 14px;
   font-family: 'Josefin Sans', sans-serif;
@@ -1409,474 +1410,474 @@
   text-anchor: end;
   fill: #FFF;
 }
-/* line 1345, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1346, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .bg-circle .bg-circle-fill {
   -moz-animation: bg-circle-expand 0.5s ease-in-out 0s, bg-circle-contract 0.65s ease-in 0.5s, bg-circle-shadow-contract 0.4s ease-in 0.2s, bg-circle-shadow-expand 0.55s ease-in-out 0.6s, bg-circle-reexpand 0.65s ease-out 1.15s;
   -webkit-animation: bg-circle-expand 0.5s ease-in-out 0s, bg-circle-contract 0.65s ease-in 0.5s, bg-circle-shadow-contract 0.4s ease-in 0.2s, bg-circle-shadow-expand 0.55s ease-in-out 0.6s, bg-circle-reexpand 0.65s ease-out 1.15s;
   animation: bg-circle-expand 0.5s ease-in-out 0s, bg-circle-contract 0.65s ease-in 0.5s, bg-circle-shadow-contract 0.4s ease-in 0.2s, bg-circle-shadow-expand 0.55s ease-in-out 0.6s, bg-circle-reexpand 0.65s ease-out 1.15s;
 }
-/* line 1356, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1357, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .outer-frame .frame-circle .frame-circle-fill {
   -moz-animation: bg-circle-expand 0.5s ease-in-out 0s, bg-circle-contract 0.65s ease-in 0.5s, bg-circle-shadow-contract 0.4s ease-in 0.2s, bg-circle-shadow-expand 0.55s ease-in-out 0.6s, bg-circle-reexpand 0.65s ease-out 1.15s, outer-bg-circle-contract 0.35s ease-out 1.65s;
   -webkit-animation: bg-circle-expand 0.5s ease-in-out 0s, bg-circle-contract 0.65s ease-in 0.5s, bg-circle-shadow-contract 0.4s ease-in 0.2s, bg-circle-shadow-expand 0.55s ease-in-out 0.6s, bg-circle-reexpand 0.65s ease-out 1.15s, outer-bg-circle-contract 0.35s ease-out 1.65s;
   animation: bg-circle-expand 0.5s ease-in-out 0s, bg-circle-contract 0.65s ease-in 0.5s, bg-circle-shadow-contract 0.4s ease-in 0.2s, bg-circle-shadow-expand 0.55s ease-in-out 0.6s, bg-circle-reexpand 0.65s ease-out 1.15s, outer-bg-circle-contract 0.35s ease-out 1.65s;
 }
-/* line 1377, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1378, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .outer-frame .frame-bar .frame-bar-fill {
   -moz-animation: anim-stall 1.45s ease-in-out 0s, left-enter 0.7s ease-in-out 1.45s;
   -webkit-animation: anim-stall 1.45s ease-in-out 0s, left-enter 0.7s ease-in-out 1.45s;
   animation: anim-stall 1.45s ease-in-out 0s, left-enter 0.7s ease-in-out 1.45s;
 }
-/* line 1382, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1383, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .outer-frame .frame-bar-shadow {
   -moz-animation: anim-stall 2.15s ease-in-out 0s, fade-in 0.8s ease-in-out 2.15s;
   -webkit-animation: anim-stall 2.15s ease-in-out 0s, fade-in 0.8s ease-in-out 2.15s;
   animation: anim-stall 2.15s ease-in-out 0s, fade-in 0.8s ease-in-out 2.15s;
 }
-/* line 1390, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1391, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .white-frame-group .frame-bar .frame-bar-fill:nth-child(1) {
   -moz-animation: anim-stall 1.75s ease-in-out 0s, left-enter 0.75s ease-in-out 1.75s;
   -webkit-animation: anim-stall 1.75s ease-in-out 0s, left-enter 0.75s ease-in-out 1.75s;
   animation: anim-stall 1.75s ease-in-out 0s, left-enter 0.75s ease-in-out 1.75s;
 }
-/* line 1395, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1396, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .white-frame-group .frame-bar .frame-bar-fill:nth-child(2) {
   -moz-animation: anim-stall 2.0s ease-in-out 0s, left-enter 0.75s ease-in-out 2.0s;
   -webkit-animation: anim-stall 2.0s ease-in-out 0s, left-enter 0.75s ease-in-out 2.0s;
   animation: anim-stall 2.0s ease-in-out 0s, left-enter 0.75s ease-in-out 2.0s;
 }
-/* line 1400, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1401, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .white-frame-group .frame-bar .frame-bar-fill:nth-child(3) {
   -moz-animation: anim-stall 2.25s ease-in-out 0s, left-enter 0.75s ease-in-out 2.25s;
   -webkit-animation: anim-stall 2.25s ease-in-out 0s, left-enter 0.75s ease-in-out 2.25s;
   animation: anim-stall 2.25s ease-in-out 0s, left-enter 0.75s ease-in-out 2.25s;
 }
-/* line 1407, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1408, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .white-frame .frame-circle .frame-circle-fill {
   -moz-animation: anim-stall 1.15s ease-in-out 0s, white-bg-circle-expand 0.8s ease-in-out 1.0s, white-circle-fade-stall 1.4s ease-in-out 0s, white-circle-fade-in 0.35s ease-in-out 1.4s;
   -webkit-animation: anim-stall 1.15s ease-in-out 0s, white-bg-circle-expand 0.8s ease-in-out 1.0s, white-circle-fade-stall 1.4s ease-in-out 0s, white-circle-fade-in 0.35s ease-in-out 1.4s;
   animation: anim-stall 1.15s ease-in-out 0s, white-bg-circle-expand 0.8s ease-in-out 1.0s, white-circle-fade-stall 1.4s ease-in-out 0s, white-circle-fade-in 0.35s ease-in-out 1.4s;
 }
-/* line 1432, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1433, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .white-frame-group .portrait-image {
   -moz-animation: anim-stall 2.45s ease-in-out 0s, portrait-image-enter 0.7s ease-in-out 2.45s;
   -webkit-animation: anim-stall 2.45s ease-in-out 0s, portrait-image-enter 0.7s ease-in-out 2.45s;
   animation: anim-stall 2.45s ease-in-out 0s, portrait-image-enter 0.7s ease-in-out 2.45s;
 }
-/* line 1437, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1438, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .white-frame-group .portrait-outer-path {
   -moz-animation: anim-stall 1.95s ease-in-out 0s, outer-path-enter 0.85s ease-in-out 1.95s;
   -webkit-animation: anim-stall 1.95s ease-in-out 0s, outer-path-enter 0.85s ease-in-out 1.95s;
   animation: anim-stall 1.95s ease-in-out 0s, outer-path-enter 0.85s ease-in-out 1.95s;
 }
-/* line 1442, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1443, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .white-frame-group .portrait-inner-path {
   -moz-animation: anim-stall 2.25s ease-in-out 0s, inner-path-enter 0.95s ease-in-out 2.25s;
   -webkit-animation: anim-stall 2.25s ease-in-out 0s, inner-path-enter 0.95s ease-in-out 2.25s;
   animation: anim-stall 2.25s ease-in-out 0s, inner-path-enter 0.95s ease-in-out 2.25s;
 }
-/* line 1448, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1449, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .white-frame-group .portrait-header .portrait-bar {
   -moz-animation: background-stall 1.65s ease-in-out 0s, portrait-bar-expand 0.65s ease-in-out 1.65s;
   -webkit-animation: background-stall 1.65s ease-in-out 0s, portrait-bar-expand 0.65s ease-in-out 1.65s;
   animation: background-stall 1.65s ease-in-out 0s, portrait-bar-expand 0.65s ease-in-out 1.65s;
 }
-/* line 1453, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1454, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .white-frame-group .portrait-header .portrait-body {
   -moz-animation: anim-stall 2.1s ease-in-out 0s;
   -webkit-animation: anim-stall 2.1s ease-in-out 0s;
   animation: anim-stall 2.1s ease-in-out 0s;
 }
-/* line 1456, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1457, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .white-frame-group .portrait-header .portrait-body .percent-value {
   -moz-animation: anim-stall 1.8s ease-in-out 0s, percent-left-enter 0.75s ease-in-out 1.8s;
   -webkit-animation: anim-stall 1.8s ease-in-out 0s, percent-left-enter 0.75s ease-in-out 1.8s;
   animation: anim-stall 1.8s ease-in-out 0s, percent-left-enter 0.75s ease-in-out 1.8s;
 }
-/* line 1461, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1462, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .white-frame-group .portrait-header .portrait-body .percent-sign {
   -moz-animation: anim-stall 2.0s ease-in-out 0s, percent-right-enter 0.75s ease-in-out 2.0s;
   -webkit-animation: anim-stall 2.0s ease-in-out 0s, percent-right-enter 0.75s ease-in-out 2.0s;
   animation: anim-stall 2.0s ease-in-out 0s, percent-right-enter 0.75s ease-in-out 2.0s;
 }
-/* line 1466, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1467, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .white-frame-group .portrait-header .portrait-body .portrait-synch {
   -moz-animation: anim-stall 2.2s ease-in-out 0s, sync-enter 0.55s ease-in-out 2.2s;
   -webkit-animation: anim-stall 2.2s ease-in-out 0s, sync-enter 0.55s ease-in-out 2.2s;
   animation: anim-stall 2.2s ease-in-out 0s, sync-enter 0.55s ease-in-out 2.2s;
 }
-/* line 1486, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1487, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .frame-header-bg .frame-bg {
   -moz-animation: anim-stall 2.6s ease-in-out 0s, frame-header-enter 0.75s ease-in-out 2.6s;
   -webkit-animation: anim-stall 2.6s ease-in-out 0s, frame-header-enter 0.75s ease-in-out 2.6s;
   animation: anim-stall 2.6s ease-in-out 0s, frame-header-enter 0.75s ease-in-out 2.6s;
 }
-/* line 1492, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1493, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .frame-header-content .frame-header-icon {
   -moz-animation: anim-stall 2.75s ease-in-out 0s, frame-header-icon-enter 0.65s ease-in-out 2.75s;
   -webkit-animation: anim-stall 2.75s ease-in-out 0s, frame-header-icon-enter 0.65s ease-in-out 2.75s;
   animation: anim-stall 2.75s ease-in-out 0s, frame-header-icon-enter 0.65s ease-in-out 2.75s;
 }
-/* line 1497, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1498, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .frame-header-content .frame-header-framework-name {
   -moz-animation: anim-stall 2.95s ease-in-out 0s, frame-header-framename-enter 0.65s ease-in-out 2.95s;
   -webkit-animation: anim-stall 2.95s ease-in-out 0s, frame-header-framename-enter 0.65s ease-in-out 2.95s;
   animation: anim-stall 2.95s ease-in-out 0s, frame-header-framename-enter 0.65s ease-in-out 2.95s;
 }
-/* line 1502, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1503, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .frame-header-content .frame-header-name {
   -moz-animation: anim-stall 3.15s ease-in-out 0s, frame-header-name-enter 0.65s ease-in-out 3.15s;
   -webkit-animation: anim-stall 3.15s ease-in-out 0s, frame-header-name-enter 0.65s ease-in-out 3.15s;
   animation: anim-stall 3.15s ease-in-out 0s, frame-header-name-enter 0.65s ease-in-out 3.15s;
 }
-/* line 1511, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1512, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .bg-header-tab {
   -moz-animation: anim-stall 2.95s ease-in-out 0s, bg-header-tab-enter 0.45s ease-in-out 2.95s;
   -webkit-animation: anim-stall 2.95s ease-in-out 0s, bg-header-tab-enter 0.45s ease-in-out 2.95s;
   animation: anim-stall 2.95s ease-in-out 0s, bg-header-tab-enter 0.45s ease-in-out 2.95s;
 }
-/* line 1523, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1524, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .back-bg-group .stat-frame-bar {
   -moz-animation: anim-stall 3.2s ease-in-out 0s, stat-frame-enter 0.65s ease-in 3.2s;
   -webkit-animation: anim-stall 3.2s ease-in-out 0s, stat-frame-enter 0.65s ease-in 3.2s;
   animation: anim-stall 3.2s ease-in-out 0s, stat-frame-enter 0.65s ease-in 3.2s;
 }
-/* line 1528, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1529, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .back-bg-group .stat-text-frame {
   -moz-animation: anim-stall 3.55s ease-in-out 0s, stats-enter 0.75s ease-in 3.55s;
   -webkit-animation: anim-stall 3.55s ease-in-out 0s, stats-enter 0.75s ease-in 3.55s;
   animation: anim-stall 3.55s ease-in-out 0s, stats-enter 0.75s ease-in 3.55s;
 }
-/* line 1533, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1534, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .back-bg-group .effect-bar-bg {
   -moz-animation: anim-stall 3.85s ease-in-out 0s, stat-frame-bar-enter 0.05525s ease-out 3.85s;
   -webkit-animation: anim-stall 3.85s ease-in-out 0s, stat-frame-bar-enter 0.05525s ease-out 3.85s;
   animation: anim-stall 3.85s ease-in-out 0s, stat-frame-bar-enter 0.05525s ease-out 3.85s;
 }
-/* line 1538, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1539, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .back-bg-group .effect-bar-edge {
   -moz-animation: anim-stall 3.90525s ease-in-out 0s, stat-frame-edge-enter 0.2275s ease-out 3.90525s;
   -webkit-animation: anim-stall 3.90525s ease-in-out 0s, stat-frame-edge-enter 0.2275s ease-out 3.90525s;
   animation: anim-stall 3.90525s ease-in-out 0s, stat-frame-edge-enter 0.2275s ease-out 3.90525s;
 }
-/* line 1552, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1553, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .bar-frame .tp-frame {
   -moz-animation: anim-stall 3.15s ease-in-out 0s, point-bar-enter 0.65s ease-in-out 3.15s;
   -webkit-animation: anim-stall 3.15s ease-in-out 0s, point-bar-enter 0.65s ease-in-out 3.15s;
   animation: anim-stall 3.15s ease-in-out 0s, point-bar-enter 0.65s ease-in-out 3.15s;
 }
-/* line 1557, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1558, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .bar-frame .hp-frame {
   -moz-animation: anim-stall 3.45s ease-in-out 0s, point-bar-enter 0.7s ease-in-out 3.45s;
   -webkit-animation: anim-stall 3.45s ease-in-out 0s, point-bar-enter 0.7s ease-in-out 3.45s;
   animation: anim-stall 3.45s ease-in-out 0s, point-bar-enter 0.7s ease-in-out 3.45s;
 }
-/* line 1562, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1563, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .bar-frame .ep-frame {
   -moz-animation: anim-stall 3.75s ease-in-out 0s, point-bar-enter 0.7s ease-in-out 3.75s;
   -webkit-animation: anim-stall 3.75s ease-in-out 0s, point-bar-enter 0.7s ease-in-out 3.75s;
   animation: anim-stall 3.75s ease-in-out 0s, point-bar-enter 0.7s ease-in-out 3.75s;
 }
-/* line 1585, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1586, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .hudbar-overlay-content .stat-text-frame {
   -moz-animation: anim-stall 4s ease-in-out 0s, fade-in 0.4s ease-in 4s;
   -webkit-animation: anim-stall 4s ease-in-out 0s, fade-in 0.4s ease-in 4s;
   animation: anim-stall 4s ease-in-out 0s, fade-in 0.4s ease-in 4s;
 }
-/* line 1593, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1594, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .hudbar-overlay-content .bar-info-item.tp {
   -moz-animation: anim-stall 3.15s ease-in-out 0s, tp-info-enter 0.55s ease-in-out 3.15s;
   -webkit-animation: anim-stall 3.15s ease-in-out 0s, tp-info-enter 0.55s ease-in-out 3.15s;
   animation: anim-stall 3.15s ease-in-out 0s, tp-info-enter 0.55s ease-in-out 3.15s;
 }
-/* line 1598, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1599, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .hudbar-overlay-content .bar-info-item.hp {
   -moz-animation: anim-stall 3.45s ease-in-out 0s, hp-info-enter 0.55s ease-in-out 3.45s;
   -webkit-animation: anim-stall 3.45s ease-in-out 0s, hp-info-enter 0.55s ease-in-out 3.45s;
   animation: anim-stall 3.45s ease-in-out 0s, hp-info-enter 0.55s ease-in-out 3.45s;
 }
-/* line 1603, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1604, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .hudbar-overlay-content .bar-info-item.ep {
   -moz-animation: anim-stall 3.75s ease-in-out 0s, ep-info-enter 0.55s ease-in-out 3.75s;
   -webkit-animation: anim-stall 3.75s ease-in-out 0s, ep-info-enter 0.55s ease-in-out 3.75s;
   animation: anim-stall 3.75s ease-in-out 0s, ep-info-enter 0.55s ease-in-out 3.75s;
 }
-/* line 1609, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1610, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .hudbar-overlay-content .bar-value.tp .bar-val.first {
   -moz-animation: anim-stall 3.55s ease-in-out 0s, tp-inner-text-enter 0.4s ease-in-out 3.55s;
   -webkit-animation: anim-stall 3.55s ease-in-out 0s, tp-inner-text-enter 0.4s ease-in-out 3.55s;
   animation: anim-stall 3.55s ease-in-out 0s, tp-inner-text-enter 0.4s ease-in-out 3.55s;
 }
-/* line 1614, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1615, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .hudbar-overlay-content .bar-value.tp .divider {
   -moz-animation: anim-stall 3.7s ease-in-out 0s, tp-inner-text-enter 0.4s ease-in-out 3.7s;
   -webkit-animation: anim-stall 3.7s ease-in-out 0s, tp-inner-text-enter 0.4s ease-in-out 3.7s;
   animation: anim-stall 3.7s ease-in-out 0s, tp-inner-text-enter 0.4s ease-in-out 3.7s;
 }
-/* line 1619, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1620, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .hudbar-overlay-content .bar-value.tp .bar-val.second {
   -moz-animation: anim-stall 3.85s ease-in-out 0s, tp-inner-text-enter 0.4s ease-in-out 3.85s;
   -webkit-animation: anim-stall 3.85s ease-in-out 0s, tp-inner-text-enter 0.4s ease-in-out 3.85s;
   animation: anim-stall 3.85s ease-in-out 0s, tp-inner-text-enter 0.4s ease-in-out 3.85s;
 }
-/* line 1624, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1625, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .hudbar-overlay-content .bar-value.tp .bar-regen-val {
   -moz-animation: anim-stall 4.0s ease-in-out 0s, regen-text-enter 0.4s ease-in-out 4.0s;
   -webkit-animation: anim-stall 4.0s ease-in-out 0s, regen-text-enter 0.4s ease-in-out 4.0s;
   animation: anim-stall 4.0s ease-in-out 0s, regen-text-enter 0.4s ease-in-out 4.0s;
 }
-/* line 1631, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1632, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .hudbar-overlay-content .bar-value.hp .bar-val.first {
   -moz-animation: anim-stall 3.85s ease-in-out 0s, hp-inner-text-enter 0.4s ease-in-out 3.85s;
   -webkit-animation: anim-stall 3.85s ease-in-out 0s, hp-inner-text-enter 0.4s ease-in-out 3.85s;
   animation: anim-stall 3.85s ease-in-out 0s, hp-inner-text-enter 0.4s ease-in-out 3.85s;
 }
-/* line 1636, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1637, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .hudbar-overlay-content .bar-value.hp .divider {
   -moz-animation: anim-stall 4.0s ease-in-out 0s, hp-inner-text-enter 0.4s ease-in-out 4.0s;
   -webkit-animation: anim-stall 4.0s ease-in-out 0s, hp-inner-text-enter 0.4s ease-in-out 4.0s;
   animation: anim-stall 4.0s ease-in-out 0s, hp-inner-text-enter 0.4s ease-in-out 4.0s;
 }
-/* line 1641, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1642, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .hudbar-overlay-content .bar-value.hp .bar-val.second {
   -moz-animation: anim-stall 4.15s ease-in-out 0s, hp-inner-text-enter 0.4s ease-in-out 4.15s;
   -webkit-animation: anim-stall 4.15s ease-in-out 0s, hp-inner-text-enter 0.4s ease-in-out 4.15s;
   animation: anim-stall 4.15s ease-in-out 0s, hp-inner-text-enter 0.4s ease-in-out 4.15s;
 }
-/* line 1646, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1647, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .hudbar-overlay-content .bar-value.hp .bar-regen-val {
   -moz-animation: anim-stall 4.3s ease-in-out 0s, regen-text-enter 0.4s ease-in-out 4.3s;
   -webkit-animation: anim-stall 4.3s ease-in-out 0s, regen-text-enter 0.4s ease-in-out 4.3s;
   animation: anim-stall 4.3s ease-in-out 0s, regen-text-enter 0.4s ease-in-out 4.3s;
 }
-/* line 1653, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1654, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .hudbar-overlay-content .bar-value.ep .bar-val.first {
   -moz-animation: anim-stall 4.15s ease-in-out 0s, ep-inner-text-enter 0.4s ease-in-out 4.15s;
   -webkit-animation: anim-stall 4.15s ease-in-out 0s, ep-inner-text-enter 0.4s ease-in-out 4.15s;
   animation: anim-stall 4.15s ease-in-out 0s, ep-inner-text-enter 0.4s ease-in-out 4.15s;
 }
-/* line 1658, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1659, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .hudbar-overlay-content .bar-value.ep .divider {
   -moz-animation: anim-stall 4.3s ease-in-out 0s, ep-inner-text-enter 0.4s ease-in-out 4.3s;
   -webkit-animation: anim-stall 4.3s ease-in-out 0s, ep-inner-text-enter 0.4s ease-in-out 4.3s;
   animation: anim-stall 4.3s ease-in-out 0s, ep-inner-text-enter 0.4s ease-in-out 4.3s;
 }
-/* line 1663, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1664, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .hudbar-overlay-content .bar-value.ep .bar-val.second {
   -moz-animation: anim-stall 4.45s ease-in-out 0s, ep-inner-text-enter 0.4s ease-in-out 4.45s;
   -webkit-animation: anim-stall 4.45s ease-in-out 0s, ep-inner-text-enter 0.4s ease-in-out 4.45s;
   animation: anim-stall 4.45s ease-in-out 0s, ep-inner-text-enter 0.4s ease-in-out 4.45s;
 }
-/* line 1668, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1669, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter .hudbar-overlay-content .bar-value.ep .bar-regen-val {
   -moz-animation: anim-stall 4.6s ease-in-out 0s, regen-text-enter 0.4s ease-in-out 4.6s;
   -webkit-animation: anim-stall 4.6s ease-in-out 0s, regen-text-enter 0.4s ease-in-out 4.6s;
   animation: anim-stall 4.6s ease-in-out 0s, regen-text-enter 0.4s ease-in-out 4.6s;
 }
-/* line 1677, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1678, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .white-frame-group .portrait-image {
   -moz-animation: anim-stall 2.45s ease-in-out 0s, ra-portrait-image-enter 0.7s ease-in-out 2.45s;
   -webkit-animation: anim-stall 2.45s ease-in-out 0s, ra-portrait-image-enter 0.7s ease-in-out 2.45s;
   animation: anim-stall 2.45s ease-in-out 0s, ra-portrait-image-enter 0.7s ease-in-out 2.45s;
 }
-/* line 1683, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1684, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .white-frame-group .portrait-header .portrait-body .percent-value {
   -moz-animation: anim-stall 1.8s ease-in-out 0s, ra-percent-left-enter 0.75s ease-in-out 1.8s;
   -webkit-animation: anim-stall 1.8s ease-in-out 0s, ra-percent-left-enter 0.75s ease-in-out 1.8s;
   animation: anim-stall 1.8s ease-in-out 0s, ra-percent-left-enter 0.75s ease-in-out 1.8s;
 }
-/* line 1688, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1689, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .white-frame-group .portrait-header .portrait-body .percent-sign {
   -moz-animation: anim-stall 2.0s ease-in-out 0s, ra-percent-right-enter 0.75s ease-in-out 2.0s;
   -webkit-animation: anim-stall 2.0s ease-in-out 0s, ra-percent-right-enter 0.75s ease-in-out 2.0s;
   animation: anim-stall 2.0s ease-in-out 0s, ra-percent-right-enter 0.75s ease-in-out 2.0s;
 }
-/* line 1693, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1694, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .white-frame-group .portrait-header .portrait-body .portrait-synch {
   -moz-animation: anim-stall 2.2s ease-in-out 0s, ra-sync-enter 0.55s ease-in-out 2.2s;
   -webkit-animation: anim-stall 2.2s ease-in-out 0s, ra-sync-enter 0.55s ease-in-out 2.2s;
   animation: anim-stall 2.2s ease-in-out 0s, ra-sync-enter 0.55s ease-in-out 2.2s;
 }
-/* line 1700, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1701, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .back-bg-group .stat-text-frame {
   -moz-animation: anim-stall 3.55s ease-in-out 0s, ra-stats-enter 0.75s ease-in 3.55s;
   -webkit-animation: anim-stall 3.55s ease-in-out 0s, ra-stats-enter 0.75s ease-in 3.55s;
   animation: anim-stall 3.55s ease-in-out 0s, ra-stats-enter 0.75s ease-in 3.55s;
 }
-/* line 1706, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1707, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .frame-header-content .frame-header-icon {
   -moz-animation: anim-stall 2.75s ease-in-out 0s, ra-frame-header-icon-enter 0.65s ease-in-out 2.75s;
   -webkit-animation: anim-stall 2.75s ease-in-out 0s, ra-frame-header-icon-enter 0.65s ease-in-out 2.75s;
   animation: anim-stall 2.75s ease-in-out 0s, ra-frame-header-icon-enter 0.65s ease-in-out 2.75s;
 }
-/* line 1711, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1712, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .frame-header-content .frame-header-framework-name {
   -moz-animation: anim-stall 2.95s ease-in-out 0s, ra-frame-header-framename-enter 0.65s ease-in-out 2.95s;
   -webkit-animation: anim-stall 2.95s ease-in-out 0s, ra-frame-header-framename-enter 0.65s ease-in-out 2.95s;
   animation: anim-stall 2.95s ease-in-out 0s, ra-frame-header-framename-enter 0.65s ease-in-out 2.95s;
 }
-/* line 1716, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1717, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .frame-header-content .frame-header-name {
   -moz-animation: anim-stall 3.15s ease-in-out 0s, ra-frame-header-name-enter 0.65s ease-in-out 3.15s;
   -webkit-animation: anim-stall 3.15s ease-in-out 0s, ra-frame-header-name-enter 0.65s ease-in-out 3.15s;
   animation: anim-stall 3.15s ease-in-out 0s, ra-frame-header-name-enter 0.65s ease-in-out 3.15s;
 }
-/* line 1723, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1724, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .hudbar-overlay-content .bar-info-item.tp {
   -moz-animation: anim-stall 3.15s ease-in-out 0s, ra-tp-info-enter 0.55s ease-in-out 3.15s;
   -webkit-animation: anim-stall 3.15s ease-in-out 0s, ra-tp-info-enter 0.55s ease-in-out 3.15s;
   animation: anim-stall 3.15s ease-in-out 0s, ra-tp-info-enter 0.55s ease-in-out 3.15s;
 }
-/* line 1728, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1729, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .hudbar-overlay-content .bar-info-item.hp {
   -moz-animation: anim-stall 3.45s ease-in-out 0s, ra-hp-info-enter 0.55s ease-in-out 3.45s;
   -webkit-animation: anim-stall 3.45s ease-in-out 0s, ra-hp-info-enter 0.55s ease-in-out 3.45s;
   animation: anim-stall 3.45s ease-in-out 0s, ra-hp-info-enter 0.55s ease-in-out 3.45s;
 }
-/* line 1733, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1734, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .hudbar-overlay-content .bar-info-item.ep {
   -moz-animation: anim-stall 3.75s ease-in-out 0s, ra-ep-info-enter 0.55s ease-in-out 3.75s;
   -webkit-animation: anim-stall 3.75s ease-in-out 0s, ra-ep-info-enter 0.55s ease-in-out 3.75s;
   animation: anim-stall 3.75s ease-in-out 0s, ra-ep-info-enter 0.55s ease-in-out 3.75s;
 }
-/* line 1739, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1740, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .hudbar-overlay-content .bar-value.tp .bar-val.first {
   -moz-animation: anim-stall 3.55s ease-in-out 0s, ra-tp-inner-text-enter 0.4s ease-in-out 3.55s;
   -webkit-animation: anim-stall 3.55s ease-in-out 0s, ra-tp-inner-text-enter 0.4s ease-in-out 3.55s;
   animation: anim-stall 3.55s ease-in-out 0s, ra-tp-inner-text-enter 0.4s ease-in-out 3.55s;
 }
-/* line 1744, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1745, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .hudbar-overlay-content .bar-value.tp .divider {
   -moz-animation: anim-stall 3.7s ease-in-out 0s, ra-tp-inner-text-enter 0.4s ease-in-out 3.7s;
   -webkit-animation: anim-stall 3.7s ease-in-out 0s, ra-tp-inner-text-enter 0.4s ease-in-out 3.7s;
   animation: anim-stall 3.7s ease-in-out 0s, ra-tp-inner-text-enter 0.4s ease-in-out 3.7s;
 }
-/* line 1749, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1750, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .hudbar-overlay-content .bar-value.tp .bar-val.second {
   -moz-animation: anim-stall 3.85s ease-in-out 0s, ra-tp-inner-text-enter 0.4s ease-in-out 3.85s;
   -webkit-animation: anim-stall 3.85s ease-in-out 0s, ra-tp-inner-text-enter 0.4s ease-in-out 3.85s;
   animation: anim-stall 3.85s ease-in-out 0s, ra-tp-inner-text-enter 0.4s ease-in-out 3.85s;
 }
-/* line 1754, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1755, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .hudbar-overlay-content .bar-value.tp .bar-regen-val {
   -moz-animation: anim-stall 4.0s ease-in-out 0s, ra-regen-text-enter 0.4s ease-in-out 4.0s;
   -webkit-animation: anim-stall 4.0s ease-in-out 0s, ra-regen-text-enter 0.4s ease-in-out 4.0s;
   animation: anim-stall 4.0s ease-in-out 0s, ra-regen-text-enter 0.4s ease-in-out 4.0s;
 }
-/* line 1761, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1762, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .hudbar-overlay-content .bar-value.hp .bar-val.first {
   -moz-animation: anim-stall 3.85s ease-in-out 0s, ra-hp-inner-text-enter 0.4s ease-in-out 3.85s;
   -webkit-animation: anim-stall 3.85s ease-in-out 0s, ra-hp-inner-text-enter 0.4s ease-in-out 3.85s;
   animation: anim-stall 3.85s ease-in-out 0s, ra-hp-inner-text-enter 0.4s ease-in-out 3.85s;
 }
-/* line 1766, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1767, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .hudbar-overlay-content .bar-value.hp .divider {
   -moz-animation: anim-stall 4.0s ease-in-out 0s, ra-hp-inner-text-enter 0.4s ease-in-out 4.0s;
   -webkit-animation: anim-stall 4.0s ease-in-out 0s, ra-hp-inner-text-enter 0.4s ease-in-out 4.0s;
   animation: anim-stall 4.0s ease-in-out 0s, ra-hp-inner-text-enter 0.4s ease-in-out 4.0s;
 }
-/* line 1771, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1772, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .hudbar-overlay-content .bar-value.hp .bar-val.second {
   -moz-animation: anim-stall 4.15s ease-in-out 0s, ra-hp-inner-text-enter 0.4s ease-in-out 4.15s;
   -webkit-animation: anim-stall 4.15s ease-in-out 0s, ra-hp-inner-text-enter 0.4s ease-in-out 4.15s;
   animation: anim-stall 4.15s ease-in-out 0s, ra-hp-inner-text-enter 0.4s ease-in-out 4.15s;
 }
-/* line 1776, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1777, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .hudbar-overlay-content .bar-value.hp .bar-regen-val {
   -moz-animation: anim-stall 4.3s ease-in-out 0s, ra-regen-text-enter 0.4s ease-in-out 4.3s;
   -webkit-animation: anim-stall 4.3s ease-in-out 0s, ra-regen-text-enter 0.4s ease-in-out 4.3s;
   animation: anim-stall 4.3s ease-in-out 0s, ra-regen-text-enter 0.4s ease-in-out 4.3s;
 }
-/* line 1783, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1784, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .hudbar-overlay-content .bar-value.ep .bar-val.first {
   -moz-animation: anim-stall 4.15s ease-in-out 0s, ra-ep-inner-text-enter 0.4s ease-in-out 4.15s;
   -webkit-animation: anim-stall 4.15s ease-in-out 0s, ra-ep-inner-text-enter 0.4s ease-in-out 4.15s;
   animation: anim-stall 4.15s ease-in-out 0s, ra-ep-inner-text-enter 0.4s ease-in-out 4.15s;
 }
-/* line 1788, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1789, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .hudbar-overlay-content .bar-value.ep .divider {
   -moz-animation: anim-stall 4.3s ease-in-out 0s, ra-ep-inner-text-enter 0.4s ease-in-out 4.3s;
   -webkit-animation: anim-stall 4.3s ease-in-out 0s, ra-ep-inner-text-enter 0.4s ease-in-out 4.3s;
   animation: anim-stall 4.3s ease-in-out 0s, ra-ep-inner-text-enter 0.4s ease-in-out 4.3s;
 }
-/* line 1793, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1794, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .hudbar-overlay-content .bar-value.ep .bar-val.second {
   -moz-animation: anim-stall 4.45s ease-in-out 0s, ra-ep-inner-text-enter 0.4s ease-in-out 4.45s;
   -webkit-animation: anim-stall 4.45s ease-in-out 0s, ra-ep-inner-text-enter 0.4s ease-in-out 4.45s;
   animation: anim-stall 4.45s ease-in-out 0s, ra-ep-inner-text-enter 0.4s ease-in-out 4.45s;
 }
-/* line 1798, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1799, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter.right-align .hudbar-overlay-content .bar-value.ep .bar-regen-val {
   -moz-animation: anim-stall 4.6s ease-in-out 0s, ra-regen-text-enter 0.4s ease-in-out 4.6s;
   -webkit-animation: anim-stall 4.6s ease-in-out 0s, ra-regen-text-enter 0.4s ease-in-out 4.6s;
   animation: anim-stall 4.6s ease-in-out 0s, ra-regen-text-enter 0.4s ease-in-out 4.6s;
 }
-/* line 1809, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1810, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-enter-simple {
   -moz-animation: hudbar-simple-entry 0.4s ease-in-out 0s;
   -webkit-animation: hudbar-simple-entry 0.4s ease-in-out 0s;
   animation: hudbar-simple-entry 0.4s ease-in-out 0s;
 }
-/* line 1813, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1814, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.anim-exit-simple {
   -moz-animation: hudbar-simple-exit 0.4s ease-in-out 0s;
   -webkit-animation: hudbar-simple-exit 0.4s ease-in-out 0s;
   animation: hudbar-simple-exit 0.4s ease-in-out 0s;
 }
-/* line 1820, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1821, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.player-team .frame-header-framework-name {
   color: #37a4ff;
 }
-/* line 1824, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1825, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.player-team .aeto-ui-hudbar .white-frame-group .portrait-inner-outline {
   opacity: .5;
 }
-/* line 1827, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1828, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.player-team .aeto-ui-hudbar .white-frame-group .portrait-inner-outline .portrait-inner-path {
   stroke: #37a4ff;
 }
-/* line 1834, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1835, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.cycle-portrait .portrait-inner-outline {
   -moz-animation: portrait-path-cycle-rotate 7.5s linear 0 infinite;
   -webkit-animation: portrait-path-cycle-rotate 7.5s linear 0 infinite;
   animation: portrait-path-cycle-rotate 7.5s linear 0 infinite;
 }
-/* line 1837, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1838, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.cycle-portrait .portrait-inner-outline .portrait-inner-path {
   -moz-animation: portrait-path-cycle 28s linear 0 infinite;
   -webkit-animation: portrait-path-cycle 28s linear 0 infinite;
   animation: portrait-path-cycle 28s linear 0 infinite;
 }
-/* line 1843, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1844, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.right-align {
   right: 50px;
 }
-/* line 1846, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1847, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.right-align .aeto-ui-hudbar {
   -moz-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
   -webkit-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
-/* line 1850, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1851, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.right-align .stat-text-frame {
   -moz-transform: scale(-1, 1) rotate(35deg);
   -ms-transform: scale(-1, 1) rotate(35deg);
   -webkit-transform: scale(-1, 1) rotate(35deg);
   transform: scale(-1, 1) rotate(35deg);
 }
-/* line 1854, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1855, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.right-align .aeto-ui-hudbar .hudbar-overlay-content .bar-value {
   direction: rtl;
 }
-/* line 1857, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1858, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.right-align .aeto-ui-hudbar .hudbar-overlay-content .bar-value .bar-val, .aeto-ui-hudbar-container.right-align .aeto-ui-hudbar .hudbar-overlay-content .bar-value .divider {
   -moz-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
   -webkit-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
-/* line 1861, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1862, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.right-align .aeto-ui-hudbar .hudbar-overlay-content .bar-value .bar-regen-val {
   -moz-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
@@ -1884,25 +1885,25 @@
   transform: scale(-1, 1);
   text-align: left;
 }
-/* line 1866, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1867, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.right-align .aeto-ui-hudbar .hudbar-overlay-content .bar-value .bar-regen-val span {
   float: left;
 }
-/* line 1873, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1874, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.right-align .aeto-ui-hudbar .frame-header-holder .frame-header-content .frame-header-name, .aeto-ui-hudbar-container.right-align .aeto-ui-hudbar .frame-header-holder .frame-header-content .frame-header-framework-name, .aeto-ui-hudbar-container.right-align .aeto-ui-hudbar .frame-header-holder .frame-header-content .frame-header-icon {
   -moz-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
   -webkit-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
-/* line 1878, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1879, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.right-align .bar-info-item, .aeto-ui-hudbar-container.right-align .percent-value, .aeto-ui-hudbar-container.right-align .percent-sign, .aeto-ui-hudbar-container.right-align .portrait-synch, .aeto-ui-hudbar-container.right-align .portrait-image {
   -moz-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
   -webkit-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
-/* line 1882, ../compass/sass/aeto-ui-hudbar.scss */
+/* line 1883, ../compass/sass/aeto-ui-hudbar.scss */
 .aeto-ui-hudbar-container.right-align .portrait-percent {
   direction: rtl;
 }

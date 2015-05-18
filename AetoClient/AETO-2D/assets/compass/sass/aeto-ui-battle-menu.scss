@@ -20,7 +20,6 @@
 	position: absolute;
 	background: #00FFFF;
 	z-index: 100;
-
 }
 
 .test-object-3 {
@@ -46,6 +45,9 @@
 
 .aeto-ui-battle-menu-container {
 	$frameColor: #FAFAFA;
+	$frameR: 250;
+	$frameG: 250;
+	$frameB: 250;
 
 	.aeto-battle-menu-item {
 		$itemSize: 100px;
@@ -59,20 +61,21 @@
 		z-index: 4;
 
 		.item-bg-set {
-			@include box-shadow(0 0 3px 3px rgba(0, 0, 0, .14));
+			@include box-shadow(0 0 3px 3px);
 			@include border-radius(50%);
 
+			color: rgba(0, 0, 0, .14);
+			height: 100%;
+			left: 0;
 			position: absolute;
 			top: 0;
-			left: 0;
 			width: 100%;
-			height: 100%;
 			z-index: 2;
 
 			.item-bg {
 				@include border-radius(50%);
 
-				background: #FAFAFA;
+				background: $frameColor;
 				opacity: 0.3;
 				position: absolute;
 				top: 0;
@@ -87,18 +90,22 @@
 				$arrowHeight: 4px;
 				$arrowPadding: 3px;
 
+				border-color: $frameColor;
+				height: calc(50% - #{$arrowPadding});
+				left: 0;
+				margin: 0 auto;
+				position: absolute;
+				right: 0;
 				top: $arrowPadding;
 				width: $arrowWidth;
-				height: calc(50% - #{$arrowPadding});
-				position: absolute;
-				left: 0;
-				right: 0;
-				margin: 0 auto;
-				z-index: 3;
+				z-index: 6;
 
 				&:after {
 					content: "";
-					border-color: $frameColor transparent transparent transparent;
+					border-top-color: inherit;
+					border-right-color: transparent;
+					border-bottom-color: transparent;
+					border-left-color: transparent;
 					border-style: solid;
 					border-width: $arrowHeight #{$arrowWidth / 2} 0 #{$arrowWidth / 2};
 					height: 0;
@@ -120,6 +127,7 @@
 				left: 0;
 				position: absolute;
 				opacity: .7;
+				z-index: 5;
 
 				.path {
 					stroke: #FFF;
@@ -146,7 +154,7 @@
 			.item-content-bg {
 				@include border-radius(50%);
 
-				background: #FAFAFA;
+				background: $frameColor;
 				height: 100%;
 				left: 0;
 				position: absolute;
@@ -208,25 +216,45 @@
 				height: 100%;
 
 				.item-gradient {
-					@include background-image(linear-gradient(top, rgba(23,167,239,0) 0%,rgba(23,167,239,1) 100%));
 
-					position: absolute;
 					bottom: 0;
-					left: 0;
 					height: 55%;
-					opacity: 0.8;
+					left: 0;
+					opacity: 0.85;
+					position: absolute;
 					width: 100%;
+
+					.fill, .fill-cover {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+					}
+
+					.fill {
+						background-color: rgb(23,167,239);
+						z-index: 1;
+					}
+
+					.fill-cover {
+						@include background-image(linear-gradient(top, rgba($frameR, $frameG, $frameB, 1) 0%, rgba($frameR, $frameG, $frameB, 0) 100%));
+
+						z-index: 2;
+					}
 				}
 
 				.item-gradient-mask {
 					@include border-radius(50%);
 
-					background: #FAFAFA;
+					background: $frameColor;
 					position: absolute;
 					top: $gradientThickness;
 					left: $gradientThickness;
 					width: calc(100% - #{$gradientThickness * 2});
 					height: calc(100% - #{$gradientThickness * 2});
+
+					z-index: 3;
 				}
 			}
 
@@ -235,6 +263,7 @@
 				$arrowHeight: 6px;
 				$arrowPadding: 3px;
 
+				border-color: gray;
 				top: 50%;
 				width: $arrowWidth;
 				height: calc(50% - #{$gradientThickness + $arrowPadding});
@@ -250,7 +279,10 @@
 					height: 0;
 					border-style: solid;
 					border-width: 0 #{$arrowWidth / 2} $arrowHeight #{$arrowWidth / 2};
-					border-color: transparent transparent #4EBCF2 transparent;
+					border-top-color: transparent;
+					border-right-color: transparent;
+					border-bottom-color: inherit;
+					border-left-color: transparent;
 					position: absolute;
 					bottom: 0;
 					left:0;
@@ -356,20 +388,70 @@
 			height: 100%;
 
 			&.white {
-				@include box-shadow(0 0 3px 2px #FFF,
-							inset 0 0 3px 2px #FFF);
+				@include box-shadow(0 0 2px 1px #FFF,
+							inset 0 0 2px 1px #FFF);
 
 				opacity: .85;
 				z-index: 2;
 			}
 
 			&.color {
-				@include box-shadow(0 0 10px 3px #6FBEFF,
-							inset 0 0 10px 3px #6FBEFF);
+				@include box-shadow(0 0 10px 3px,
+							inset 0 0 10px 3px);
 
+				color:  #6FBEFF;
 				opacity: 1;
 				z-index: 1;
 			}
+		}
+	}
+
+	.aeto-action-selection-header {
+		width: 390px;
+		height: 98px;
+		position: absolute;
+		left: 132px;
+		top: 86px;
+		background: rgba(0, 0, 0, .2);
+		z-index: 7;
+
+		.action-name {
+			color: #FFF;
+			font-family: 'Josefin Sans', sans-serif;
+			font-size: 50px;
+			font-weight: 300;
+			left: 0;
+			position: absolute;
+			top: 0;
+			line-height: 0.94em;
+			letter-spacing: 0.0325em;
+		}
+
+		.action-line {
+			background-color: #FFF;
+			height: 3px;
+			left: 0;
+			position: absolute;
+			top: 60px;
+			width: 100%;
+		}
+
+		.action-blurb {
+			bottom: 0px;
+			color: #FFF;
+			// font-family: 'Josefin Sans', sans-serif;
+			// font-family: 'Questrial', sans-serif;
+			font-family: 'Raleway', sans-serif;
+			// font-family: 'PT Sans', sans-serif;
+			// font-family: 'Muli', sans-serif;
+			font-size: 18px;
+			left: 0;
+			position: absolute;
+
+			// questrial
+			// raleway
+			// pt sans
+			// muli
 		}
 	}
 }

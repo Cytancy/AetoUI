@@ -1,20 +1,25 @@
 AetoUtil.callMeMaybe(AetoCombatInterface);
 
 function AetoCombatInterface(A, parentNode) {
-	var _this = this;
-	setTimeout(function() {
-		// _this.callback('everything', "yayeverything");
-		// _this.callback('something', "yaysomething");
-		_this.callback({cond1: "to", cond2: "ae"}, "yayaeto");
-		_this.callback({cond1: "to", cond2: "ae"}, "yayaeto");
-		_this.callback({cond1: "to", cond2: "ae"}, "yayaeto");
-		
-		// _this.callback({egg: "ostrich"}, "omelette");
+	var _this = this,
+		teamColors = {},
+		activeTeam = "cytan";
 
-		_this.callback({cond1: "super", cond2: "knitting"}, "yayknitting");
-		_this.callback({cond1: "ultra", cond2: "sleeping"}, "yaysleeping");
-		_this.callback({cond1: "this", cond2: "do"}, "yaydoing");
-	}, 100);
+	teamColors["cytan"] = "#37a4ff";
+
+	// setTimeout(function() {
+	// 	// _this.callback('everything', "yayeverything");
+	// 	// _this.callback('something', "yaysomething");
+	// 	_this.callback({cond1: "to", cond2: "ae"}, "yayaeto");
+	// 	_this.callback({cond1: "to", cond2: "ae"}, "yayaeto");
+	// 	_this.callback({cond1: "to", cond2: "ae"}, "yayaeto");
+		
+	// 	// _this.callback({egg: "ostrich"}, "omelette");
+
+	// 	_this.callback({cond1: "super", cond2: "knitting"}, "yayknitting");
+	// 	_this.callback({cond1: "ultra", cond2: "sleeping"}, "yaysleeping");
+	// 	_this.callback({cond1: "this", cond2: "do"}, "yaydoing");
+	// }, 100);
 
 	var hudbar = new AetoHudbar(A, AetoUtil.generateRandomIdOfLength(3), parentNode);
 	var hudbar2 = new AetoHudbar(A, AetoUtil.generateRandomIdOfLength(3), parentNode);
@@ -259,12 +264,14 @@ function AetoCombatInterface(A, parentNode) {
 	var battleMenu = new AetoBattleMenu(A, AetoUtil.generateRandomIdOfLength(3), parentNode);
 
 	battleMenu.initialize();
+
+	battleMenu.setColor(teamColors[activeTeam]);
 	
 	battleMenu.on('ready', function(e) {
 		var subsubmenu1 = new BattleMenuSet([new BattleMenuItem({name: "1", type: BattleMenuItemTypes.SELECT}),
 			                        	  new BattleMenuItem({name: "2", type: BattleMenuItemTypes.SELECT}),
 			                        	  new BattleMenuItem({name: "3", type: BattleMenuItemTypes.SELECT}),
-			                        	  new BattleMenuItem({name: "4", type: BattleMenuItemTypes.SELECT}),
+			                        	  new BattleMenuItem({name: "deepTest", type: BattleMenuItemTypes.SELECT}),
 			                        	  new BattleMenuItem({name: "5", type: BattleMenuItemTypes.SELECT})
 		                        		]),
 			submenu1 = new BattleMenuSet([new BattleMenuItem({name: "1", type: BattleMenuItemTypes.SELECT}),
@@ -281,10 +288,30 @@ function AetoCombatInterface(A, parentNode) {
 		                        new BattleMenuSet([
 		                        	new BattleMenuItem({name: "1", type: BattleMenuItemTypes.SELECT, icon: {name: "sword-attack", layers: 2}}),
 		                        	new BattleMenuItem({name: "1", type: BattleMenuItemTypes.SELECT, icon: {name: "crystal", layers: 2}}),
-		                        	new BattleMenuItem({name: "1", type: BattleMenuItemTypes.SELECT, icon: {name: "pack", layers: 2}}),
-		                        	new BattleMenuItem({name: "1", type: BattleMenuItemTypes.SELECT, icon: {name: "move", layers: 2}, childSet: submenu1}),
+		                        	new BattleMenuItem({name: "inventory", type: BattleMenuItemTypes.SELECT, icon: {name: "pack", layers: 2}}),
+		                        	new BattleMenuItem({name: "4", type: BattleMenuItemTypes.SELECT, icon: {name: "move", layers: 2}, childSet: submenu1}),
 		                        	new BattleMenuItem({name: "1", type: BattleMenuItemTypes.SELECT, icon: {name: "guard", layers: 2}}),
 		                        	new BattleMenuItem({name: "1", type: BattleMenuItemTypes.SELECT, icon: {name: "wait", layers: 2}}),
 		                        ]));
+		var blah = 0;
+		battleMenu.on('itemSelected', function(e) {
+			var item = e.eventObject;
+
+			if (item.name == "4") {
+				if (blah == 0) {
+					battleMenu.disableItem("inventory");
+					battleMenu.disableItem("deepTest");
+
+					blah = 1;
+				}
+				else {
+					battleMenu.enableItem("inventory");
+					battleMenu.enableItem("deepTest");
+
+					blah = 0;
+				}
+				
+			}
+		}, {isContinuous: true});
 	});
 }
