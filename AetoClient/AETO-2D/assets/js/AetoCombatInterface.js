@@ -284,6 +284,7 @@ function AetoCombatInterface(A, parentNode) {
 			                        	  new BattleMenuItem({name: "1", type: BattleMenuItemTypes.SELECT})
 		                        		]);
 
+		// Disabled param not yet supported
 		battleMenu.openMenuList({x: 800, y: 600}, 
 		                        new BattleMenuSet([
 		                        	new BattleMenuItem({name: "1", type: BattleMenuItemTypes.SELECT, icon: {name: "sword-attack", layers: 2}}),
@@ -293,6 +294,8 @@ function AetoCombatInterface(A, parentNode) {
 		                        	new BattleMenuItem({name: "1", type: BattleMenuItemTypes.SELECT, icon: {name: "guard", layers: 2}}),
 		                        	new BattleMenuItem({name: "1", type: BattleMenuItemTypes.SELECT, icon: {name: "wait", layers: 2}}),
 		                        ]));
+
+
 		var blah = 0;
 		battleMenu.on('itemSelected', function(e) {
 			var item = e.eventObject;

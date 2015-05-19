@@ -90,7 +90,7 @@ function AetoTurnbar(A, GUID, parentNode, parameters) {
 				turnbarHoverTimline.to(turnbarNode.getDOMNode(), .35, {
 					y: 10,
 					ease: Power2.easeInOut
-				});
+				}, 0);
 
 				turnbarHoverTimline.to(turnbarContainerNode.one('.scroll-bar-bg').getDOMNode(), .35, {
 					opacity: .24,

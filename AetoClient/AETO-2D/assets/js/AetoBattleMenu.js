@@ -20,12 +20,12 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 		DEFAULT_ICON_OFFSET = {x: 20, y: 185};
 
 	var _this = this,
-		errorHeader = "Error (AETO-2D | Battle Menu)[" + GUID + "]",
+		errorHeader = "Error (AETO-2D | Battle Menu) [" + GUID + "]",
 		initialized = false,
 		win, actingBezier,
 		battleMenuContainerNode, battleMenuItemNode, battleMenuPulseNode,
 		bodyNode, clientWidth, clientHeight, itemProperties,
-		color, activeMenuList;
+		color, activeMenuList, activeActionMenuItem, actionHeaderNode;
 
 	this.GUID = GUID;
 
@@ -35,16 +35,29 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 
 			win = A.one(window);
 
+			win.on('key', function() {
+				_this.confirmAction();
+			}, "enter");
+
+			win.on('key', function() {
+				_this.reenter();
+			}, "m");
+
 			Aeto2DUtil.loadNode('AetoClient/AETO-2D/assets/html/AetoBattleMenu.html', function(node) {
+				var initialBattleMenuPulseNode, initialActionHeaderNode;
+
 				battleMenuContainerNode = node;
 				battleMenuContainerNode.addClass(GUID);
 
-				var initialBattleMenuPulseNode = battleMenuContainerNode.one('.aeto-battle-menu-selection-pulse-set');
+				initialBattleMenuPulseNode = battleMenuContainerNode.one('.aeto-battle-menu-selection-pulse-set');
+				initialActionHeaderNode = battleMenuContainerNode.one('.aeto-action-selection-set');
 
 				battleMenuPulseNode = initialBattleMenuPulseNode.cloneNode(true);
 				initialBattleMenuPulseNode.remove();
 
-				
+				actionHeaderNode = initialActionHeaderNode.clone(true);
+				initialActionHeaderNode.remove();
+
 				parentNode.appendChild(battleMenuContainerNode);
 
 				initializeItemProperties()
@@ -275,6 +288,7 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 						setupEntry(indexedItem);
 						setupInteraction(indexedItem);
 						setupResize(indexedItem);
+						// setupReentry(indexedItem);
 					}
 					else {
 						indexedItem.node.setStyle('display', 'none');
@@ -334,7 +348,9 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 										else {
 											switch (indexedItem.type) {
 												case BattleMenuItemTypes.SELECT:
-													var actionSelectionTimeline = generateActionSelectionTimeline(), actionHoverTimeline = generateActionHoverHookTimeline(),
+													var activeActionHeaderNode = generateActionHeaderNode(),
+														actionSelectionTimeline = generateActionSelectionTimeline(activeActionHeaderNode),
+														actionHoverTimeline = generateActionHoverHookTimeline(activeActionHeaderNode),
 														turnbarNode = A.one('.aeto-ui-turnbar-container'),
 														turnbarHoverOn = function() {
 															actionHoverTimeline.play();
@@ -342,25 +358,26 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 														turnbarHoverOff = function() {
 															actionHoverTimeline.reverse();
 														};
-													;
 
 													indexedItem.hookTo('hover', turnbarNode, turnbarHoverOn, turnbarHoverOff);
 
 													indexedItem.attachActionSelectionHandlers(function() {
-														actionSelectionTimeline.play();
-														generateActionExitTimeline().play();
+														activeActionMenuItem = indexedItem;
 
+														actionSelectionTimeline.play();
+
+														generateActionLocationShiftTimeline().play();
 													},
 													function() {
-														actionSelectionTimeline.kill();
+														activeActionMenuItem = null;
 
-														console.log(indexedItem.index);
+														actionSelectionTimeline.kill();
 
 														indexedItem.removeActionSelectionHandlers();
 
-														generateActionUnselectionTimeline(indexedItem).play();
+														generateActionUnselectionTimeline(activeActionHeaderNode).play();
 
-														generateActionUnexitTimeline(indexedItem).play();
+														generateActionLocationUnshiftTimeline().play();
 
 														menuSet.reattachAll();
 
@@ -371,6 +388,35 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 
 													}, AetoUISettings.keyboardConfigurations.menuItemReturnKey);
 													
+													// Handler for confirmation
+													indexedItem.attachConfirmationHandler(function() {
+														generateActionConfirmationTimeline(activeActionHeaderNode, function() {
+															activeActionMenuItem = null;
+
+															actionSelectionTimeline.kill();
+
+															generateActionUnselectionTimeline(activeActionHeaderNode).play();
+
+															indexedItem.removeActionSelectionHandlers();
+
+															setupHoverTimeline();
+
+															indexedItem.unhook('hover', turnbarNode, turnbarHoverOn);
+															indexedItem.unhook('hover', turnbarNode, turnbarHoverOff);
+														}).play();
+
+														menuSet.detachAll();
+													});
+
+													// Handler for Reentry
+													if (activeMenuList.reentryHandler == null) {
+														activeMenuList.attachReentryHandler(function() {
+															generateReentryTimeline(activeMenuList.set).play();
+
+															activeMenuList.reattachAll();
+														});
+													}
+
 													indexedItem.actionSelect();
 
 													break;
@@ -400,6 +446,7 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 									};
 
 								indexedItem.attachHandlers(hoverOnHandler, hoverOffHandler, selectHandler);
+
 
 							// 	indexedItem.onReturn(function() {
 
@@ -440,6 +487,30 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 							// }
 						}
 
+						function generateReentryTimeline(set) {
+							var reentryTimeline = new TimelineMax({paused: true});
+
+							for (var idx = 0; idx < set.length; idx++) {
+								var item = set[idx],
+									itemPoint = invertAndCenter(item.point, item.width, item.height);
+
+								reentryTimeline.fromTo(item.dom, .55, {
+									autoAlpha: 0,
+									rotation: 0,
+									scale: 1,
+									x: itemPoint.x,
+									y: itemPoint.y - 100
+								}, {
+									autoAlpha: 1,
+									x: itemPoint.x,
+									y: itemPoint.y,
+									ease: Back.easeOut.config(1.7)
+								}, 0);
+							}
+
+							return reentryTimeline;
+						}
+
 						function generateExitTimeline() {
 							var exitTimeline = new TimelineMax({paused: true});
 
@@ -476,14 +547,15 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 							return exitTimeline;
 						}
 
-						function generateActionExitTimeline() {
+						function generateActionLocationShiftTimeline() {
 							var actionExitTimeline = new TimelineMax({paused: true}),
 								center = {x: win.get("winWidth") / 2, y: win.get("winHeight") / 2};
 
 							for (var idx = 0; idx < menuSet.set.length; idx++) {
-								if (idx != indexedItem.index) {
-									var item = menuSet.set[idx],
-										angle = (Aeto2DUtil.angleBetweenPoints(item.point, center) - Math.PI / 2) * -1,
+								var item = menuSet.set[idx];
+
+								if (idx != indexedItem.index && !item.isDisabled()) {
+									var angle = (Aeto2DUtil.angleBetweenPoints(item.point, center) - Math.PI / 2) * -1,
 										angleInDegrees = Aeto2DUtil.radiansToDegrees(angle),
 										adjustedAngle = Math.PI * 1.5 - angle,
 										distance = DEFAULT_ITEM_EXIT_DISTANCE,
@@ -518,16 +590,16 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 							return actionExitTimeline;
 						}
 
-						function generateActionUnexitTimeline(indexedItem) {
+						function generateActionLocationUnshiftTimeline() {
 							var actionUnexitTimeline = new TimelineMax({paused: true});
 
 							var center = {x: win.get("winWidth") / 2, y: win.get("winHeight") / 2};
 
 							for (var idx = 0; idx < menuSet.set.length; idx++) {
-								if (idx != indexedItem.index) {
-									var item = menuSet.set[idx],
+								var item = menuSet.set[idx],
 										originalPoint = invertAndCenter(item.point, item.width, item.height);
 
+								if (idx != indexedItem.index && !item.isDisabled()) {
 									TweenMax.killTweensOf(item.dom, {scale: true, x: true, y: true, autoAlpha: true, opacity: true, visibility: true, rotation: true});
 
 									actionUnexitTimeline.to(item.dom, .45, {
@@ -589,20 +661,35 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 							return returnTimeline;
 						}
 
-						function generateActionHoverHookTimeline() {
+						function generateActionHoverHookTimeline(headerNode) {
 							var actionHoverTimeline = new TimelineMax({paused: true});
 
-							actionHoverTimeline.fromTo(indexedItem.dom, .45, {
+							actionHoverTimeline.fromTo(indexedItem.dom, .35, {
 								bottom: 0
 							}, {
-								bottom: -15,
+								bottom: -10,
 								ease: Power2.easeInOut
-							});
+							}, 0);
+
+							if (headerNode) {
+								actionHoverTimeline.to(headerNode.one('.aeto-action-selection-header').getDOMNode(), .35, {
+									y: 10,
+									ease: Power2.easeInOut
+								}, 0);
+							}
 						
 							return actionHoverTimeline;
 						}
 
-						function generateActionSelectionTimeline() {
+						function generateActionHeaderNode() {
+							var newActionHeaderNode = actionHeaderNode.clone(true);
+
+							battleMenuContainerNode.appendChild(newActionHeaderNode);
+
+							return newActionHeaderNode;
+						}
+
+						function generateActionSelectionTimeline(headerNode) {
 							var actionSelectionTimeline = new TimelineMax({paused: true}),
 								circlePathDom = indexedItem.node.one(".item-bg-line .path").getDOMNode(),
 								innerCirclePathDom = indexedItem.node.one(".item-content-bg-line .path").getDOMNode(),
@@ -637,9 +724,10 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 								indexedItem.hoverOnHandler();
 							}
 
-							actionSelectionTimeline.to(indexedItem.dom, .1, {
-								cursor: "default"
-							}, 1);
+							// Add return on click handler
+							// actionSelectionTimeline.to(indexedItem.dom, .1, {
+							// 	cursor: "default"
+							// }, 1);
 
 							actionSelectionTimeline.to(indexedItem.tabDom, .55, {
 								bottom: "100%",
@@ -823,6 +911,34 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 								ease: Power0.easeNone
 							}, baseTime + .75);
 
+							if (headerNode != null) {
+								var baseHeaderTime = baseTime + .55,
+									enterTime = 3.55;
+
+								actionSelectionTimeline.from(headerNode.one(".aeto-action-selection-bg").getDOMNode(), .55, {
+									autoAlpha: 0,
+									ease: Power2.easeInOut
+								}, baseHeaderTime);
+
+								actionSelectionTimeline.from(headerNode.one(".action-line").getDOMNode(), 1.25, {
+									scaleX: 0,
+									transformOrigin: "left center",
+									ease: Back.easeOut.config(2.2)
+								}, baseHeaderTime);
+
+								actionSelectionTimeline.from(headerNode.one(".action-name").getDOMNode(), enterTime, {
+									autoAlpha: 0,
+									x: 86,
+									ease: Elastic.easeOut.config(1, 0.3)
+								}, baseHeaderTime);
+
+								actionSelectionTimeline.from(headerNode.one(".action-blurb").getDOMNode(), enterTime, {
+									autoAlpha: 0,
+									x: -86,
+									ease: Elastic.easeOut.config(1, 0.3)
+								}, baseHeaderTime);
+							}
+
 							// kill on start for relevant elements
 
 							// hook to this later aeto-ui-turnbar-container
@@ -839,7 +955,7 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 							return actionSelectionTimeline;
 						}
 
-						function generateActionUnselectionTimeline(indexedItem) {
+						function generateActionUnselectionTimeline(headerNode) {
 							var actionUnselectionTimeline = new TimelineMax({paused: true}),
 								circlePathDom = indexedItem.node.one(".item-bg-line .path").getDOMNode(),
 								innerCirclePathDom = indexedItem.node.one(".item-content-bg-line .path").getDOMNode(),
@@ -980,6 +1096,38 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 								scale: 1,
 							}, baseTime + .85);
 
+							if (headerNode) {
+								var headerBaseTime = .35
+
+								actionUnselectionTimeline.to(headerNode.one('.aeto-action-selection-bg').getDOMNode(), .55, {
+									autoAlpha: 0,
+									ease: Power2.easeInOut
+								}, headerBaseTime);
+
+								actionUnselectionTimeline.to(headerNode.one('.action-name').getDOMNode(), .55, {
+									autoAlpha: 0,
+									y: -100,
+									ease: Power2.easeInOut
+								}, headerBaseTime);
+
+								actionUnselectionTimeline.to(headerNode.one('.action-blurb').getDOMNode(), .55, {
+									autoAlpha: 0,
+									y: 100,
+									ease: Power2.easeInOut
+								}, headerBaseTime);
+
+								actionUnselectionTimeline.to(headerNode.one('.action-line').getDOMNode(), .55, {
+									autoAlpha: 0,
+									scaleX: 0,
+									transformOrigin: "left center",
+									ease: Power2.easeInOut,
+									onComplete: function() {
+										headerNode.remove();
+									}
+								}, headerBaseTime);
+
+								actionUnselectionTimeline.on
+							}
 					
 							// actionUnselectionTimeline.play();
 
@@ -1022,6 +1170,23 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 							}
 
 							return selectionTimeline;
+						}
+
+						function generateActionConfirmationTimeline(headerNode, exec) {
+							var actionConfirmationTimline = new TimelineMax({paused: true});
+							
+							for (var idx = 0; idx < menuSet.set.length; idx++) {
+								actionConfirmationTimline.to(menuSet.set[idx].dom, .45, {
+									autoAlpha: 0,
+									ease: Power2.easeInOut,
+									onComplete: (idx == indexedItem.index) ? exec : null
+								}, 0);
+							}
+
+							//generateActionUnselectionTimeline
+							//fade stuff out
+
+							return actionConfirmationTimline;
 						}
 
 						function setupHoverTimeline() {
@@ -1472,6 +1637,28 @@ function AetoBattleMenu(A, GUID, parentNode, parameters) {
 		}
 	}
 
+	this.redisplayActiveMenu = function() {
+		_this.callback('event-redisplay');
+	}
+
+	this.confirmAction = function() {
+		if (activeActionMenuItem.confirmationHandler) {
+			activeActionMenuItem.confirmationHandler();
+		}
+		else {
+			throw new Error(errorHeader +  ": No selected action to confirm.");
+		}
+	}
+
+	this.reenter = function() {
+		if (activeMenuList.reentryHandler) {
+			activeMenuList.reentryHandler();
+		}
+		else {
+			throw new Error(errorHeader +  ": No active menu list to re-enter.");
+		}
+	}
+
 	function createPulseAt(point, isSoft) {
 		var pulseNode = battleMenuPulseNode.cloneNode(true),
 			pulseDom = pulseNode.getDOMNode(),
@@ -1557,6 +1744,10 @@ BattleMenuSet.prototype.add = function(item) {
 	this.set.push(item);
 }
 
+BattleMenuSet.prototype.attachReentryHandler = function(handler) {
+	this.reentryHandler = handler;
+}
+
 BattleMenuSet.prototype.detachAll = function() {
 	for (var idx = 0; idx < this.set.length; idx++) {
 		this.set[idx].detachHandlers();
@@ -1571,7 +1762,11 @@ BattleMenuSet.prototype.unhoverAll = function() {
 
 BattleMenuSet.prototype.reattachAll = function() {
 	for (var idx = 0; idx < this.set.length; idx++) {
-		this.set[idx].reattachHandlers();
+		var item = this.set[idx];
+
+		if (!item.isDisabled()) {
+			item.reattachHandlers();
+		}
 	}
 }
 
@@ -1658,12 +1853,20 @@ BattleMenuItem.prototype.attachActionSelectionHandlers = function(selectHandler,
 	this.win.on('key', this.actionUnselectHandler, this.actionUnselectKey);
 }
 
+BattleMenuItem.prototype.attachConfirmationHandler = function(handler) {
+	this.confirmationHandler = handler;
+}
+
+BattleMenuItem.prototype.detachConfirmationHandler = function() {
+	this.confirmationHandler = null;
+}
+
 BattleMenuItem.prototype.removeActionSelectionHandlers = function() {
 	var _this = this;
 
 	if (_this.actionUnselectKey != null) {
 		// console.log(this.actionSelectHandler);
-		console.log(this.win.detach('key', this.actionUnselectHandler, this.actionUnselectKey));
+		this.win.detach('key', this.actionUnselectHandler, this.actionUnselectKey);
 		// console.log(this.win.detach('key', this.actionUnselectHandler, this.actionUnselectKey));
 
 		// console.log(this.win.detach('key', this.actionSelectHandler, this.actionUnselectKey));
@@ -1675,7 +1878,6 @@ BattleMenuItem.prototype.removeActionSelectionHandlers = function() {
 		this.actionUnselectHandler = null;
 		this.actionUnselectKey = null;
 	}
-	console.log(this.index);
 }
 
 BattleMenuItem.prototype.detachHandlers = function() {

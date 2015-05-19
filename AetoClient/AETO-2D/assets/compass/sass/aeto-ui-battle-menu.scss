@@ -406,52 +406,74 @@
 		}
 	}
 
-	.aeto-action-selection-header {
-		width: 390px;
-		height: 98px;
-		position: absolute;
-		left: 132px;
-		top: 86px;
-		background: rgba(0, 0, 0, .2);
-		z-index: 7;
+	.aeto-action-selection-set {
+		$xOffset: 132px;
+		$yOffSet: 86px;
 
-		.action-name {
-			color: #FFF;
-			font-family: 'Josefin Sans', sans-serif;
-			font-size: 50px;
-			font-weight: 300;
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: inline-block;
+
+		.aeto-action-selection-bg {
+			@include background-image(linear-gradient(left top, rgba(0, 0, 0, .85) 0%, rgba(0, 0, 0, 0) 50%));
+
+			height: 270px;
 			left: 0;
 			position: absolute;
 			top: 0;
-			line-height: 0.94em;
-			letter-spacing: 0.0325em;
+			width: calc(100% + #{$xOffset + 850});
 		}
 
-		.action-line {
-			background-color: #FFF;
-			height: 3px;
-			left: 0;
-			position: absolute;
-			top: 60px;
-			width: 100%;
-		}
+		.aeto-action-selection-header {
+			display: inline-block;
+			height: 98px;
+			left: $xOffset;
+			min-width: 300px;
+			pointer-events: none;
+			position: relative;
+			top: $yOffSet;
+			z-index: 7;
 
-		.action-blurb {
-			bottom: 0px;
-			color: #FFF;
-			// font-family: 'Josefin Sans', sans-serif;
-			// font-family: 'Questrial', sans-serif;
-			font-family: 'Raleway', sans-serif;
-			// font-family: 'PT Sans', sans-serif;
-			// font-family: 'Muli', sans-serif;
-			font-size: 18px;
-			left: 0;
-			position: absolute;
+			.action-name {
+				color: rgba(255, 255, 255, 0.8);
+				font-family: 'Josefin Sans', sans-serif;
+				font-size: 52px;
+				font-weight: 300;
+				left: 0;
+				letter-spacing: 0.0325em;
+				line-height: 1em;
+				padding-right: 30px;
+				position: relative;
+				top: 0;
+			}
 
-			// questrial
-			// raleway
-			// pt sans
-			// muli
+			.action-line {
+				@include background-image(linear-gradient(left, rgba(255,255,255, .85) 30%,rgba(255,255,255, 0) 100%));
+
+				height: 2px;
+				left: 0;
+				position: absolute;
+				top: 59px;
+				width: 100%;
+
+			}
+
+			.action-blurb {
+				// font-family: 'Josefin Sans', sans-serif;
+				// font-family: 'Muli', sans-serif;
+				// font-family: 'PT Sans', sans-serif;
+				// font-family: 'Questrial', sans-serif;
+				bottom: 0px;
+				color: #FFF;
+				font-family: 'Raleway', sans-serif;
+				font-size: 18px;
+				left: 0;
+				line-height: 1.7em;
+				position: absolute;
+				width: 500%;
+			}
 		}
 	}
+	
 }
