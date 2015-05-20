@@ -300,21 +300,21 @@ function AetoCombatInterface(A, parentNode) {
 		battleMenu.on('itemSelected', function(e) {
 			var item = e.eventObject;
 
-			if (item.name == "4") {
-				if (blah == 0) {
-					battleMenu.disableItem("inventory");
-					battleMenu.disableItem("deepTest");
+			// if (item.name == "4") {
+			// 	if (blah == 0) {
+			// 		battleMenu.disableItem("inventory");
+			// 		battleMenu.disableItem("deepTest");
 
-					blah = 1;
-				}
-				else {
-					battleMenu.enableItem("inventory");
-					battleMenu.enableItem("deepTest");
+			// 		blah = 1;
+			// 	}
+			// 	else {
+			// 		battleMenu.enableItem("inventory");
+			// 		battleMenu.enableItem("deepTest");
 
-					blah = 0;
-				}
+			// 		blah = 0;
+			// 	}
 				
-			}
+			// }
 		}, {isContinuous: true});
 	});
 }
